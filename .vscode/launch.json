@@ -2,7 +2,18 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Attach to Python Functions",
+      "name": "React frontend",
+      "type": "msedge",
+      "request": "launch",
+      // "url": "http://localhost:8080",
+      // "url": "http://localhost:4280", // Frontend port
+      "url": "http://localhost:3000", // Frontend port
+      "webRoot": "${workspaceFolder}",
+      // "type": "chrome",
+      // "runtimeExecutable": "/Applications/Doubao.app/Contents/MacOS/Doubao",
+    },
+    {
+      "name": "Azure Functions backend",
       "type": "debugpy",
       "request": "attach",
       "connect": {

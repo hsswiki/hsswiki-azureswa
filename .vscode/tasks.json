@@ -2,6 +2,26 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "swa start",
+      "type": "shell",
+      "command": "npm run build && npx swa start build --api-location api",
+    },
+    {
+      "label": "npm start",
+      "type": "npm",
+      "script": "start",
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "typescript",
+        "pattern": "$tsc",
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "Starting compilation in watch mode...",
+          "endsPattern": "Compilation complete."
+        }
+      }
+    },
+    {
       "type": "func",
       "label": "func: host start",
       "command": "host start",

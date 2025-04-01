@@ -1,0 +1,42 @@
+{
+	"name": "hsswiki-azureswa",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": ".."
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				// Python
+				"ms-python.python",
+				"charliermarsh.ruff", // Format and lint
+				"ms-python.vscode-pylance", // Type checking
+				"ms-toolsai.jupyter",
+				//
+				// Azure Functions
+				"ms-azuretools.vscode-azurefunctions",
+				"azurite.azurite",
+				//
+				// Editor utils
+				"stkb.rewrap", // Docstring wrapping
+				"tyriar.sort-lines", // Text sorting
+				"gurumukhi.selected-lines-count", // Show selected line count in bottom bar
+				"oliversturm.fix-json", // Format JSON strings
+				//
+				// VSCode UI utils
+				"dakara.dakara-foldplus",
+				//
+				// Debug utils
+				"humao.rest-client",
+				//
+				// File support
+				"ms-azuretools.vscode-docker"
+			]
+		}
+	},
+	"forwardPorts": [
+		4280,  // Frontend
+		7071   // Backend
+	],
+	"remoteUser": "root"  // Default user for the MSFT image is "vscode"
+}
