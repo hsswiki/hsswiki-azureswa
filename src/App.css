@@ -1,3 +1,19 @@
+#chatPopupId {
+  /* Debug needed */
+  /* visibility: hidden; */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  /* Ensure it appears above other elements */
+}
+
+.chat-popup .sc-launcher,
+.chat-popup .sc-message--text {
+  font-family: inherit;
+  font-size: inherit;
+}
+
 .App {
   text-align: center;
 }
@@ -37,6 +53,7 @@
     transition: opacity 300ms cubic-bezier(0.645, 0.045, 0.355, 1),
       transform 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0px);
@@ -52,6 +69,7 @@
     transition: opacity 300ms cubic-bezier(0.645, 0.045, 0.355, 1),
       transform 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0px);

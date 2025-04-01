@@ -9,3 +9,5 @@ python -m venv .venv_app
 Azure Functions: create venv
 
 https://github.com/ashutosh1919/masterPortfolio
+https://github.com/dharness/react-chat-window
+https://github.com/asliddinusmonov/popup-chat-react
