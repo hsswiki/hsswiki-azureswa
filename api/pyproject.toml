@@ -1,0 +1,10 @@
+[tool.pytest.ini_options]
+asyncio_mode="auto"
+
+[tool.ruff]
+line-length = 79
+target-version = "py311"
+lint.ignore = [
+    "E402", # Module level import not at top of file
+]
+lint.extend-select = ["I"]  # Also sort import while linting

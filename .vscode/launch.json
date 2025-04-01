@@ -5,12 +5,11 @@
       "name": "React frontend",
       "type": "msedge",
       "request": "launch",
-      // "url": "http://localhost:8080",
-      // "url": "http://localhost:4280", // Frontend port
-      "url": "http://localhost:3000", // Frontend port
+      // "url": "http://localhost:4280", // Frontend port of swa
+      "url": "http://localhost:3000", // Frontend port of npm
       "webRoot": "${workspaceFolder}",
-      // "type": "chrome",
       // "runtimeExecutable": "/Applications/Doubao.app/Contents/MacOS/Doubao",
+      "preLaunchTask": "npm start"
     },
     {
       "name": "Azure Functions backend",
@@ -18,9 +17,18 @@
       "request": "attach",
       "connect": {
         "host": "localhost",
-        "port": 9091
+        "port": 9091 // Azure Functions debug port. API port is 7071.
       },
-      "preLaunchTask": "func: host start"
+      "preLaunchTask": "func: host start",
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Full stack",
+      "configurations": [
+        "React frontend",
+        "Azure Functions backend",
+      ]
     }
   ]
 }

@@ -1,4 +1,9 @@
-# React basic
+#
+
+python -m venv .venv_app
+
+Azure Functions: create venv
+
 
 [Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/overview) allows you to easily build [React](https://reactjs.org/) apps in minutes. Use this repo with the [React quickstart](https://docs.microsoft.com/azure/static-web-apps/getting-started?tabs=react) to build and customize a new static site.
 

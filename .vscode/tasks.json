@@ -16,8 +16,8 @@
         "pattern": "$tsc",
         "background": {
           "activeOnStart": true,
-          "beginsPattern": "Starting compilation in watch mode...",
-          "endsPattern": "Compilation complete."
+          "beginsPattern": "Starting the development server...",
+          "endsPattern": "Compiled successfully!"
         }
       }
     },
@@ -25,8 +25,9 @@
       "type": "func",
       "label": "func: host start",
       "command": "host start",
+      // Runs `. .venv/bin/activate && func host start` command
       "problemMatcher": "$func-python-watch",
-      "isBackground": true,
+      "isBackground": true, // If not, debugger will keep waiting.
       "dependsOn": "pip install (functions)",
       "options": {
         "cwd": "${workspaceFolder}/api"

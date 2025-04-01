@@ -7,6 +7,8 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
+				// "linhmtran168.mac-ca-vscode", // Avoid Copilot cert issue
+				// "ms-azuretools.vscode-azure-github-copilot",
 				// Python
 				"ms-python.python",
 				"charliermarsh.ruff", // Format and lint
@@ -34,9 +36,9 @@
 			]
 		}
 	},
-	"forwardPorts": [
-		4280,  // Frontend
-		7071   // Backend
-	],
-	"remoteUser": "root"  // Default user for the MSFT image is "vscode"
+	// "forwardPorts": [
+	// 	4280,  // Frontend
+	// 	7071   // Backend
+	// ],
+	"remoteUser": "root" // Default user for the MSFT image is "vscode"
 }

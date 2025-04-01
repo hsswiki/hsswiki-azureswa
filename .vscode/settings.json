@@ -1,4 +1,47 @@
 {
+    // Public REST Client settings
+    "rest-client.environmentVariables": {
+        "local": {
+            "host": "http://localhost:7071"
+        },
+        "dev": {
+            "host": "https://replaycopilot-plugin-orch-int.azurewebsites.net"
+        },
+        // Also set the following private variables in your .code-workspace
+        // "$shared": {
+        //     "functionKey": "",
+        // },
+    },
+    //
+    // Editor settings
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file",
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 500, // ms
+    "editor.insertSpaces": true, // Use spaces instead of tabs
+    // "editor.foldingStrategy": "indentation",
+    "editor.rulers": [
+        79
+    ],
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "editor.tabSize": 4,
+    "[python]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll": "always",
+            "source.organizeImports": "always"
+        },
+        "editor.defaultFormatter": "charliermarsh.ruff"
+        // "editor.defaultFormatter": "ms-python.black-formatter",
+    },
+    "python.analysis.typeCheckingMode": "basic",
+    "notebook.formatOnSave.enabled": true,
+    "notebook.codeActionsOnSave": {
+        "notebook.source.fixAll": "explicit",
+        "notebook.source.organizeImports": "explicit"
+    },
+    //
     "azureFunctions.deploySubpath": "api",
     "azureFunctions.scmDoBuildDuringDeployment": true,
     "azureFunctions.pythonVenv": ".venv",
