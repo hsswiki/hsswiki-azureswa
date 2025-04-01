@@ -3,8 +3,10 @@
   "configurations": [
     {
       "name": "React frontend",
-      "type": "msedge",
-      "request": "launch",
+      // "type": "msedge",
+      // "request": "launch",
+      "type": "chrome",
+      "request": "attach",
       // "url": "http://localhost:4280", // Frontend port of swa
       "url": "http://localhost:3000", // Frontend port of npm
       "webRoot": "${workspaceFolder}",

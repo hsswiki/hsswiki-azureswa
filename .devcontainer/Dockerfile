@@ -1,5 +1,3 @@
-ARG WORKSPACE_FOLDER=/workspaces/hsswiki-azureswa
-
 # This image includes git, nvm, pipx, zsh, omz, sudo-able vscode user, etc.
 #   Tag list: https://mcr.microsoft.com/v2/devcontainers/python/tags/list
 #   Doc: https://github.com/devcontainers/images/tree/main/src/python
@@ -28,17 +26,20 @@ RUN sudo apt-get update && sudo apt-get install -y libsecret-1-dev
 # To fix potential "npm error Package libsecret-1 was not found"
 RUN npm install -g @azure/static-web-apps-cli@2.0.4
 
-# Install frontend dependencies in WORKSPACE_FOLDER/node_modules/
-WORKDIR ${WORKSPACE_FOLDER}
-COPY package*.json .
-RUN npm install
+# Below doesn't work due to bind-mount. Use postCreateCommand in the future
+# ARG WORKSPACE_FOLDER=/workspaces/hsswiki-azureswa
 
-# Install backend dependencies in WORKSPACE_FOLDER/api/.venv/
-WORKDIR ${WORKSPACE_FOLDER}/api
-RUN python3 -m venv .venv
-COPY ../api/requirements.txt .
-RUN . .venv/bin/activate && \
-    pip3 \
-    --disable-pip-version-check \
-    # --no-cache-dir \
-    install -r requirements.txt
+# # Install frontend dependencies in WORKSPACE_FOLDER/node_modules/
+# WORKDIR ${WORKSPACE_FOLDER}
+# COPY package*.json .
+# RUN npm install
+
+# # Install backend dependencies in WORKSPACE_FOLDER/api/.venv/
+# WORKDIR ${WORKSPACE_FOLDER}/api
+# RUN python3 -m venv .venv
+# COPY ../api/requirements.txt .
+# RUN . .venv/bin/activate && \
+#     pip3 \
+#     --disable-pip-version-check \
+#     # --no-cache-dir \
+#     install -r requirements.txt
