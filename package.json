@@ -59,5 +59,6 @@
   "lint-staged": {
     "*.json": "prettier-package-json --write",
     "*.{js,css,md}": "prettier --write"
-  }
+  },
+  "proxy": "http://localhost:7071"
 }
