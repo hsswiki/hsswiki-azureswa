@@ -11,7 +11,7 @@ function FetchButton() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(`/api/chat`);
+      const response = await fetch(`/api/ping`);
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
