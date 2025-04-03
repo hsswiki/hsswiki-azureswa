@@ -7,16 +7,16 @@
 azure-functions==1.22.1
 
 # Azure SWA builder's pydantic version is up to 2.10.6 as of 2025-04-03
-pydantic
-pydantic-settings
+pydantic==2.10.6
+pydantic-settings==2.8.1
 
-langchain
+langchain==0.2.17
 langchain-community
 
-azure-identity
-azure-search-documents
-chromadb
-litellm
+azure-identity==1.21.0
+azure-search-documents==11.5.2
+# chromadb
+litellm==1.65.1
 # sentence-transformers==4.0.1
 # langchain-chroma==0.2.2
 
