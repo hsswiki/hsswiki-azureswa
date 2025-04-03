@@ -6,8 +6,8 @@
 
 azure-functions==1.22.1
 
-pydantic==2.5.0b
-pydantic-settings==2.11.1
+pydantic
+pydantic-settings
 
 # py3.8 deps
 # pydantic==2.10.6
