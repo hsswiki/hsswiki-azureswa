@@ -11,11 +11,11 @@ pydantic
 pydantic-settings
 
 langchain
-# langchain-community
+langchain-community
 
 azure-identity
 azure-search-documents
-# chromadb==0.5.23
+chromadb
 litellm
 # sentence-transformers==4.0.1
 # langchain-chroma==0.2.2
