@@ -35,7 +35,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        {/* <FetchButton /> */}
+        <FetchButton />
         <Header theme={this.props.theme} />
         <Greeting theme={this.props.theme} />
         <Skills theme={this.props.theme} />
