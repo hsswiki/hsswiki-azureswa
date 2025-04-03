@@ -5,9 +5,16 @@
 # 104857600 bytes = 104mb
 
 azure-functions==1.22.1
-pydantic==2.11.1
-pydantic-settings==2.7.1
+
+pydantic==2.5.0b
+pydantic-settings==2.11.1
+
+# py3.8 deps
 # pydantic==2.10.6
+
+# Latest deps
+# pydantic==2.11.1
+
 # pydantic-settings==2.7.1
 # Azure SWA builder's pydantic version is up to 2.10.6 as of 2025-04-03
 # langchain==0.2.17
