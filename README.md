@@ -4,9 +4,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-python -m venv .venv_app
-
-Azure Functions: create venv
+python -m venv .venv
+. .venv/bin/activate
+pip install pydantic==2.11.1 pydantic-settings==2.8.1
 
 https://github.com/ashutosh1919/masterPortfolio
 https://github.com/dharness/react-chat-window

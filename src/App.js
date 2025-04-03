@@ -22,6 +22,60 @@ function ChatPopup() {
     isOpen: false,
   });
 
+  const [invitationCode, setInvitationCode] = useState(null);
+
+  const verifyInvitationCode = async (code) => {
+    try {
+      const response = await fetch(`/api/invitations/verify`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ invitationCode: code }),
+      });
+      const result = await response.json();
+      return result.response;
+    } catch (error) {
+      console.error("Error verifying invitation code:", error);
+      return "ERROR";
+    }
+  };
+
+  const handleInvitationCode = async (message) => {
+    const code = message.data.text;
+    const verificationResult = await verifyInvitationCode(code);
+
+    if (verificationResult === "INVALID_INVITATION_CODE") {
+      setState((state) => ({
+        ...state,
+        messageList: [
+          ...state.messageList.slice(0, -1),
+          {
+            author: "them",
+            type: "text",
+            data: {
+              text: `The invitation code "${code}" is invalid. Please reenter your invitation code or reach out to Shen for a new code. Thank you.`,
+            },
+          },
+        ],
+      }));
+    } else if (verificationResult === "OK") {
+      setInvitationCode(code);
+      setState((state) => ({
+        ...state,
+        messageList: [
+          ...state.messageList.slice(0, -1),
+          {
+            author: "them",
+            type: "text",
+            data: {
+              text:
+                "Thank you. How may I assist you with my knowledge of Shen?",
+            },
+          },
+        ],
+      }));
+    }
+  };
+
   const onMessageWasSent = (message) => {
     setState((state) => ({
       ...state,
@@ -29,32 +83,105 @@ function ChatPopup() {
     }));
 
     // Automatically reply with "Let me think..." placeholder
-    setTimeout(() => {
-      setState((state) => ({
-        ...state,
-        messageList: [
-          ...state.messageList,
-          {
-            author: "them",
-            type: "text",
-            data: { text: "Let me think..." },
-          },
-        ],
-      }));
-    }, 0);
+    setState((state) => ({
+      ...state,
+      messageList: [
+        ...state.messageList,
+        {
+          author: "them",
+          type: "text",
+          data: { text: "Let me think..." },
+        },
+      ],
+    }));
+
+    if (!invitationCode) {
+      handleInvitationCode(message);
+      return;
+    }
 
     const fetchResponse = async () => {
       let responseText = "";
-      try {
-        const response = await fetch(`/api/message`);
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
+      let isResponseFetched = false;
+
+      // Start a timer to add periodic messages
+      const periodicMessageInterval = setInterval(() => {
+        if (!isResponseFetched) {
+          setState((state) => ({
+            ...state,
+            messageList: [
+              ...state.messageList,
+              {
+                author: "them",
+                type: "text",
+                data: {
+                  text:
+                    "(The assistant is still responding. It takes longer than usual. Thank you for your patience 😊)",
+                },
+              },
+            ],
+          }));
         }
-        responseText = await response.text();
+      }, 10000); // 10 seconds
+
+      try {
+        const chatHistory = state.messageList
+          .filter(
+            (msg) =>
+              !(
+                msg.author === "them" &&
+                msg.data.text.includes("The assistant is still responding")
+              )
+          )
+          .map(
+            (msg) =>
+              `  ${
+                msg.author === "them"
+                  ? "assistant"
+                  : msg.author === "me"
+                  ? "user"
+                  : msg.author
+              }: ${msg.data.text}`
+          )
+          .join("\n\n");
+        const response = await fetch(`/api/chat/respond`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            invitation_code: invitationCode,
+            chatHistory,
+            inputMessage: message.data.text,
+          }),
+        });
+        const result = await response.json();
+
+        if (result.response === "INVALID_INVITATION_CODE") {
+          setInvitationCode(null);
+          setState((state) => ({
+            ...state,
+            messageList: [
+              ...state.messageList.slice(0, -1),
+              {
+                author: "them",
+                type: "text",
+                data: {
+                  text: `The invitation code "${invitationCode}" is invalid. Please reenter your invitation code or reach out to Shen for a new code. Thank you.`,
+                },
+              },
+            ],
+          }));
+          clearInterval(periodicMessageInterval); // Stop periodic messages
+          return;
+        }
+        responseText = result.response;
       } catch (error) {
         console.error("Error fetching response message:", error);
         responseText = "Network error. Please try again later.";
+      } finally {
+        isResponseFetched = true; // Mark response as fetched
+        clearInterval(periodicMessageInterval); // Stop periodic messages
       }
+
       setState((state) => ({
         ...state,
         messageList: [

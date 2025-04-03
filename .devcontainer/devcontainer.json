@@ -17,7 +17,7 @@
 				//
 				// Azure Functions
 				"ms-azuretools.vscode-azurefunctions",
-				"azurite.azurite",
+				// "azurite.azurite",  // Seems not required
 				//
 				// Editor utils
 				"stkb.rewrap", // Docstring wrapping

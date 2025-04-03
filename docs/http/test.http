@@ -1,5 +1,88 @@
+@contentType = application/json
 
 ###
+
+GET {{host}}/documents/vectorize
+
+###
+
+POST {{host}}/invitations/verify
+Content-Type: {{contentType}}
+
+{
+    "invitationCode": "33"
+}
+
+###
+
+POST {{host}}/chat/respond
+Content-Type: {{contentType}}
+
+{
+    "invitationCode": "33",
+    "inputMessage": "介绍一下Shen",
+    "chatHistory": "hello"
+}
+
+###
+
+POST {{host}}/chat/respond
+Content-Type: {{contentType}}
+
+{
+    "invitationCode": "3",
+    "inputMessage": "介绍一下Shen",
+    "chatHistory": "hello"
+}
+
+###
+
+GET http://localhost:7071/api/ping
+
+###
+
+POST http://localhost:7071/api/ping
+Content-Type: application/json
+
+{"a": 1}
+
+documents/vectorize
+invitations/verify
+chat/respond
+
+###
+GET http://localhost:7071/api/vectorize
+
+###
+
+POST http://localhost:7071/api/chat
+Content-Type: application/json
+
+{
+    "inputMessage": "介绍一下Shen",
+    "chatHistory": "hello"
+}
+
+###
+
+{
+    "inputMessage": "tell me about Shen",
+    "chatHistory": "hello"
+}
+
+###
+
+GET http://localhost:7071/api/ping
+
+###
+
+POST http://localhost:7071/api/ping
+Content-Type: application/json
+
+{"a": 1}
+
+###
+
 GET https://blue-grass-050826600.6.azurestaticapps.net/api/message
 
 

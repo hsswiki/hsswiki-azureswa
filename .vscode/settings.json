@@ -2,10 +2,10 @@
     // Public REST Client settings
     "rest-client.environmentVariables": {
         "local": {
-            "host": "http://localhost:7071"
+            "host": "http://localhost:7071/api"
         },
         "dev": {
-            "host": "https://replaycopilot-plugin-orch-int.azurewebsites.net"
+            "host": "https://google.com"
         },
         // Also set the following private variables in your .code-workspace
         // "$shared": {

@@ -1,29 +1,92 @@
-import logging
+import json
+import logging as log
 
 import azure.functions as func
+
+try:
+    from src.utils.log_utils import format_root_logger
+
+    format_root_logger(log_level=log.INFO)
+except Exception as e:
+    log.error(repr(e))
 
 app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 
 
-@app.route(route="message", methods=["GET", "POST"])
-def message(req: func.HttpRequest) -> func.HttpResponse:
-    logging.info("Python HTTP trigger function processed a request.")
+# @app.route(route="documents/vectorize", methods=["GET"])
+# def vectorize_document_route(req: func.HttpRequest) -> func.HttpResponse:
+#     log.info("Entering")
+#     try:
+#         from src.controllers.controllers import (
+#             log_and_get_http_response,
+#             vectorize_document_controller,
+#         )
 
-    name = req.params.get("name")
-    if not name:
-        try:
-            req_body = req.get_json()
-        except ValueError:
-            pass
-        else:
-            name = req_body.get("name")
+#         response_payload = vectorize_document_controller(req)
+#         return log_and_get_http_response(response_payload)
+#     except Exception as e:
+#         return get_uncaught_error_response(e)
 
-    if name:
-        return func.HttpResponse(
-            f"Hello, {name}. This HTTP triggered function executed successfully."
+
+@app.route(route="invitations/verify", methods=["POST"])
+def verify_invitation_code_route(req: func.HttpRequest) -> func.HttpResponse:
+    log.info("Entering")
+    try:
+        from src.controllers.controllers import (
+            log_and_get_http_response,
+            verify_invitation_code_controller,
         )
-    else:
-        return func.HttpResponse(
-            "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.",
-            status_code=200,
+
+        response_payload = verify_invitation_code_controller(req)
+        return log_and_get_http_response(response_payload)
+    except Exception as e:
+        return get_uncaught_error_response(e)
+
+
+@app.route(route="chat/respond", methods=["POST"])
+def respond_to_chat_route(req: func.HttpRequest) -> func.HttpResponse:
+    log.info("Entering")
+    try:
+        from src.controllers.controllers import (
+            log_and_get_http_response,
+            respond_to_chat_controller,
         )
+
+        response_payload = respond_to_chat_controller(req)
+        return log_and_get_http_response(response_payload)
+    except Exception as e:
+        return get_uncaught_error_response(e)
+
+
+@app.route(route="ping")
+async def ping(req: func.HttpRequest) -> func.HttpResponse:
+    log.info("Entering")
+    try:
+        req.get_json()  # Returns loaded JSON like dict, etc.
+    except ValueError:
+        return func.HttpResponse("Pong", status_code=200)
+    return func.HttpResponse(req.get_body(), status_code=200)
+
+
+###############################################################################
+#  Helpers
+###############################################################################
+
+
+def get_uncaught_error_response_payload(exception: Exception):
+    import traceback
+
+    traceback_text = traceback.format_exc()
+
+    response_payload = {
+        "code": 500,
+        "message": "An uncaught error occurred. Please check the log.",
+        "detailedMessage": f"{repr(exception)}: {traceback_text}",
+    }
+    log.error(f"{response_payload=}")
+    return response_payload
+
+
+def get_uncaught_error_response(exception: Exception):
+    response_payload = get_uncaught_error_response_payload(exception)
+    return func.HttpResponse(json.dumps(response_payload), status_code=500)

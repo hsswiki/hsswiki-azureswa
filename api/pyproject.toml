@@ -6,5 +6,6 @@ line-length = 79
 target-version = "py311"
 lint.ignore = [
     "E402", # Module level import not at top of file
+    "F401", # Remove unused imports
 ]
 lint.extend-select = ["I"]  # Also sort import while linting

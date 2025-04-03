@@ -26,7 +26,10 @@ RUN sudo apt-get update && sudo apt-get install -y libsecret-1-dev
 # To fix potential "npm error Package libsecret-1 was not found"
 RUN npm install -g @azure/static-web-apps-cli@2.0.4
 
-# Below doesn't work due to bind-mount. Use postCreateCommand in the future
+# Below doesn't work due to bind-mount.
+# Next, try install dependencies with docker and link folder to project
+# directory after bind-mount.
+# Use postCreateCommand in the future
 # ARG WORKSPACE_FOLDER=/workspaces/hsswiki-azureswa
 
 # # Install frontend dependencies in WORKSPACE_FOLDER/node_modules/

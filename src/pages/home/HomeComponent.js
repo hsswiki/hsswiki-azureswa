@@ -5,12 +5,13 @@ import Skills from "../../containers/skills/Skills";
 import Footer from "../../components/footer/Footer";
 import TopButton from "../../components/topButton/TopButton";
 
+// eslint-disable-next-line
 function FetchButton() {
   const [data, setData] = useState("");
 
   const fetchData = async () => {
     try {
-      const response = await fetch(`/api/message`);
+      const response = await fetch(`/api/chat`);
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
