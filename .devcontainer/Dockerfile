@@ -1,7 +1,8 @@
 # This image includes git, nvm, pipx, zsh, omz, sudo-able vscode user, etc.
 #   Tag list: https://mcr.microsoft.com/v2/devcontainers/python/tags/list
 #   Doc: https://github.com/devcontainers/images/tree/main/src/python
-FROM --platform=linux/amd64 mcr.microsoft.com/devcontainers/python:1.2.2-3.11-bookworm
+# FROM --platform=linux/amd64 mcr.microsoft.com/devcontainers/python:1.2.2-3.11-bookworm
+FROM --platform=linux/amd64 mcr.microsoft.com/devcontainers/python:1.2.3-3.10-bullseye
 
 # Install azure-functions-core-tools for backend
 #   Doc: https://learn.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=linux%2Cisolated-process%2Cnode-v4%2Cpython-v2%2Chttp-trigger%2Ccontainer-apps&pivots=programming-language-python

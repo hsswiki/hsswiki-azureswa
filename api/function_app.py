@@ -68,6 +68,39 @@ async def ping(req: func.HttpRequest) -> func.HttpResponse:
     return func.HttpResponse(req.get_body(), status_code=200)
 
 
+# Test
+
+
+@app.route(route="testAuthLevelAnonymous", auth_level=func.AuthLevel.ANONYMOUS)
+async def testAuthLevelAnonymous(req: func.HttpRequest) -> func.HttpResponse:
+    log.info("Entering")
+    try:
+        req.get_json()  # Returns loaded JSON like dict, etc.
+    except ValueError:
+        return func.HttpResponse("Pong", status_code=200)
+    return func.HttpResponse(req.get_body(), status_code=200)
+
+
+@app.route(route="testAuthLevelFunction", auth_level=func.AuthLevel.FUNCTION)
+async def testAuthLevelFunction(req: func.HttpRequest) -> func.HttpResponse:
+    log.info("Entering")
+    try:
+        req.get_json()  # Returns loaded JSON like dict, etc.
+    except ValueError:
+        return func.HttpResponse("Pong", status_code=200)
+    return func.HttpResponse(req.get_body(), status_code=200)
+
+
+@app.route(route="testAuthLevelAdmin", auth_level=func.AuthLevel.ADMIN)
+async def testAuthLevelAdmin(req: func.HttpRequest) -> func.HttpResponse:
+    log.info("Entering")
+    try:
+        req.get_json()  # Returns loaded JSON like dict, etc.
+    except ValueError:
+        return func.HttpResponse("Pong", status_code=200)
+    return func.HttpResponse(req.get_body(), status_code=200)
+
+
 ###############################################################################
 #  Helpers
 ###############################################################################

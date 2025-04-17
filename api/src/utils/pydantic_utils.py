@@ -56,7 +56,12 @@ class FrozenBaseSettings(BaseSettings):
     def _init_adder(self):
         """
         Override this method in subclass to add additional behaviors after
-        init, such as printing out important settings.
+        init, such as printing out important settings. For example:
+
+        ```python
+        def _init_adder(self):
+            logging.info(f"{self.config_1=}")
+        ```
         """
 
     def reload_environment_variables(self):
