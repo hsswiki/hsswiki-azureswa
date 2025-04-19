@@ -85,4 +85,16 @@ Content-Type: application/json
 
 GET https://blue-grass-050826600.6.azurestaticapps.net/api/message
 
+###
+
+GET https://blue-grass-050826600.6.azurestaticapps.net/api/testAuthLevelAnonymous
+
+###
+
+GET https://blue-grass-050826600.6.azurestaticapps.net/api/testAuthLevelFunction
+
+###
+
+GET https://blue-grass-050826600.6.azurestaticapps.net/api/testAuthLevelAdmin
+
 

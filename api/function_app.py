@@ -11,7 +11,8 @@ except Exception as e:
     log.error(repr(e))
 
 app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
-
+# It seems all 3 auth levels are the same. The API can always be accessed
+# publicly without any header.
 
 # @app.route(route="documents/vectorize", methods=["GET"])
 # def vectorize_document_route(req: func.HttpRequest) -> func.HttpResponse:
