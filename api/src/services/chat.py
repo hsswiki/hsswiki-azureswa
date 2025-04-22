@@ -1,15 +1,15 @@
 import logging as log
 
-from src.components.configs import VectorStoreType, config
-from src.components.lite_llm import (
+from src.components.deprecated_lite_llm import (
     get_litellm,
 )
-from src.components.vector_store import (
+from src.components.deprecated_vector_store import (
     get_chromadb_client,
     query_relevant_chunks,
 )
 from src.controllers.payload_models import ChatRequestPayload
 from src.services.invitation import verify_invitation_code
+from src.settings.app_settings import VectorStoreClass, app_settings
 
 
 def respond_to_chat(request_payload: ChatRequestPayload) -> str:
@@ -19,17 +19,19 @@ def respond_to_chat(request_payload: ChatRequestPayload) -> str:
     if verification_result != "OK":
         return verification_result
 
-    if config.do_debug:
+    if app_settings.do_debug:
         return "hello"
 
     collection = ""
-    if config.vector_store_type == VectorStoreType.CHROMA_DB:
+    if app_settings.vector_store_cla == VectorStoreClass.CHROMA_DB:
         chromadb_client = get_chromadb_client()
         collection = chromadb_client.get_collection(
-            name=config.vector_store_table_name
+            name=app_settings.vector_store_table_name
         )
     relevant_chunks = query_relevant_chunks(
-        request_payload.input_message, config.number_of_chunks, collection
+        request_payload.input_message,
+        app_settings.number_of_chunks,
+        collection,
     )
     prompt = f"""
         You are an assistant for a software engineer named Shen Han (姓韩, 可以

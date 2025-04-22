@@ -1,6 +1,4 @@
-# DO NOT include azure-functions-worker in this file
-# The Python Worker is managed by Azure Functions platform
-# Manually managing azure-functions-worker may cause unexpected issues
+# pip install -r api/requirements.txt
 
 # SWA free tier limits the zipped api and app artifacts to be under 104857600
 # bytes = 104MB.
@@ -8,14 +6,18 @@
 # All packages are at the latest version available from SWA as of 2025-04-03
 
 azure-functions==1.22.1
-pydantic==2.10.6
-pydantic-settings==2.8.1
-langchain==0.2.17
-langchain-community==0.2.19
-langchain-openai
 azure-identity==1.21.0
 azure-search-documents==11.5.2
-litellm==1.65.1
+langchain-community==0.2.19
+langchain-openai==0.1.25
+langchain==0.2.17
+# litellm==1.65.1
+pydantic-settings==2.8.1
+pydantic==2.10.6
 
+# Development dependencies
 # chromadb
 # sentence-transformers==4.0.1
+
+# Testing dependencies
+# pytest==8.3.5

@@ -41,7 +41,7 @@ class VectorizeDocumentRequestPayload(BasePayloadModel):
 
 
 class VectorizeDocumentResponsePayload(BaseResponsePayload):
-    vector_status: ResponseMessageType
+    pass
 
 
 class ValidateInvitationRequestPayload(

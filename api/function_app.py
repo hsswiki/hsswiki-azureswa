@@ -1,37 +1,38 @@
 import json
-import logging as log
+import logging
 
 import azure.functions as func
-
-try:
-    from src.utils.log_utils import format_root_logger
-
-    format_root_logger(log_level=log.INFO)
-except Exception as e:
-    log.error(repr(e))
 
 app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 # It seems all 3 auth levels are the same. The API can always be accessed
 # publicly without any header.
 
-# @app.route(route="documents/vectorize", methods=["GET"])
-# def vectorize_document_route(req: func.HttpRequest) -> func.HttpResponse:
-#     log.info("Entering")
-#     try:
-#         from src.controllers.controllers import (
-#             log_and_get_http_response,
-#             vectorize_document_controller,
-#         )
 
-#         response_payload = vectorize_document_controller(req)
-#         return log_and_get_http_response(response_payload)
-#     except Exception as e:
-#         return get_uncaught_error_response(e)
+@app.route(route="documents/vectorize", methods=["GET"])
+def vectorize_document_route(req: func.HttpRequest) -> func.HttpResponse:
+    logging.info("Entering")
+    try:
+        from src.controllers.controllers import (
+            log_and_get_http_response,
+            vectorize_documents_controller,
+        )
+
+        try:
+            from src.utils.logging_utils import format_root_logger
+
+            format_root_logger(log_level=logging.INFO)
+        except Exception as e:
+            logging.error(repr(e))
+
+        response_payload = vectorize_documents_controller(req)
+        return log_and_get_http_response(response_payload)
+    except Exception as e:
+        return get_uncaught_error_response(e)
 
 
 @app.route(route="invitations/verify", methods=["POST"])
 def verify_invitation_code_route(req: func.HttpRequest) -> func.HttpResponse:
-    log.info("Entering")
+    logging.info("Entering")
     try:
         from src.controllers.controllers import (
             log_and_get_http_response,
@@ -46,7 +47,7 @@ def verify_invitation_code_route(req: func.HttpRequest) -> func.HttpResponse:
 
 @app.route(route="chat/respond", methods=["POST"])
 def respond_to_chat_route(req: func.HttpRequest) -> func.HttpResponse:
-    log.info("Entering")
+    logging.info("Entering")
     try:
         from src.controllers.controllers import (
             log_and_get_http_response,
@@ -61,7 +62,7 @@ def respond_to_chat_route(req: func.HttpRequest) -> func.HttpResponse:
 
 @app.route(route="ping")
 async def ping(req: func.HttpRequest) -> func.HttpResponse:
-    log.info("Entering")
+    logging.info("Entering")
     try:
         req.get_json()  # Returns loaded JSON like dict, etc.
     except ValueError:
@@ -74,7 +75,7 @@ async def ping(req: func.HttpRequest) -> func.HttpResponse:
 
 @app.route(route="testAuthLevelAnonymous", auth_level=func.AuthLevel.ANONYMOUS)
 async def testAuthLevelAnonymous(req: func.HttpRequest) -> func.HttpResponse:
-    log.info("Entering")
+    logging.info("Entering")
     try:
         req.get_json()  # Returns loaded JSON like dict, etc.
     except ValueError:
@@ -84,7 +85,7 @@ async def testAuthLevelAnonymous(req: func.HttpRequest) -> func.HttpResponse:
 
 @app.route(route="testAuthLevelFunction", auth_level=func.AuthLevel.FUNCTION)
 async def testAuthLevelFunction(req: func.HttpRequest) -> func.HttpResponse:
-    log.info("Entering")
+    logging.info("Entering")
     try:
         req.get_json()  # Returns loaded JSON like dict, etc.
     except ValueError:
@@ -94,7 +95,7 @@ async def testAuthLevelFunction(req: func.HttpRequest) -> func.HttpResponse:
 
 @app.route(route="testAuthLevelAdmin", auth_level=func.AuthLevel.ADMIN)
 async def testAuthLevelAdmin(req: func.HttpRequest) -> func.HttpResponse:
-    log.info("Entering")
+    logging.info("Entering")
     try:
         req.get_json()  # Returns loaded JSON like dict, etc.
     except ValueError:
@@ -108,16 +109,14 @@ async def testAuthLevelAdmin(req: func.HttpRequest) -> func.HttpResponse:
 
 
 def get_uncaught_error_response_payload(exception: Exception):
-    import traceback
-
-    traceback_text = traceback.format_exc()
+    from src.utils.python_utils import get_traceback_text
 
     response_payload = {
         "code": 500,
         "message": "An uncaught error occurred. Please check the log.",
-        "detailedMessage": f"{repr(exception)}: {traceback_text}",
+        "detailedMessage": f"{repr(exception)}: {get_traceback_text()}",
     }
-    log.error(f"{response_payload=}")
+    logging.error(f"{response_payload=}")
     return response_payload
 
 

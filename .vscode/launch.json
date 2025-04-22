@@ -2,9 +2,20 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "pdb: Current File as Module",
+      "type": "debugpy",
+      "request": "launch",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}/api",
+      "program": "${workspaceFolder}/api/src/utils/vscode_debug_utils.py",
+      "args": [
+        "${workspaceFolder}/api", // Use cwd's value
+        "${file}",
+      ],
+    },
+    {
       "name": "React frontend",
       // "type": "msedge",
-      // "request": "launch",
       "type": "chrome",
       "request": "attach",
       // "url": "http://localhost:4280", // Frontend port of swa
@@ -22,6 +33,16 @@
         "port": 9091 // Azure Functions debug port. API port is 7071.
       },
       "preLaunchTask": "func: host start",
+    },
+    {
+      "name": "CLI Azure Functions backend with env vars",
+      "type": "debugpy",
+      "request": "attach",
+      "connect": {
+        "host": "localhost",
+        "port": 9091 // Azure Functions debug port. API port is 7071.
+      },
+      "preLaunchTask": "cli func host start with env vars"
     }
   ],
   "compounds": [

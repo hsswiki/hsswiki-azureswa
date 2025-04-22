@@ -1,12 +1,12 @@
 import logging as log
 import re
 
+from api.src.configs.app_settings import VectorStoreType, app_settings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from pydantic import BaseModel
 
-from src.components.configs import VectorStoreType, config
-from src.components.lite_llm import get_litellm
-from src.utils.log_utils import log_correlation_id_context_var
+from api.src.components.deprecated_lite_llm import get_litellm
+from api.src.utils.logging_utils import log_correlation_id_context_var
 from src.utils.python_parallel_utils import (
     get_parallel_thread_results,
 )
@@ -63,12 +63,12 @@ def chunk_and_embed_into_collection(
     log.info(f"{len(text_str)=}")
 
     text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=config.chunk_size,
-        chunk_overlap=config.chunk_overlap,
+        chunk_size=app_settings.chunk_size,
+        chunk_overlap=app_settings.chunk_overlap,
     )
 
-    if config.vector_store_type == VectorStoreType.AZURE_AI_SEARCH:
-        log.info(f"{config.vector_store_type=}")
+    if app_settings.vector_store_type == VectorStoreType.AZURE_AI_SEARCH:
+        log.info(f"{app_settings.vector_store_type=}")
 
         from langchain_core.documents import Document
 
@@ -127,7 +127,7 @@ def chunk_and_embed_into_collection(
 
     # method == "CHROMA_DB"
 
-    log.info(f"{config.vector_store_type=}")
+    log.info(f"{app_settings.vector_store_type=}")
     try:
         # 1. Initial setup and ChromaDB connection
         log.info("=== Starting vectorization process ===")
@@ -137,16 +137,16 @@ def chunk_and_embed_into_collection(
         # 2. Get or create collection
         log.info(f"Getting or creating collection: {collection_name}")
         if (
-            config.vector_store_table_name
+            app_settings.vector_store_table_name
             in chromadb_client.list_collections()
         ):
             log.info("Deleting existing collection")
             chromadb_client.delete_collection(
-                name=config.vector_store_table_name
+                name=app_settings.vector_store_table_name
             )
 
         collection = chromadb_client.create_collection(
-            name=config.vector_store_table_name
+            name=app_settings.vector_store_table_name
         )
         log.info("Created new collection")
 
@@ -285,9 +285,9 @@ def get_azure_search_vector_store():
         # in the metadata field and retrieved upon search.
     ]
     vector_store = AzureSearch(
-        azure_search_endpoint=config.azure_ai_search_endpoint,
-        azure_search_key=config.azure_ai_search_key,
-        index_name=config.vector_store_table_name,
+        azure_search_endpoint=app_settings.azure_ai_search_endpoint,
+        azure_search_key=app_settings.azure_ai_search_key,
+        index_name=app_settings.vector_store_table_name,
         embedding_function=embedding_function,
         fields=search_fields,
     )
@@ -301,8 +301,8 @@ def query_relevant_chunks(
     collection=None,
 ):
     log.info(f"{query=} {number_of_chunks=}")
-    if config.vector_store_type == VectorStoreType.AZURE_AI_SEARCH:
-        log.info(f"{config.vector_store_type=}")
+    if app_settings.vector_store_type == VectorStoreType.AZURE_AI_SEARCH:
+        log.info(f"{app_settings.vector_store_type=}")
         # filters = " or ".join(
         #     [f"document_id eq '{doc_id}'" for doc_id in document_ids]
         # )
@@ -332,7 +332,7 @@ def query_relevant_chunks(
         log.info(f"{len(relevant_chunks)=}")
         return relevant_chunks
 
-    log.info(f"{config.vector_store_type=}")
+    log.info(f"{app_settings.vector_store_type=}")
     llm = get_litellm()
     query_embeddings = llm.embed(query)
     from chromadb import Collection

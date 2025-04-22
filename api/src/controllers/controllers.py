@@ -1,51 +1,45 @@
-import logging as log
-from typing import Any
+import logging
 
-from src.components.configs import config
 from src.controllers.payload_models import BaseResponsePayload
-from src.services.invitation import verify_invitation_code
 from src.utils.function_app_utils import (
     log_and_get_http_response,  # noqa: F401 (imported for re-export)
     validate_request_payload,
 )
 
 
-def vectorize_document_controller(request: Any):
-    log.info("Entering")
-    from src.components.vector_store import (
-        chunk_and_embed_into_collection,
-    )
+def vectorize_documents_controller(request):
+    logging.info("Entering")
     from src.controllers.payload_models import (
         ResponseMessage,
         VectorizeDocumentResponsePayload,
     )
+    from src.services.vectorization_service import VectorizationServiceFacade
 
     try:
-        chunk_and_embed_into_collection(
-            config.input_document_path,
-            config.vector_store_table_name,
-        )
+        VectorizationServiceFacade().vectorize()
         response_payload = VectorizeDocumentResponsePayload(
             code=200,
             message=ResponseMessage.SUCCESS,
-            vector_status=ResponseMessage.SUCCESS,
         )
     except Exception as e:
+        from src.utils.python_utils import get_traceback_text
+
         response_payload = BaseResponsePayload(
             code=500,
             message=ResponseMessage.FAILED,
-            detailed_message=repr(e),
+            detailed_message=repr(e) + get_traceback_text(),
         )
     return response_payload
 
 
-def verify_invitation_code_controller(request: Any):
-    log.info("Entering")
+def verify_invitation_code_controller(request):
+    logging.info("Entering")
     from src.controllers.payload_models import (
         ResponseMessage,
         ValidateInvitationRequestPayload,
         ValidateInvitationResponsePayload,
     )
+    from src.services.invitation import verify_invitation_code
 
     try:
         request_payload, validation_error_response_payload = (
@@ -70,8 +64,8 @@ def verify_invitation_code_controller(request: Any):
     return response_payload
 
 
-def respond_to_chat_controller(request: Any):
-    log.info("Entering")
+def respond_to_chat_controller(request):
+    logging.info("Entering")
     try:
         from src.controllers.payload_models import (
             ChatRequestPayload,

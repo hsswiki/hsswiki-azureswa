@@ -22,8 +22,8 @@
       }
     },
     {
-      "type": "func",
       "label": "func: host start",
+      "type": "func",
       "command": "host start",
       // Runs `. .venv/bin/activate && func host start` command
       "problemMatcher": "$func-python-watch",
@@ -31,7 +31,50 @@
       "dependsOn": "pip install (functions)",
       "options": {
         "cwd": "${workspaceFolder}/api"
-      }
+      },
+    },
+    {
+      "label": "cli func host start with env vars",
+      "type": "shell",
+      // "command": ". .venv/bin/activate && embedding_model=MockEmbeddingModel vector_store=MockVectorStore func host start",
+      "command": ". .venv/bin/activate && embedding_model=MockEmbeddingModel vector_store=MockVectorStore func host start --language-worker -- '-m debugpy --listen 127.0.0.1:9091' --verbose",
+      "problemMatcher": "$func-python-watch",
+      // "problemMatcher": {
+      //   "owner": "python",
+      //   "pattern": [
+      //     {
+      //       "regexp": "\\[.*\\] Worker process started and initialized\\.",
+      //       "file": 1,
+      //       "location": 2,
+      //       "message": 3
+      //     },
+      //     {
+      //       "regexp": "\\[.*\\] KeyboardInterrupt",
+      //       "file": 1,
+      //       "location": 2,
+      //       "message": 3
+      //     }
+      //   ],
+      //   "background": {
+      //     "activeOnStart": true,
+      //     "beginsPattern": "\\[.*\\] Worker process started and initialized\\.",
+      //     "endsPattern": "\\[.*\\] KeyboardInterrupt"
+      //   }
+      // },
+      //       Found Python version 3.11.11 (python3).
+      // Azure Functions Core Tools
+      // Core Tools Version:       4.0.6821 Commit hash: N/A +c09a2033faa7ecf51b3773308283af0ca9a99f83 (64-bit)
+      // Function Runtime Version: 4.1036.1.23224
+      // [2025-04-22T12:43:52.535Z] Worker process started and initialized.
+      // [2025-04-22T12:50:46.614Z]     return runner.run(main)
+      // [2025-04-22T12:50:46.614Z]            ^^^^^^^^^^^^^^^^
+      // [2025-04-22T12:50:46.614Z]   File "/usr/local/lib/python3.11/asyncio/runners.py", line 123, in run
+      // [2025-04-22T12:50:46.615Z]     raise KeyboardInterrupt()
+      // [2025-04-22T12:50:46.615Z] KeyboardInterrupt
+      "isBackground": true, // If not, debugger will keep waiting.
+      "options": {
+        "cwd": "${workspaceFolder}/api"
+      },
     },
     {
       "label": "pip install (functions)",
@@ -49,6 +92,21 @@
       "options": {
         "cwd": "${workspaceFolder}/api"
       }
-    }
+    },
+    {
+      "label": "test backend",
+      "type": "shell",
+      "options": {
+        "cwd": "${workspaceFolder}/api"
+      },
+      "command": "${config:azureFunctions.pythonVenv}/bin/python -m pytest tests/ -vs --log-cli-level WARNING",
+      "windows": {
+        "command": "${config:azureFunctions.pythonVenv}/Scripts/python -m pytest tests/ -vs --log-cli-level WARNING"
+      },
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      }
+    },
   ]
 }

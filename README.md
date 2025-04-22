@@ -8,6 +8,8 @@ python -m venv .venv
 . .venv/bin/activate
 pip install pydantic==2.11.1 pydantic-settings==2.8.1
 
+python -m pytest tests/ -vs --log-cli-level INFO
+
 https://github.com/ashutosh1919/masterPortfolio
 https://github.com/dharness/react-chat-window
 https://github.com/asliddinusmonov/popup-chat-react

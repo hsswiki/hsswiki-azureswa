@@ -12,6 +12,7 @@ import azure.functions as func
 from pydantic import BaseModel, ValidationError
 
 from src.controllers.payload_models import BaseResponsePayload, ResponseMessage
+from src.utils.python_utils import get_traceback_text
 
 T = TypeVar("T", bound=BaseModel)
 
@@ -36,7 +37,7 @@ def validate_request_payload(
     except ValidationError as e:
         log.error(repr(e))
         validation_error_response_payload = BaseResponsePayload(
-            code="400",
+            code=400,
             message=ResponseMessage.FAILED,
             detailed_message=repr(e),
         )
