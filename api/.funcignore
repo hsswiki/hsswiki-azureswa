@@ -1,5 +1,4 @@
 tests
-__*
 .git*
 .vscode
 __azurite_db*__.json

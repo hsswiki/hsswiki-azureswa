@@ -4,8 +4,8 @@
         "local": {
             "host": "http://localhost:7071/api"
         },
-        "dev": {
-            "host": "https://google.com"
+        "prod": {
+            "host": "https://blue-grass-050826600.6.azurestaticapps.net/api"
         },
         // Also set the following private variables in your .code-workspace
         // "$shared": {

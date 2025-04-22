@@ -1,7 +1,18 @@
 import json
 import logging
+import os
 
 import azure.functions as func
+
+try:
+    from src.utils.logging_utils import format_root_logger
+
+    format_root_logger(
+        log_level=logging.INFO,
+        do_file_handler=bool(os.environ.get("IS_LOCAL")),
+    )
+except Exception as e:
+    logging.error(repr(e))
 
 app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 # It seems all 3 auth levels are the same. The API can always be accessed
@@ -16,13 +27,6 @@ def vectorize_document_route(req: func.HttpRequest) -> func.HttpResponse:
             log_and_get_http_response,
             vectorize_documents_controller,
         )
-
-        try:
-            from src.utils.logging_utils import format_root_logger
-
-            format_root_logger(log_level=logging.INFO)
-        except Exception as e:
-            logging.error(repr(e))
 
         response_payload = vectorize_documents_controller(req)
         return log_and_get_http_response(response_payload)

@@ -1,5 +1,6 @@
 logs
-__*
+___*
+__pycache__
 
 # Azurite artifacts
 __blobstorage__

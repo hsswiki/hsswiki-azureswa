@@ -4,7 +4,8 @@
     {
       "label": "swa start",
       "type": "shell",
-      "command": "npm run build && npx swa start build --api-location api",
+      "command": ". api/.venv/bin/activate && npm run build && npx swa start build --api-location api",
+      // Frontend will run on 4280 and backend on 7071
     },
     {
       "label": "npm start",
