@@ -9,7 +9,7 @@ try:
 
     format_root_logger(
         log_level=logging.INFO,
-        do_file_handler=bool(os.environ.get("IS_LOCAL")),
+        # do_file_handler=bool(os.environ.get("IS_LOCAL")),
     )
 except Exception as e:
     logging.error(repr(e))

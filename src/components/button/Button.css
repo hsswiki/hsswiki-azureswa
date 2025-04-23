@@ -28,6 +28,10 @@
   justify-content: center;
   margin-top: 20px;
 }
+.portfolio-repo-btn {
+  display: inline-flex;
+  margin: 5px;
+}
 /* Media Query */
 @media (max-width: 768px) {
   .main-button {

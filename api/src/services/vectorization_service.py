@@ -25,24 +25,17 @@ class VectorizationServiceFacade:
         self.app_settings = app_settings.reload_environment_variables()
         self.input_file_path = self.app_settings.input_file_path
 
-        # EmbeddingModelFactory: type[EmbeddingModelAbstractFactory] = getattr(
-        #     embedding_model_factories,
-        #     f"{self.app_settings.embedding_model}Factory",
-        # )
         EmbeddingModelFactory: type[EmbeddingModelAbstractFactory] = (
             get_factory_from_settings(FactoryType.EMBEDDING_MODEL)
         )
         self.embedding_model = EmbeddingModelFactory().create()
 
-        # VectorStoreFactory: type[VectorStoreAbstractFactory] = getattr(
-        #     vector_store_factories, f"{self.app_settings.vector_store}Factory"
-        # )
         VectorStoreFactory: type[VectorStoreAbstractFactory] = (
             get_factory_from_settings(FactoryType.VECTOR_STORE)
         )
         self.vector_store = VectorStoreFactory().create()
 
-        raise ValueError(f'{self.embedding_model=} {self.vector_store=}')
+        # raise Exception(f"{self.embedding_model=} {self.vector_store=}")
 
     def vectorize(self):
         raw_documents = TextLoader(self.input_file_path).load()

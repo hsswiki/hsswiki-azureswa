@@ -1,3 +1,38 @@
+import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
+// https://react.i18next.com/getting-started#basic-sample
+const resources = {
+  en: {
+    translation: {
+      switchLang: "switchLang",
+      greeting: {
+        subTitle:
+          "A passionate individual who always thrives to work on end to end products which develop sustainable and scalable social and technical systems to create impact.",
+      },
+    },
+  },
+  zh: {
+    translation: {
+      switchLang: "一个充满激情的人",
+      greeting: {
+        subTitle:
+          "一个充满激情的人，总是努力开发端到端的产品，以开发可持续和可扩展的社会和技术系统，从而产生影响。",
+      },
+    },
+  },
+};
+
+i18n.use(initReactI18next).init({
+  resources,
+  lng: "en",
+  fallbackLng: "en",
+  interpolation: {
+    escapeValue: false, // react already safes from xss
+  },
+});
+
+export default i18n;
+
 /* Change this file to get your personal Porfolio */
 
 // Website related settings
