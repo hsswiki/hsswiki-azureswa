@@ -15,7 +15,7 @@ Content-Type: {{contentType}}
 
 ###
 
-POST {{host}}/chat/respond
+POST {{host}}/chats/respond
 Content-Type: {{contentType}}
 
 {
@@ -25,6 +25,13 @@ Content-Type: {{contentType}}
 }
 
 ###
+
+
+
+
+
+
+
 
 POST {{host}}/chat/respond
 Content-Type: {{contentType}}

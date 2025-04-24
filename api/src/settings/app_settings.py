@@ -20,6 +20,11 @@ class VectorStoreClass(str, Enum):
     CHROMA_DB = "ChromaDb"
 
 
+class VectorStoreSchemaName(str, Enum):
+    EXAMPLE = "Example"
+    RESUME = "Resume"
+
+
 class CompletionModels:
     AZURE_GPT_4O_MINI = "azure.gpt-4o-mini"
     AZURE_O1 = "azure.o1"
@@ -40,19 +45,21 @@ COMPLETION_MODEL_CONFIG = {
 
 
 class AppSettings(FrozenBaseSettings):
-    is_local: bool = False
-
     invitation_codes_csv: str = ""
-    do_debug: bool = True
 
     input_file_path: str = "./data/input/wiki.md"
 
     # Factory settings
-    chat_model: ChatModelClass | str = ChatModelClass.AZURE_OPENAI_CHAT_MODEL
+    chat_model: ChatModelClass | str = ChatModelClass.MOCK_CHAT_MODEL
     embedding_model: EmbeddingModelClass | str = (
-        EmbeddingModelClass.AZURE_OPENAI_EMBEDDING_MODEL
+        EmbeddingModelClass.MOCK_EMBEDDING_MODEL
     )
-    vector_store: VectorStoreClass | str = VectorStoreClass.AZURE_AI_SEARCH
+    vector_store: VectorStoreClass | str = VectorStoreClass.MOCK_VECTOR_STORE
+
+    vector_store_schema_name: VectorStoreSchemaName | str = (
+        VectorStoreSchemaName.EXAMPLE
+    )
+    # Like Collection of ChromaDB or Index of Azure AI Search
 
     # Text Splitter settings
     chunk_size: int = 1000
@@ -60,12 +67,9 @@ class AppSettings(FrozenBaseSettings):
 
     llm_max_try_count: int = 3
 
-    vector_store_table_name: str = "wiki"
-    # Collection of ChromaDB or Index of Azure AI Search
-
     embedding_dimensions: int = 1536
 
-    number_of_chunks: int = 10
+    number_of_chunks: int = 4
 
     # embedding_model_name: str = (
     #     EmbeddingModelClass.AZURE_TEXT_EMBEDDING_3_SMALL
@@ -82,8 +86,6 @@ class AppSettings(FrozenBaseSettings):
     # ]
 
     def _after_init(self):
-        logging.info(f"{self.is_local=}")
-        logging.info(f"{self.do_debug=}")
         logging.info(f"{self.chat_model=}")
         logging.info(f"{self.embedding_model=}")
         logging.info(f"{self.vector_store=}")
@@ -93,25 +95,3 @@ class AppSettings(FrozenBaseSettings):
 
 
 app_settings = AppSettings()
-
-if __name__ == "__main__":
-    """
-    Unit test with
-
-    ```shell
-    cd api
-    python -m src.settings.app_settings
-    ```
-    """
-    import importlib
-    import os
-
-    importlib.reload(logging)
-    logging.basicConfig(level=logging.DEBUG)
-
-    my_app_settings = AppSettings()
-    assert my_app_settings.is_local
-
-    os.environ["IS_LOCAL"] = "False"
-    my_app_settings = my_app_settings.reload_environment_variables()
-    assert not my_app_settings.is_local

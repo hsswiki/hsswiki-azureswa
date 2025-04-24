@@ -1,13 +1,22 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-// https://react.i18next.com/getting-started#basic-sample
+// Doc: https://react.i18next.com/getting-started#basic-sample
+import detector from "i18next-browser-languagedetector";
+
 const resources = {
   en: {
     translation: {
       switchLang: "switchLang",
       greeting: {
+        title: "Shen Han",
+        logo_name: "AshutoshHathidara",
+        nickname: "Cloud Architect",
         subTitle:
           "A passionate individual who always thrives to work on end to end products which develop sustainable and scalable social and technical systems to create impact.",
+        resumeLink:
+          "https://drive.google.com/file/d/1bXRknv_h-XI_3CQ3SGPteGODtvEb7YvI/view?usp=sharing",
+        portfolio_repository: "https://github.com/ashutosh1919/masterPortfolio",
+        githubProfile: "https://github.com/ashutosh1919",
       },
     },
   },
@@ -15,29 +24,38 @@ const resources = {
     translation: {
       switchLang: "一个充满激情的人",
       greeting: {
+        title: "韩 绅", // 韓紳
+        nickname: "云端架构师",
         subTitle:
           "一个充满激情的人，总是努力开发端到端的产品，以开发可持续和可扩展的社会和技术系统，从而产生影响。",
+        logo_name: "AshutoshHathidara",
+        resumeLink:
+          "https://drive.google.com/file/d/1bXRknv_h-XI_3CQ3SGPteGODtvEb7YvI/view?usp=sharing",
+        portfolio_repository: "https://github.com/ashutosh1919/masterPortfolio",
+        githubProfile: "https://github.com/ashutosh1919",
       },
     },
   },
 };
 
-i18n.use(initReactI18next).init({
-  resources,
-  lng: "en",
-  fallbackLng: "en",
-  interpolation: {
-    escapeValue: false, // react already safes from xss
-  },
-});
-
-export default i18n;
+i18n
+  .use(detector)
+  .use(initReactI18next)
+  .init({
+    resources,
+    // lng: "en",
+    fallbackLng: "en",
+    interpolation: {
+      escapeValue: false, // react already safes from xss
+    },
+  });
 
 /* Change this file to get your personal Porfolio */
 
 // Website related settings
 const settings = {
-  isSplash: true, // Change this to false if you don't want Splash screen.
+  // isSplash: true, // Change this to false if you don't want Splash screen.
+  isSplash: false, // Change this to false if you don't want Splash screen.
 };
 
 //SEO Related settings

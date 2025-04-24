@@ -37,8 +37,10 @@
     {
       "label": "cli func host start with env vars",
       "type": "shell",
-      // "command": ". .venv/bin/activate && embedding_model=MockEmbeddingModel vector_store=MockVectorStore func host start",
-      "command": ". .venv/bin/activate && embedding_model=MockEmbeddingModel vector_store=MockVectorStore func host start --language-worker -- '-m debugpy --listen 127.0.0.1:9091' --verbose",
+      // All mocks
+      // "command": ". .venv/bin/activate && chat_model=MockChatModel embedding_model=MockEmbeddingModel vector_store=MockVectorStore do_debug=True func host start --language-worker -- '-m debugpy --listen 127.0.0.1:9091' --verbose",
+      // Mock chat and embedding models
+      "command": ". .venv/bin/activate && do_debug=True chat_model=MockChatModel embedding_model=MockEmbeddingModel vector_store=AzureAiSearch func host start --language-worker -- '-m debugpy --listen 127.0.0.1:9091' --verbose",
       "problemMatcher": "$func-python-watch",
       // "problemMatcher": {
       //   "owner": "python",

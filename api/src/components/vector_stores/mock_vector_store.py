@@ -1,3 +1,4 @@
+import logging
 from typing import Iterable, Optional
 
 from langchain_core.documents import Document
@@ -6,15 +7,6 @@ from .vector_store_interface import VectorStoreInterface
 
 
 class MockVectorStore(VectorStoreInterface):
-    @classmethod
-    def from_settings(
-        cls,
-        settings,
-        index_schema,
-        **kwargs,
-    ):
-        return cls()
-
     def add_embeddings(
         self,
         text_embeddings: Iterable[tuple[str, list[float]]],
@@ -22,6 +14,7 @@ class MockVectorStore(VectorStoreInterface):
         *,
         keys: Optional[list[str]] = None,
     ) -> list[str]:
+        logging.info("Mocking")
         return ["" * len(list(text_embeddings))]
 
     @classmethod
@@ -32,18 +25,18 @@ class MockVectorStore(VectorStoreInterface):
         metadatas,
         **kwargs,
     ):
-        "Implement abstract method for langchain VectorStore interface."
+        """Implement abstract method for langchain VectorStore interface."""
         return cls()
 
     def similarity_search(
         self, query: str, k: int = 4, **kwargs
     ) -> list[Document]:
-        "Implement abstract method for langchain VectorStore interface."
-        return [Document(page_content="")]
+        logging.info("Mocking")
+        return [Document(page_content="MockVectorStore mocked document")]
 
     def similarity_search_by_vector(
         self, embedding: list[float], k: int = 4, **kwargs
-    ):
+    ) -> list[Document]:
         """
         similarity_search_by_vector or other similar methods are not yet
         implemented as of langchain-community==0.2.19, so added here for
@@ -57,16 +50,5 @@ class MockVectorStore(VectorStoreInterface):
         References:
             - [similarity_search_by_vector](https://python.langchain.com/api_reference/community/vectorstores/langchain_community.vectorstores.azuresearch.AzureSearch.html#langchain_community.vectorstores.azuresearch.AzureSearch.similarity_search_by_vector)
         """
-        from langchain_community.vectorstores.azuresearch import (
-            _results_to_documents,
-        )
-
-        search_item_paged = self._simple_search(
-            embedding=embedding,
-            text_query="",  # Not needed when embedding is present
-            k=k,
-            # filters="id eq 'ZmYyYWY4OWYtOTE3NS00ZGI1LWIxZTQtMzgyOTJlZTJjNjZl'",
-            **kwargs,
-        )
-        search_results = _results_to_documents(search_item_paged)
-        return search_results
+        logging.info("Mocking")
+        return [Document(page_content="MockVectorStore mocked document")]

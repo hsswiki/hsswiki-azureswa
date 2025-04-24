@@ -21,11 +21,6 @@ class AzureOpenaiChatModel(AzureChatOpenAI):
         )
 
     def invoke_string_output(self, string_input: str) -> str:
-        """
-        Invoke in a string-in-string-out fashion, similar to the old
-        LangChain [BaseLLM](https://python.langchain.com/docs/concepts/text_llms/)
-        interface.
-        """
         messages = [("system", string_input)]  # Or "human"
         response_message = self.invoke(messages)
         string_output = response_message.content

@@ -1,8 +1,6 @@
-from src.components.embedding_models.azure_openai_embedding_model import (
-    AzureOpenaiEmbeddingModel,
-)
 from src.settings.azure_openai_settings import AzureOpenaiSettings
 
+from ..azure_openai_embedding_model import AzureOpenaiEmbeddingModel
 from .embedding_model_abstract_factory import (
     EmbeddingModelAbstractFactory,
 )
@@ -10,8 +8,6 @@ from .embedding_model_abstract_factory import (
 
 class AzureOpenaiEmbeddingModelFactory(EmbeddingModelAbstractFactory):
     def create(self):
-        azure_openai_settings = AzureOpenaiSettings()
-        embedding_model = AzureOpenaiEmbeddingModel.from_settings(
-            azure_openai_settings
-        )
+        settings = AzureOpenaiSettings()
+        embedding_model = AzureOpenaiEmbeddingModel.from_settings(settings)
         return embedding_model

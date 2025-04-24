@@ -1,4 +1,4 @@
-from src.components.vector_stores.vector_store_abstract_factory import (
+from src.components.vector_stores.factories.vector_store_abstract_factory import (
     VectorStoreSchemaAbstractFactory,
 )
 

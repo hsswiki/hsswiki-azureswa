@@ -1,7 +1,4 @@
-from src.components.embedding_models.mock_embedding_model import (
-    MockEmbeddingModel,
-)
-
+from ..mock_embedding_model import MockEmbeddingModel
 from .embedding_model_abstract_factory import (
     EmbeddingModelAbstractFactory,
 )

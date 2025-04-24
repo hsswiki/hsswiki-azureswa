@@ -8,7 +8,7 @@ from azure.search.documents.indexes.models import (
 from src.components.vector_stores.azure_ai_search import (
     AzureAiSearchIndexSchema,
 )
-from src.components.vector_stores.vector_store_abstract_factory import (
+from src.components.vector_stores.factories.vector_store_abstract_factory import (
     VectorStoreSchemaAbstractFactory,
 )
 

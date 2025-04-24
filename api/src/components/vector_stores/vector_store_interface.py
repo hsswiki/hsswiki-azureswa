@@ -5,7 +5,6 @@ from langchain_core.vectorstores import VectorStore
 
 
 class VectorStoreInterface(VectorStore, ABC):
-# class VectorStoreInterface(ABC):
     @abstractmethod
     def add_embeddings(
         self,

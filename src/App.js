@@ -147,7 +147,7 @@ function ChatPopup() {
               }: ${msg.data.text}`
           )
           .join("\n\n");
-        const response = await fetch(`/api/chat/respond`, {
+        const response = await fetch(`/api/chats/respond`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -214,8 +214,8 @@ function ChatPopup() {
       <Launcher
         agentProfile={{
           teamName: "Shen's Digital Assistant",
-          imageUrl:
-            "https://a.slack-edge.com/66f9/img/avatars-teams/ava_0001-34.png",
+          // imageUrl:
+          // "https://a.slack-edge.com/66f9/img/avatars-teams/ava_0001-34.png",
         }}
         onMessageWasSent={onMessageWasSent}
         messageList={state.messageList}
@@ -223,6 +223,8 @@ function ChatPopup() {
         onClick={onClick}
         isOpen={state.isOpen}
         showEmoji
+        onFilesSelected={() => {}}
+        fileUpload={false}
       />
     </div>
   );

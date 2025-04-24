@@ -23,7 +23,7 @@ def respond_to_chat(request_payload: ChatRequestPayload) -> str:
         return "hello"
 
     collection = ""
-    if app_settings.vector_store_cla == VectorStoreClass.CHROMA_DB:
+    if app_settings.vector_store_class == VectorStoreClass.CHROMA_DB:
         chromadb_client = get_chromadb_client()
         collection = chromadb_client.get_collection(
             name=app_settings.vector_store_table_name
@@ -34,23 +34,22 @@ def respond_to_chat(request_payload: ChatRequestPayload) -> str:
         collection,
     )
     prompt = f"""
-        You are an assistant for a software engineer named Shen Han (姓韩, 可以
-        叫我韩先生). Your role is to answer questions from potential employers
-        about Shen's background. Use the extracted chunks of information
-        relevant to the question to craft your response.
+        You are an assistant for a software engineer named Shen Han (韩绅 in
+        Chinese, 韓紳 in Japanese). Your role is to answer questions from
+        potential employers about Shen's background. Use the extracted chunks
+        of information relevant to the question to craft your response.
 
         You will also be provided with the latest chat history with the user.
         Take that into consideration when crafting your response to ensure
         continuity and relevance.
 
-        If the user asks something irrelevant or you cannot find useful chunks
-        to answer the question, gently say you don't know based on your
-        knowledge of Shen, suggest the user directly reach out to Shen, and
-        bring the topic back to professional matters. Offer some potential
-        questions that you can answer based on the chunks.
-
-        Do not make up information, as this is a professional chat with a
-        potential employer. Just do your best based on the chunks provided.
+        If the user asks something irrelevant to Shen or you cannot find useful
+        chunks to answer the question, gently say you don't know based on your
+        knowledge, suggest the user directly reach out to Shen, and bring the
+        topic back to professional matters. Offer some potential questions that
+        you can answer based on the chunks. Do not make up information, as this
+        is a professional chat with a potential employer. Just do your best
+        based on the chunks provided.
 
         Always respond in the same language as the input question, translating
         the information if necessary. Keep your responses concise,

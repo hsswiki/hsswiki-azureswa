@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Header.css";
 import { Fade } from "react-reveal";
 import { NavLink, Link } from "react-router-dom";
 import { greeting, settings } from "../../portfolio.js";
 import SeoHeader from "../seoHeader/SeoHeader";
-import { useTranslation } from "react-i18next";
+// import { useTranslation } from "react-i18next";
 
 const onMouseEnter = (event, color) => {
   const el = event.target;
@@ -17,14 +17,13 @@ const onMouseOut = (event) => {
 };
 
 function Header(props) {
-  const { t, i18n } = useTranslation();
+  // const { t, i18n } = useTranslation();
   // const [language, setLanguage] = useState("en"); // Default language is "en"
-  const [language, setLanguage] = useState("zh"); // Default language is "en"
 
-  const changeLanguage = (lang) => {
-    i18n.changeLanguage(lang); // Change the language in i18next
-    setLanguage(lang); // Update the state
-  };
+  // const changeLanguage = (lang) => {
+  //   i18n.changeLanguage(lang); // Change the language in i18next
+  //   setLanguage(lang); // Update the state
+  // };
 
   // const theme = this.props.theme;
   const theme = props.theme;
@@ -109,19 +108,19 @@ function Header(props) {
                 Open Source
               </NavLink>
             </li>
-            {/* <li>
-            <NavLink
-              to="/contact"
-              tag={Link}
-              activeStyle={{ fontWeight: "bold" }}
-              style={{ color: theme.text }}
-              onMouseEnter={(event) => onMouseEnter(event, theme.highlight)}
-              onMouseOut={(event) => onMouseOut(event)}
-            >
-              Contact Me
-            </NavLink>
-          </li> */}
             <li>
+              <NavLink
+                to="/contact"
+                tag={Link}
+                activeStyle={{ fontWeight: "bold" }}
+                style={{ color: theme.text }}
+                onMouseEnter={(event) => onMouseEnter(event, theme.highlight)}
+                onMouseOut={(event) => onMouseOut(event)}
+              >
+                Contact Me
+              </NavLink>
+            </li>
+            {/* <li>
               <button
                 className="language-switcher"
                 onClick={(e) => {
@@ -132,7 +131,7 @@ function Header(props) {
               >
                 {t("switchLang")}
               </button>
-            </li>
+            </li> */}
           </ul>
         </header>
       </div>

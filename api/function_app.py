@@ -1,6 +1,5 @@
 import json
 import logging
-import os
 
 import azure.functions as func
 
@@ -9,7 +8,7 @@ try:
 
     format_root_logger(
         log_level=logging.INFO,
-        # do_file_handler=bool(os.environ.get("IS_LOCAL")),
+        log_format_str=r"[%(levelname)-8s] %(correlation_id)s %(filename)s::%(funcName)s L%(lineno)d: %(message)s\n",
     )
 except Exception as e:
     logging.error(repr(e))
@@ -49,7 +48,7 @@ def verify_invitation_code_route(req: func.HttpRequest) -> func.HttpResponse:
         return get_uncaught_error_response(e)
 
 
-@app.route(route="chat/respond", methods=["POST"])
+@app.route(route="chats/respond", methods=["POST"])
 def respond_to_chat_route(req: func.HttpRequest) -> func.HttpResponse:
     logging.info("Entering")
     try:

@@ -12,7 +12,6 @@ import azure.functions as func
 from pydantic import BaseModel, ValidationError
 
 from src.controllers.payload_models import BaseResponsePayload, ResponseMessage
-from src.utils.python_utils import get_traceback_text
 
 T = TypeVar("T", bound=BaseModel)
 

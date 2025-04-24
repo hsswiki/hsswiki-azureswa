@@ -13,7 +13,8 @@ log_correlation_id_context_var = contextvars.ContextVar(
 
 def format_root_logger(
     log_level: Optional[int] = logging.DEBUG,
-    log_format_str: Optional[str] = None,
+    log_format_str=r"[%(levelname)-8s] %(asctime)s %(correlation_id)s %(filename)s::%(funcName)s L%(lineno)d: %(message)s\n",
+    date_format_str=r"%Y-%m-%d %H:%M:%S",
     do_file_handler: bool = False,
 ):
     """
@@ -37,16 +38,6 @@ def format_root_logger(
     if env_log_level := os.environ.get("UTILS_LOG_LEVEL_INT"):
         log_level = int(env_log_level)
     assert log_level in (10, 20, 30, 40, 50), f"Invalid {log_level=}"
-
-    log_format_str = (
-        log_format_str
-        or os.environ.get("UTILS_LOG_FORMAT")
-        or "[%(levelname)-8s] %(asctime)s %(correlation_id)s %(filename)s::%(funcName)s L%(lineno)d: %(message)s\n"
-    )
-    # Level name length up to 8 for "CRITICAL". Ending with new line character
-    # since sometimes Azure Function logs can omit it.
-
-    date_format_str = r"%Y-%m-%d %H:%M:%S"
 
     logging.basicConfig(
         level=log_level,

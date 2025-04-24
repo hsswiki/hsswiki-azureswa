@@ -2,7 +2,7 @@ import logging
 import unittest
 from urllib.parse import parse_qs, urlparse
 
-from pydantic import SecretStr, model_validator
+from pydantic import SecretStr, ValidationError, model_validator
 
 from src.utils.pydantic_utils import FrozenBaseSettings, SettingsConfigDict
 
@@ -13,14 +13,14 @@ class AzureOpenaiSettings(FrozenBaseSettings):
         frozen=False,  # For postprocessing parse_settings_from_target_uris
     )
 
-    chat_api_key: SecretStr = SecretStr("")
+    chat_api_key: SecretStr
     chat_target_uri: str = ""
     chat_endpoint: str = ""
     chat_deployment: str = ""
     chat_api_version: str = ""
     temperature: float = 0
 
-    embedding_api_key: SecretStr = SecretStr("")
+    embedding_api_key: SecretStr
     embedding_target_uri: str = ""
     embedding_endpoint: str = ""
     embedding_deployment: str = ""
@@ -59,6 +59,17 @@ class AzureOpenaiSettings(FrozenBaseSettings):
                     self.embedding_deployment = deployment
                 if not self.embedding_api_version:
                     self.embedding_api_version = api_version
+
+        # One of target_uri or endpoint, ... must be specified
+        missing_fields: list[str] = []
+        for model_type in ("chat", "embedding"):
+            for setting_type in ("endpoint", "deployment", "api_version"):
+                required_field = f"{model_type}_{setting_type}"
+                if not getattr(self, required_field):
+                    missing_fields.append(required_field)
+        if missing_fields:
+            raise ValidationError(f"Potential {missing_fields=}")
+
         return self
 
     def _after_init(self):

@@ -73,4 +73,4 @@ class AzureAiSearch(AzureSearch):
             **kwargs,
         )
         search_results = _results_to_documents(search_item_paged)
-        return search_results
+        return [doc for doc, _score in search_results]

@@ -4,6 +4,8 @@ from typing import Literal, Optional
 from pydantic import BaseModel, ConfigDict
 from pydantic.alias_generators import to_camel
 
+from src.utils.python_utils import get_traceback_text
+
 
 class BasePayloadModel(BaseModel):
     model_config = ConfigDict(
@@ -26,6 +28,14 @@ class BaseResponsePayload(BasePayloadModel):
     code: int
     message: ResponseMessageType
     detailed_message: Optional[str] = None
+
+
+def get_500_response_payload(exception: Exception):
+    return BaseResponsePayload(
+        code=500,
+        message=ResponseMessage.FAILED,
+        detailed_message=f"{repr(exception)} {get_traceback_text()}",
+    )
 
 
 class ModelWithInvitationCode(BasePayloadModel):

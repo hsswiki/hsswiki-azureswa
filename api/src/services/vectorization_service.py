@@ -3,14 +3,14 @@ import logging
 from langchain_community.document_loaders import TextLoader
 from langchain_text_splitters import CharacterTextSplitter
 
-from src.factories.embedding_model_factories.embedding_model_abstract_factory import (
+from src.components.embedding_models.factories.embedding_model_abstract_factory import (
     EmbeddingModelAbstractFactory,
 )
-from src.factories.factory_utils import (
+from src.components.factory_helper import (
     FactoryType,
     get_factory_from_settings,
 )
-from src.factories.vector_store_factories.vector_store_abstract_factory import (
+from src.components.vector_stores.factories.vector_store_abstract_factory import (
     VectorStoreAbstractFactory,
 )
 from src.settings.app_settings import app_settings
@@ -34,8 +34,6 @@ class VectorizationServiceFacade:
             get_factory_from_settings(FactoryType.VECTOR_STORE)
         )
         self.vector_store = VectorStoreFactory().create()
-
-        # raise Exception(f"{self.embedding_model=} {self.vector_store=}")
 
     def vectorize(self):
         raw_documents = TextLoader(self.input_file_path).load()
