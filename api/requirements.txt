@@ -2,7 +2,7 @@
 
 # SWA free tier limits the zipped api and app artifacts to be under 104857600
 # bytes = 104MB.
-#
+
 # All packages are at the latest version available from SWA as of 2025-04-03
 
 azure-functions==1.22.1
@@ -16,8 +16,15 @@ pydantic-settings==2.8.1
 pydantic==2.10.6
 
 # Development dependencies
-# chromadb
-# sentence-transformers==4.0.1
+# langchain-chroma==0.2.3
+# chromadb==1.0.7
+
+# langchain-huggingface==0.1.2
+# ipykernel==6.29.5
+
+## sentence-transformers==4.1.0
+## pip install hf_xet
+## pip install huggingface_hub[hf_xet]
 
 # Testing dependencies
 # pytest==8.3.5

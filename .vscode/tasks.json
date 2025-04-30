@@ -8,6 +8,11 @@
       // Frontend will run on 4280 and backend on 7071
     },
     {
+      "label": "npm install",
+      "type": "shell",
+      "command": "npm install --legacy-peer-deps",
+    },
+    {
       "label": "npm start",
       "type": "npm",
       "script": "start",
