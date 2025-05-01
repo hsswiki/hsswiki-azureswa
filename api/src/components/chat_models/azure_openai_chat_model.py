@@ -17,6 +17,7 @@ class AzureOpenaiChatModel(AzureChatOpenAI):
             azure_deployment=settings.chat_deployment,
             api_version=settings.chat_api_version,
             temperature=settings.temperature,
+            max_tokens=settings.max_tokens,
             **kwargs,
         )
 
@@ -53,10 +54,8 @@ class TestAzureOpenaiChatModel(unittest.TestCase):
 
         logging.basicConfig(level=logging.DEBUG)
 
-        azure_openai_settings = AzureOpenaiSettings()
-        chat_model = AzureOpenaiChatModel.from_settings(
-            azure_openai_settings, max_tokens=1
-        )
+        azure_openai_settings = AzureOpenaiSettings(max_tokens=1)  # type: ignore
+        chat_model = AzureOpenaiChatModel.from_settings(azure_openai_settings)
 
         if self.DO_MOCK_AND_SAVE_COST:
             print("\nMocking enabled")

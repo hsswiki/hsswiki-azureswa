@@ -1,5 +1,5 @@
 {
-    // Public REST Client settings
+    // Public REST Client
     "rest-client.environmentVariables": {
         "local": {
             "host": "http://localhost:7071/api"
@@ -13,7 +13,18 @@
         // },
     },
     //
-    // Editor settings
+    // Testing (Activity Bar)
+    "python.testing.cwd": "${workspaceFolder}/api",
+    // Working directory as parent folder since tests import from src
+    "python.testing.pytestArgs": [
+        "tests",
+        "-vs", // Verbose and show logs
+        "--log-cli-level=INFO"
+    ],
+    "python.testing.pytestEnabled": true,
+    "python.testing.unittestEnabled": false,
+    //
+    // Editor
     "diffEditor.ignoreTrimWhitespace": false,
     "editor.formatOnSave": true,
     "editor.formatOnSaveMode": "file",

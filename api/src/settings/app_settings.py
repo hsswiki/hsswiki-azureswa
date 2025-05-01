@@ -25,31 +25,12 @@ class VectorStoreSchemaName(str, Enum):
     RESUME = "Resume"
 
 
-class CompletionModels:
-    AZURE_GPT_4O_MINI = "azure.gpt-4o-mini"
-    AZURE_O1 = "azure.o1"
-
-
-COMPLETION_MODEL_CONFIG = {
-    CompletionModels.AZURE_GPT_4O_MINI: {
-        "max_input_tokens": 128000,
-        "max_output_tokens": 16384,
-        "temperature": 0,
-    },
-    CompletionModels.AZURE_O1: {
-        "max_input_tokens": 128000,
-        "max_output_tokens": 32768,
-        "temperature": 1,  # Must be 1 for o1. Otherwise will raise error.
-    },
-}
-
-
 class AppSettings(FrozenBaseSettings):
     invitation_codes_csv: str = ""
 
     input_file_path: str = "./data/input/wiki.md"
 
-    # Factory settings
+    # Factories
     chat_model: ChatModelClass | str = ChatModelClass.MOCK_CHAT_MODEL
     embedding_model: EmbeddingModelClass | str = (
         EmbeddingModelClass.MOCK_EMBEDDING_MODEL
@@ -61,7 +42,7 @@ class AppSettings(FrozenBaseSettings):
     )
     # Like Collection of ChromaDB or Index of Azure AI Search
 
-    # Text Splitter settings
+    # Text Splitter
     chunk_size: int = 1000
     chunk_overlap: int = 100
 
@@ -71,24 +52,11 @@ class AppSettings(FrozenBaseSettings):
 
     number_of_chunks: int = 4
 
-    # embedding_model_name: str = (
-    #     EmbeddingModelClass.AZURE_TEXT_EMBEDDING_3_SMALL
-    # )
-    # completion_model_name: str = CompletionModels.AZURE_GPT_4O_MINI
-    # max_input_tokens: int = COMPLETION_MODEL_CONFIG[completion_model_name][
-    #     "max_input_tokens"
-    # ]
-    # max_output_tokens: int = COMPLETION_MODEL_CONFIG[completion_model_name][
-    #     "max_output_tokens"
-    # ]
-    # temperature: int = COMPLETION_MODEL_CONFIG[completion_model_name][
-    #     "temperature"
-    # ]
-
     def _after_init(self):
         logging.info(f"{self.chat_model=}")
         logging.info(f"{self.embedding_model=}")
         logging.info(f"{self.vector_store=}")
+        logging.info(f"{self.vector_store_schema_name=}")
 
     def get_invitation_codes(self) -> list[str]:
         return self.invitation_codes_csv.split(",")

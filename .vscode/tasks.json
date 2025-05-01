@@ -47,38 +47,6 @@
       // Mock chat and embedding models
       "command": ". .venv/bin/activate && do_debug=True chat_model=MockChatModel embedding_model=MockEmbeddingModel vector_store=AzureAiSearch func host start --language-worker -- '-m debugpy --listen 127.0.0.1:9091' --verbose",
       "problemMatcher": "$func-python-watch",
-      // "problemMatcher": {
-      //   "owner": "python",
-      //   "pattern": [
-      //     {
-      //       "regexp": "\\[.*\\] Worker process started and initialized\\.",
-      //       "file": 1,
-      //       "location": 2,
-      //       "message": 3
-      //     },
-      //     {
-      //       "regexp": "\\[.*\\] KeyboardInterrupt",
-      //       "file": 1,
-      //       "location": 2,
-      //       "message": 3
-      //     }
-      //   ],
-      //   "background": {
-      //     "activeOnStart": true,
-      //     "beginsPattern": "\\[.*\\] Worker process started and initialized\\.",
-      //     "endsPattern": "\\[.*\\] KeyboardInterrupt"
-      //   }
-      // },
-      //       Found Python version 3.11.11 (python3).
-      // Azure Functions Core Tools
-      // Core Tools Version:       4.0.6821 Commit hash: N/A +c09a2033faa7ecf51b3773308283af0ca9a99f83 (64-bit)
-      // Function Runtime Version: 4.1036.1.23224
-      // [2025-04-22T12:43:52.535Z] Worker process started and initialized.
-      // [2025-04-22T12:50:46.614Z]     return runner.run(main)
-      // [2025-04-22T12:50:46.614Z]            ^^^^^^^^^^^^^^^^
-      // [2025-04-22T12:50:46.614Z]   File "/usr/local/lib/python3.11/asyncio/runners.py", line 123, in run
-      // [2025-04-22T12:50:46.615Z]     raise KeyboardInterrupt()
-      // [2025-04-22T12:50:46.615Z] KeyboardInterrupt
       "isBackground": true, // If not, debugger will keep waiting.
       "options": {
         "cwd": "${workspaceFolder}/api"

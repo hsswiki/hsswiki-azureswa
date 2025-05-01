@@ -5,6 +5,7 @@ from src.components.factory_helper import (
     FactoryType,
     get_factory_from_settings,
 )
+from src.controllers.payload_models import ChatRequestPayload
 from src.services.invitation import verify_invitation_code
 from src.settings.app_settings import app_settings
 
@@ -18,7 +19,6 @@ if TYPE_CHECKING:
     from src.components.vector_stores.factories.vector_store_abstract_factory import (
         VectorStoreAbstractFactory,
     )
-from src.controllers.payload_models import ChatRequestPayload
 
 
 class ChatServiceFacade:

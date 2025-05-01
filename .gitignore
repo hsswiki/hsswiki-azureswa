@@ -1,6 +1,7 @@
 logs
 ___*
 __pycache__
+.pytest_cache
 
 # Azurite artifacts
 __blobstorage__
