@@ -2,7 +2,7 @@ import React from "react";
 import "./Greeting.css";
 import SocialMedia from "../../components/socialMedia/SocialMedia";
 import Button from "../../components/button/Button";
-import { greeting } from "../../portfolio";
+// import { greeting } from "../../portfolio";
 import { Fade } from "react-reveal";
 import FeelingProud from "./FeelingProud";
 import { useTranslation } from "react-i18next";
@@ -17,20 +17,19 @@ export default function Greeting(props) {
           <div className="greeting-text-div">
             <div>
               <h1 className="greeting-text" style={{ color: theme.text }}>
-                {t("greeting.title")}
+                {t("home.greeting.title")}
                 {/* {greeting.title} */}
               </h1>
-              {t("greeting.nickname") && (
+              {t("home.greeting.nickname") && (
                 <h2 className="greeting-nickname" style={{ color: theme.text }}>
-                  {/* ( {t("greeting.nickname")} ) */}
-                  {t("greeting.nickname")}
+                  {t("home.greeting.nickname")}
                 </h2>
               )}
               <p
                 className="greeting-text-p subTitle"
                 style={{ color: theme.secondaryText }}
               >
-                {t("greeting.subTitle")}
+                {t("home.greeting.subTitle")}
               </p>
               <SocialMedia theme={theme} />
               <div className="portfolio-repo-btn-div">
@@ -45,7 +44,7 @@ export default function Greeting(props) {
                   newLanguage="en"
                   text="English"
                   newTab={false}
-                  href={greeting.portfolio_repository}
+                  href=""
                   theme={theme}
                   className="portfolio-repo-btn"
                 />
@@ -53,7 +52,7 @@ export default function Greeting(props) {
                   newLanguage="zh"
                   text="中文"
                   newTab={false}
-                  href={greeting.portfolio_repository}
+                  href=""
                   theme={theme}
                   className="portfolio-repo-btn"
                 />
@@ -61,7 +60,7 @@ export default function Greeting(props) {
                   newLanguage="ja"
                   text="日本語"
                   newTab={true}
-                  href={greeting.portfolio_repository}
+                  href=""
                   theme={theme}
                   className="portfolio-repo-btn"
                 />

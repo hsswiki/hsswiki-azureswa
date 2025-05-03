@@ -2,9 +2,9 @@ import React from "react";
 import "./Header.css";
 import { Fade } from "react-reveal";
 import { NavLink, Link } from "react-router-dom";
-import { greeting, settings } from "../../portfolio.js";
-import SeoHeader from "../seoHeader/SeoHeader";
-// import { useTranslation } from "react-i18next";
+import { settings } from "../../portfolio.js";
+// import SeoHeader from "../seoHeader/SeoHeader";
+import { useTranslation } from "react-i18next";
 
 const onMouseEnter = (event, color) => {
   const el = event.target;
@@ -17,29 +17,20 @@ const onMouseOut = (event) => {
 };
 
 function Header(props) {
-  // const { t, i18n } = useTranslation();
-  // const [language, setLanguage] = useState("en"); // Default language is "en"
+  const { t } = useTranslation();
 
-  // const changeLanguage = (lang) => {
-  //   i18n.changeLanguage(lang); // Change the language in i18next
-  //   setLanguage(lang); // Update the state
-  // };
-
-  // const theme = this.props.theme;
   const theme = props.theme;
   const link = settings.isSplash ? "/splash" : "home";
 
-  // return <h2>{t('switchLang')}</h2>;
-
   return (
     <Fade top duration={1000} distance="20px">
-      <SeoHeader />
+      {/* <SeoHeader /> */}
       <div>
         <header className="header">
           <NavLink to={link} tag={Link} className="logo">
             <span style={{ color: theme.text }}> &lt;</span>
             <span className="logo-name" style={{ color: theme.text }}>
-              {greeting.logo_name}
+              {settings.logoName}
             </span>
             <span style={{ color: theme.text }}>/&gt;</span>
           </NavLink>
@@ -57,7 +48,7 @@ function Header(props) {
                 onMouseEnter={(event) => onMouseEnter(event, theme.highlight)}
                 onMouseOut={(event) => onMouseOut(event)}
               >
-                Home
+                {t("header.home")}
               </NavLink>
             </li>
             <li>
@@ -69,7 +60,7 @@ function Header(props) {
                 onMouseEnter={(event) => onMouseEnter(event, theme.highlight)}
                 onMouseOut={(event) => onMouseOut(event)}
               >
-                Education
+                {t("header.education")}
               </NavLink>
             </li>
             <li>
@@ -81,7 +72,7 @@ function Header(props) {
                 onMouseEnter={(event) => onMouseEnter(event, theme.highlight)}
                 onMouseOut={(event) => onMouseOut(event)}
               >
-                Experience
+                {t("header.experience")}
               </NavLink>
             </li>
             <li>
@@ -93,7 +84,7 @@ function Header(props) {
                 onMouseEnter={(event) => onMouseEnter(event, theme.highlight)}
                 onMouseOut={(event) => onMouseOut(event)}
               >
-                Projects
+                {t("header.projects")}
               </NavLink>
             </li>
             <li>
@@ -105,7 +96,7 @@ function Header(props) {
                 onMouseEnter={(event) => onMouseEnter(event, theme.highlight)}
                 onMouseOut={(event) => onMouseOut(event)}
               >
-                Open Source
+                {t("header.openSource")}
               </NavLink>
             </li>
             <li>
@@ -117,21 +108,9 @@ function Header(props) {
                 onMouseEnter={(event) => onMouseEnter(event, theme.highlight)}
                 onMouseOut={(event) => onMouseOut(event)}
               >
-                Contact Me
+                {t("header.contactMe")}
               </NavLink>
             </li>
-            {/* <li>
-              <button
-                className="language-switcher"
-                onClick={(e) => {
-                  const newLang = language === "en" ? "zh" : "en";
-                  changeLanguage(newLang);
-                  console.log("Language changed to:", newLang);
-                }}
-              >
-                {t("switchLang")}
-              </button>
-            </li> */}
           </ul>
         </header>
       </div>

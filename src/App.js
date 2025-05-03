@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-// import React from "react";
 import "./App.css";
 import Main from "./containers/Main";
 import { ThemeProvider } from "styled-components";
 import { chosenTheme } from "./theme";
 import { GlobalStyles } from "./global";
 
-// "popup-chat-react": "^1.0.5",
 import { Launcher } from "popup-chat-react"; // Import the chat launcher
 
 function ChatPopup() {

@@ -1,38 +1,184 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 // Doc: https://react.i18next.com/getting-started#basic-sample
+// https://github.com/i18next/i18next-browser-languageDetector
+// Query param: `/?lng=en`
 import detector from "i18next-browser-languagedetector";
 
 const resources = {
   en: {
     translation: {
-      switchLang: "switchLang",
-      greeting: {
-        title: "Shen Han",
-        logo_name: "AshutoshHathidara",
-        nickname: "Cloud Architect",
-        subTitle:
-          "A passionate individual who always thrives to work on end to end products which develop sustainable and scalable social and technical systems to create impact.",
-        resumeLink:
-          "https://drive.google.com/file/d/1bXRknv_h-XI_3CQ3SGPteGODtvEb7YvI/view?usp=sharing",
-        portfolio_repository: "https://github.com/ashutosh1919/masterPortfolio",
-        githubProfile: "https://github.com/ashutosh1919",
+      header: {
+        home: "Home",
+        education: "Education",
+        experience: "Experience",
+        projects: "Projects",
+        openSource: "Open Source",
+        contactMe: "Contact Me",
       },
+      home: {
+        greeting: {
+          title: "HAN Shen",
+          nickname: "System Architect",
+          subTitle:
+            "A passionate engineer focusing on end-to-end system design and development to build sustainable, scalable technical solutions that create social value. Working languages include English, Chinese, and Japanese.",
+        },
+        skills: {
+          whatIDo: "What I Do?",
+
+          aiSkillTitle: "AI & Data Science",
+          aiSkill1:
+            "Building end-to-end LLM & RAG solutions for document analysis and conversational AI",
+          aiSkill2:
+            "Integrating NLP, OCR, and predictive modeling into cloud data workflows",
+          aiSkill3:
+            "Developing & optimizing scalable ML models for classification, regression, and quantitative analysis",
+
+          cloudSkillTitle: "Cloud Solution Architecture",
+          cloudSkill1:
+            "Architecting scalable, resilient cloud solutions on multiple cloud platforms",
+          cloudSkill2:
+            "Designing event-driven & layered cloud architectures for data processing",
+          cloudSkill3:
+            "Automating cloud infrastructure & deployment with IaC and CI/CD",
+
+          fullStackSkillTitle: "Full Stack Development",
+          fullStackSkill1:
+            "Leading application development, system architecture, and API design",
+          fullStackSkill2:
+            "Developing cloud-based microservices, integrating with SQL & NoSQL databases",
+          fullStackSkill3:
+            "Applying design patterns for modular, scalable, and maintainable systems",
+
+          dataSkillTitle: "Big Data & Data Engineering",
+          dataSkill1:
+            "Designing & implementing scalable ETL/ELT pipelines for large-scale data processing",
+          dataSkill2:
+            "Developing cloud data warehousing solutions, including modeling and optimization",
+          dataSkill3:
+            "Orchestrating data workflows, ensuring quality and stability",
+        },
+      },
+      // resumeLink:
+      //   "https://drive.google.com/file/d/1bXRknv_h-XI_3CQ3SGPteGODtvEb7YvI/view?usp=sharing",
+      // githubProfile: "https://github.com/ashutosh1919",
     },
   },
   zh: {
     translation: {
-      switchLang: "一个充满激情的人",
-      greeting: {
-        title: "韩 绅", // 韓紳
-        nickname: "云端架构师",
-        subTitle:
-          "一个充满激情的人，总是努力开发端到端的产品，以开发可持续和可扩展的社会和技术系统，从而产生影响。",
-        logo_name: "AshutoshHathidara",
-        resumeLink:
-          "https://drive.google.com/file/d/1bXRknv_h-XI_3CQ3SGPteGODtvEb7YvI/view?usp=sharing",
-        portfolio_repository: "https://github.com/ashutosh1919/masterPortfolio",
-        githubProfile: "https://github.com/ashutosh1919",
+      header: {
+        home: "网站主页",
+        education: "教育背景",
+        experience: "工作经验",
+        projects: "项目经历",
+        openSource: "开源贡献",
+        contactMe: "联系方式",
+      },
+      chatbot: {
+        title: "Shen's Digital Assistant",
+        askInvitation:
+          "Ask me anything about Shen! To continue our chat, may I have your invitation code please? Typically, it can be found on the resumes Shen sents out 😊",
+        invalidInvitation:
+          "The invitation code is invalid. Please reenter your invitation code or reach out to Shen for a new code. Thank you.",
+        validInvitation:
+          "Thank you. How may I assist you with my knowledge of Shen?",
+        thinking: "Let me think...",
+        responding: "The assistant is still responding",
+        takeLonger:
+          "(The assistant is still responding. It takes longer than usual. Thank you for your patience 😊)",
+        error: "Network error. Please try again later.",
+      },
+      home: {
+        greeting: {
+          title: "韩 绅",
+          nickname: "系统架构师",
+          subTitle:
+            "专注端到端系统设计与研发，致力于构建可持续、可扩展的技术解决方案，并创造社会价值。工作语言包含英、中、日三语。",
+        },
+        skills: {
+          whatIDo: "技能领域",
+
+          aiSkillTitle: "人工智能与数据科学",
+          aiSkill1:
+            "构建端到端的大语言模型(LLM)和RAG解决方案，用于文档智能处理与会话式AI应用",
+          aiSkill2:
+            "将自然语言处理(NLP)、OCR及预测建模等AI能力集成至云端数据工作流",
+          aiSkill3:
+            "开发并优化面向分类、回归及复杂定量分析场景的可扩展机器学习模型",
+
+          cloudSkillTitle: "云解决方案架构",
+          cloudSkill1: "在多云环境下设计高可用、高弹性、可扩展的云端解决方案",
+          cloudSkill2: "设计基于事件驱动和分层原则的云架构，实现高效数据处理",
+          cloudSkill3: "通过IaC和CI/CD实现云基础设施自动化管理与应用部署",
+
+          fullStackSkillTitle: "全栈开发",
+          fullStackSkill1: "负责应用程序架构规划、系统设计和API接口定义与实现",
+          fullStackSkill2:
+            "开发云端微服务，并与各类SQL和NoSQL数据库进行高效集成",
+          fullStackSkill3:
+            "运用软件设计模式构建模块化且易于扩展和长期维护的系统",
+
+          dataSkillTitle: "大数据与数据工程",
+          dataSkill1:
+            "设计和构建可扩展的ETL/ELT数据管道，支持大规模数据处理与分析",
+          dataSkill2: "开发云原生数据仓库解决方案，涵盖数据建模和性能优化",
+          dataSkill3: "编排复杂数据工作流，确保数据质量、一致性与系统稳定性",
+        },
+      },
+    },
+  },
+  ja: {
+    translation: {
+      header: {
+        home: "ホーム",
+        education: "学歴情報",
+        experience: "職務経歴",
+        projects: "プロジェクト",
+        openSource: "オープンソース",
+        contactMe: "お問い合わせ",
+      },
+      home: {
+        greeting: {
+          title: "韓 紳",
+          nickname: "システムアーキテクト",
+          subTitle:
+            "エンドツーエンドのシステム設計・開発に注力し、持続可能かつスケーラブルな技術ソリューションを通じて社会価値の創造を目指しています。業務使用言語：英語、中国語、日本語。",
+        },
+        skills: {
+          whatIDo: "スキルセット",
+
+          aiSkillTitle: "AI・データサイエンス",
+          aiSkill1:
+            "文書分析や対話型AI向けに、エンドツーエンドのLLM・RAGソリューションを構築します",
+          aiSkill2:
+            "NLP、OCR、予測モデリングなどのAI機能をクラウドデータワークフローへ統合",
+          aiSkill3:
+            "分類、回帰、定量分析タスクに対応する、スケーラブルな機械学習モデルを開発・最適化",
+
+          cloudSkillTitle: "クラウドソリューションアーキテクチャ",
+          cloudSkill1:
+            "複数クラウドプラットフォーム上で、スケーラブルかつレジリエントなクラウドソリューションを設計",
+          cloudSkill2:
+            "データ処理効率化のため、イベント駆動型および多層クラウドアーキテクチャを設計",
+          cloudSkill3:
+            "IaC（Infrastructure as Code）とCI/CDを活用し、クラウドインフラとデプロイを自動化",
+
+          fullStackSkillTitle: "フルスタック開発",
+          fullStackSkill1:
+            "アプリケーション開発、システムアーキテクチャ、API設計を主導",
+          fullStackSkill2:
+            "マイクロサービスを開発し、SQL/NoSQLデータベースと連携",
+          fullStackSkill3:
+            "設計パターンを適用し、モジュール性・スケーラビリティ・保守性の高いシステムを構築",
+
+          dataSkillTitle: "ビッグデータ・データエンジニアリング",
+          dataSkill1:
+            "大規模データ処理向けに、スケーラブルなETL/ELTパイプラインを設計・実装",
+          dataSkill2:
+            "データモデリングや最適化を含む、クラウドデータウェアハウジングソリューションを開発",
+          dataSkill3:
+            "データワークフローのオーケストレーションにより、品質と安定性を確保",
+        },
       },
     },
   },
@@ -56,27 +202,29 @@ i18n
 const settings = {
   // isSplash: true, // Change this to false if you don't want Splash screen.
   isSplash: false, // Change this to false if you don't want Splash screen.
+  logoName: "HanShen",
+  lastUpdatedDate: "May 3, 2025",
 };
 
 //SEO Related settings
 const seo = {
-  title: "Ashutosh's Portfolio",
+  title: "HS's Wiki", // Website title
   description:
     "A passionate individual who always thrives to work on end to end products which develop sustainable and scalable social and technical systems to create impact.",
   og: {
-    title: "Ashutosh Hathidara Portfolio",
+    title: "HS's Wiki",
     type: "website",
-    url: "http://ashutoshhathidara.com/",
+    url: "http://hss.wiki/",
   },
 };
 
 //Home Page
 const greeting = {
-  title: "Ashutosh Hathidara",
-  logo_name: "AshutoshHathidara",
-  nickname: "layman_brother",
-  subTitle:
-    "A passionate individual who always thrives to work on end to end products which develop sustainable and scalable social and technical systems to create impact.",
+  // title: "Ashutosh Hathidara",
+  // logo_name: "HanShen",
+  // nickname: "layman_brother",
+  // subTitle:
+  // "A passionate individual who always thrives to work on end to end products which develop sustainable and scalable social and technical systems to create impact.",
   resumeLink:
     "https://drive.google.com/file/d/1bXRknv_h-XI_3CQ3SGPteGODtvEb7YvI/view?usp=sharing",
   portfolio_repository: "https://github.com/ashutosh1919/masterPortfolio",
@@ -84,134 +232,230 @@ const greeting = {
 };
 
 const socialMediaLinks = [
-  /* Your Social Media Link */
-  // github: "https://github.com/ashutosh1919",
-  // linkedin: "https://www.linkedin.com/in/ashutosh-hathidara-88710b138/",
-  // gmail: "ashutoshhathidara98@gmail.com",
-  // gitlab: "https://gitlab.com/ashutoshhathidara98",
-  // facebook: "https://www.facebook.com/laymanbrother.19/",
-  // twitter: "https://twitter.com/ashutosh_1919",
-  // instagram: "https://www.instagram.com/layman_brother/"
-
   {
     name: "Github",
-    link: "https://github.com/ashutosh1919",
+    link: "https://github.com/hsswiki",
     fontAwesomeIcon: "fa-github", // Reference https://fontawesome.com/icons/github?style=brands
     backgroundColor: "#181717", // Reference https://simpleicons.org/?q=github
   },
   {
     name: "LinkedIn",
-    link: "https://www.linkedin.com/in/ashutosh1919/",
+    link: "https://www.linkedin.com/in/shen-h/",
     fontAwesomeIcon: "fa-linkedin-in", // Reference https://fontawesome.com/icons/linkedin-in?style=brands
     backgroundColor: "#0077B5", // Reference https://simpleicons.org/?q=linkedin
   },
-  {
-    name: "YouTube",
-    link: "https://youtube.com/c/DevSense19",
-    fontAwesomeIcon: "fa-youtube", // Reference https://fontawesome.com/icons/youtube?style=brands
-    backgroundColor: "#FF0000", // Reference https://simpleicons.org/?q=youtube
-  },
-  {
-    name: "Gmail",
-    link: "mailto:ashutoshhathidara98@gmail.com",
-    fontAwesomeIcon: "fa-google", // Reference https://fontawesome.com/icons/google?style=brands
-    backgroundColor: "#D14836", // Reference https://simpleicons.org/?q=gmail
-  },
-  {
-    name: "X-Twitter",
-    link: "https://twitter.com/ashutosh_1919",
-    fontAwesomeIcon: "fa-x-twitter", // Reference https://fontawesome.com/icons/x-twitter?f=brands&s=solid
-    backgroundColor: "#000000", // Reference https://simpleicons.org/?q=x
-  },
-  {
-    name: "Facebook",
-    link: "https://www.facebook.com/laymanbrother.19/",
-    fontAwesomeIcon: "fa-facebook-f", // Reference https://fontawesome.com/icons/facebook-f?style=brands
-    backgroundColor: "#1877F2", // Reference https://simpleicons.org/?q=facebook
-  },
+  // {
+  //   name: "YouTube",
+  //   link: "https://youtube.com/c/DevSense19",
+  //   fontAwesomeIcon: "fa-youtube", // Reference https://fontawesome.com/icons/youtube?style=brands
+  //   backgroundColor: "#FF0000", // Reference https://simpleicons.org/?q=youtube
+  // },
+  // {
+  //   name: "Gmail",
+  //   link: "mailto:ashutoshhathidara98@gmail.com",
+  //   fontAwesomeIcon: "fa-google", // Reference https://fontawesome.com/icons/google?style=brands
+  //   backgroundColor: "#D14836", // Reference https://simpleicons.org/?q=gmail
+  // },
   {
     name: "Instagram",
-    link: "https://www.instagram.com/layman_brother/",
+    link: "https://www.instagram.com/hss.wiki/",
     fontAwesomeIcon: "fa-instagram", // Reference https://fontawesome.com/icons/instagram?style=brands
     backgroundColor: "#E4405F", // Reference https://simpleicons.org/?q=instagram
   },
+  {
+    name: "X-Twitter",
+    link: "https://x.com/hsswiki",
+    fontAwesomeIcon: "fa-x-twitter", // Reference https://fontawesome.com/icons/x-twitter?f=brands&s=solid
+    backgroundColor: "#000000", // Reference https://simpleicons.org/?q=x
+  },
+  // {
+  //   name: "Facebook",
+  //   link: "https://www.facebook.com/laymanbrother.19/",
+  //   fontAwesomeIcon: "fa-facebook-f", // Reference https://fontawesome.com/icons/facebook-f?style=brands
+  //   backgroundColor: "#1877F2", // Reference https://simpleicons.org/?q=facebook
+  // },
 ];
 
+// Ref: https://icon-sets.iconify.design/
+// Ref: https://undraw.co/
 const skills = {
   data: [
     {
-      title: "Data Science & AI",
+      title: "aiSkillTitle",
       fileName: "DataScienceImg",
-      skills: [
-        "⚡ Developing highly scalable production ready models for various deeplearning and statistical use cases",
-        "⚡ Experience of working with Computer Vision and NLP projects",
-        "⚡ Complex quantitative modelling for dynamic forecasting and time series analysis",
-      ],
+      // skills: [
+      //   "⚡ Building end-to-end LLM & RAG solutions for document analysis and conversational AI",
+      //   "⚡ Integrating NLP, OCR, and predictive modeling into cloud data workflows",
+      //   "⚡ Developing & optimizing scalable ML models for classification, regression & quantitative analysis",
+      // ],
+      skills: ["aiSkill1", "aiSkill2", "aiSkill3"],
       softwareSkills: [
         {
-          skillName: "Tensorflow",
-          fontAwesomeClassname: "logos-tensorflow",
-          style: {
-            backgroundColor: "transparent",
-          },
-        },
-        {
-          skillName: "Keras",
-          fontAwesomeClassname: "simple-icons:keras",
-          style: {
-            backgroundColor: "white",
-            color: "#D00000",
-          },
-        },
-        {
-          skillName: "PyTorch",
-          fontAwesomeClassname: "logos-pytorch",
-          style: {
-            backgroundColor: "transparent",
-          },
-        },
-        {
           skillName: "Python",
-          fontAwesomeClassname: "ion-logo-python",
+          fontAwesomeClassname: "logos:python",
+        },
+        {
+          skillName: "Azure OpenAI Service",
+          imageSrc: "azure_openai.svg",
+        },
+        {
+          skillName: "Azure AI Search",
+          imageSrc: "azure_ai_search.svg",
+        },
+        {
+          skillName: "Amazon Sagemaker",
+          imageSrc: "amazon_sagemaker.svg",
+        },
+        {
+          skillName: "Amazon Bedrock",
+          imageSrc: "amazon_bedrock.svg",
+        },
+        {
+          skillName: "LangChain",
+          fontAwesomeClassname: "simple-icons:langchain",
+        },
+        {
+          skillName: "PySpark",
+          fontAwesomeClassname: "devicon:apachespark-wordmark",
+        },
+        {
+          skillName: "scikit-learn",
+          fontAwesomeClassname: "devicon:scikitlearn",
+        },
+        {
+          skillName: "Pandas",
+          fontAwesomeClassname: "devicon:pandas",
+        },
+        {
+          skillName: "NumPy",
+          fontAwesomeClassname: "devicon:numpy",
+        },
+        {
+          skillName: "Chroma",
+          fontAwesomeClassname: "logos:chroma",
+        },
+        // {
+        //   skillName: "Tensorflow",
+        //   fontAwesomeClassname: "logos-tensorflow",
+        //   style: {
+        //     backgroundColor: "transparent",
+        //   },
+        // },
+        // {
+        //   skillName: "Keras",
+        //   fontAwesomeClassname: "simple-icons:keras",
+        //   style: {
+        //     backgroundColor: "white",
+        //     color: "#D00000",
+        //   },
+        // },
+        // {
+        //   skillName: "PyTorch",
+        //   fontAwesomeClassname: "logos-pytorch",
+        //   style: {
+        //     backgroundColor: "transparent",
+        //   },
+        // },
+        // {
+        //   skillName: "Deeplearning",
+        //   imageSrc: "deeplearning_ai_logo.png",
+        // },
+      ],
+    },
+    {
+      title: "cloudSkillTitle",
+      fileName: "CloudInfraImg",
+      skills: ["cloudSkill1", "cloudSkill2", "cloudSkill3"],
+      softwareSkills: [
+        {
+          skillName: "AWS",
+          fontAwesomeClassname: "simple-icons:amazonaws",
           style: {
-            backgroundColor: "transparent",
-            color: "#3776AB",
+            color: "#FF9900",
           },
         },
         {
-          skillName: "Deeplearning",
-          imageSrc: "deeplearning_ai_logo.png",
+          skillName: "Azure",
+          fontAwesomeClassname: "logos:microsoft-azure",
+          style: {
+            color: "#0089D6",
+          },
+        },
+        {
+          skillName: "GCP",
+          fontAwesomeClassname: "simple-icons:googlecloud",
+          style: {
+            color: "#4285F4",
+          },
+        },
+        {
+          skillName: "Terraform",
+          fontAwesomeClassname: "logos:terraform-icon",
+        },
+        {
+          skillName: "Kubernetes",
+          fontAwesomeClassname: "simple-icons:kubernetes",
+          style: {
+            color: "#326CE5",
+          },
+        },
+        {
+          skillName: "Helm",
+          fontAwesomeClassname: "logos:helm",
+        },
+        {
+          skillName: "Docker",
+          fontAwesomeClassname: "simple-icons:docker",
+          style: {
+            color: "#1488C6",
+          },
+        },
+        {
+          skillName: "MongoDB",
+          fontAwesomeClassname: "simple-icons:mongodb",
+          style: {
+            color: "#47A248",
+          },
+        },
+        {
+          skillName: "PostgreSQL",
+          fontAwesomeClassname: "simple-icons:postgresql",
+          style: {
+            color: "#336791",
+          },
+        },
+        {
+          skillName: "Redis",
+          fontAwesomeClassname: "logos:redis",
         },
       ],
     },
     {
-      title: "Full Stack Development",
-      fileName: "FullStackImg",
-      skills: [
-        "⚡ Building responsive website front end using React-Redux",
-        "⚡ Developing mobile applications using Flutter, React Native and solo android apps using Kotlin",
-        "⚡ Creating application backend in Node, Express & Flask",
-      ],
+      title: "fullStackSkillTitle",
+      fileName: "DesignImg",
+      skills: ["fullStackSkill1", "fullStackSkill2", "fullStackSkill3"],
       softwareSkills: [
+        {
+          skillName: "Python",
+          fontAwesomeClassname: "logos:python",
+        },
+        {
+          skillName: "FastAPI",
+          fontAwesomeClassname: "logos:fastapi-icon",
+        },
+        {
+          skillName: "Django",
+          fontAwesomeClassname: "logos:django-icon",
+        },
+        {
+          skillName: "Flask",
+          fontAwesomeClassname: "logos:flask",
+        },
         {
           skillName: "HTML5",
           fontAwesomeClassname: "simple-icons:html5",
           style: {
             color: "#E34F26",
-          },
-        },
-        {
-          skillName: "CSS3",
-          fontAwesomeClassname: "fa-css3",
-          style: {
-            color: "#1572B6",
-          },
-        },
-        {
-          skillName: "Sass",
-          fontAwesomeClassname: "simple-icons:sass",
-          style: {
-            color: "#CC6699",
           },
         },
         {
@@ -222,6 +466,20 @@ const skills = {
             color: "#F7DF1E",
           },
         },
+        {
+          skillName: "CSS3",
+          fontAwesomeClassname: "fa-css3",
+          style: {
+            color: "#1572B6",
+          },
+        },
+        // {
+        //   skillName: "Sass",
+        //   fontAwesomeClassname: "simple-icons:sass",
+        //   style: {
+        //     color: "#CC6699",
+        //   },
+        // },
         {
           skillName: "ReactJS",
           fontAwesomeClassname: "simple-icons:react",
@@ -237,139 +495,65 @@ const skills = {
           },
         },
         {
-          skillName: "NPM",
-          fontAwesomeClassname: "simple-icons:npm",
-          style: {
-            color: "#CB3837",
-          },
+          skillName: "Linux",
+          fontAwesomeClassname: "devicon:linux",
         },
         {
-          skillName: "Yarn",
-          fontAwesomeClassname: "simple-icons:yarn",
-          style: {
-            color: "#2C8EBB",
-          },
+          skillName: "Git",
+          fontAwesomeClassname: "logos:git-icon",
         },
-        {
-          skillName: "Gatsby",
-          fontAwesomeClassname: "simple-icons:gatsby",
-          style: {
-            color: "#663399",
-          },
-        },
-        {
-          skillName: "Flutter",
-          fontAwesomeClassname: "simple-icons:flutter",
-          style: {
-            color: "#02569B",
-          },
-        },
+        // {
+        //   skillName: "NPM",
+        //   fontAwesomeClassname: "simple-icons:npm",
+        //   style: {
+        //     color: "#CB3837",
+        //   },
+        // },
+        // {
+        //   skillName: "Yarn",
+        //   fontAwesomeClassname: "simple-icons:yarn",
+        //   style: {
+        //     color: "#2C8EBB",
+        //   },
+        // },
       ],
     },
     {
-      title: "Cloud Infra-Architecture",
-      fileName: "CloudInfraImg",
-      skills: [
-        "⚡ Experience working on multiple cloud platforms",
-        "⚡ Hosting and maintaining websites on virtual machine instances along with integration of databases",
-        "⚡ Deploying deep learning models on cloud to use on mobile devices",
-        "⚡ Setting up streaming jobs from DB to Server or vice-versa on GCP and AWS",
-      ],
+      title: "dataSkillTitle",
+      fileName: "FullStackImg",
+      skills: ["dataSkill1", "dataSkill2", "dataSkill3"],
       softwareSkills: [
         {
-          skillName: "GCP",
-          fontAwesomeClassname: "simple-icons:googlecloud",
-          style: {
-            color: "#4285F4",
-          },
+          skillName: "PySpark",
+          fontAwesomeClassname: "devicon:apachespark-wordmark",
         },
         {
-          skillName: "AWS",
-          fontAwesomeClassname: "simple-icons:amazonaws",
-          style: {
-            color: "#FF9900",
-          },
+          skillName: "AWS EMR",
+          imageSrc: "aws_emr.svg",
         },
         {
-          skillName: "Azure",
-          fontAwesomeClassname: "simple-icons:microsoftazure",
-          style: {
-            color: "#0089D6",
-          },
+          skillName: "AWS Glue",
+          imageSrc: "aws_glue.svg",
         },
         {
-          skillName: "Firebase",
-          fontAwesomeClassname: "simple-icons:firebase",
-          style: {
-            color: "#FFCA28",
-          },
+          skillName: "AWS Redshift",
+          imageSrc: "aws_redshift.svg",
         },
         {
-          skillName: "PostgreSQL",
-          fontAwesomeClassname: "simple-icons:postgresql",
-          style: {
-            color: "#336791",
-          },
+          skillName: "Azure Data Factory",
+          imageSrc: "azure_data_factory.svg",
         },
         {
-          skillName: "MongoDB",
-          fontAwesomeClassname: "simple-icons:mongodb",
-          style: {
-            color: "#47A248",
-          },
+          skillName: "Azure Synapse Analytics",
+          imageSrc: "azure_synapse_analytics.svg",
         },
         {
-          skillName: "Docker",
-          fontAwesomeClassname: "simple-icons:docker",
-          style: {
-            color: "#1488C6",
-          },
+          skillName: "Databricks",
+          imageSrc: "databricks.svg",
         },
         {
-          skillName: "Kubernetes",
-          fontAwesomeClassname: "simple-icons:kubernetes",
-          style: {
-            color: "#326CE5",
-          },
-        },
-      ],
-    },
-    {
-      title: "UI/UX Design",
-      fileName: "DesignImg",
-      skills: [
-        "⚡ Designing highly attractive user interface for mobile and web applications",
-        "⚡ Customizing logo designs and building logos from scratch",
-        "⚡ Creating the flow of application functionalities to optimize user experience",
-      ],
-      softwareSkills: [
-        {
-          skillName: "Adobe XD",
-          fontAwesomeClassname: "simple-icons:adobexd",
-          style: {
-            color: "#FF2BC2",
-          },
-        },
-        {
-          skillName: "Figma",
-          fontAwesomeClassname: "simple-icons:figma",
-          style: {
-            color: "#F24E1E",
-          },
-        },
-        {
-          skillName: "Adobe Illustrator",
-          fontAwesomeClassname: "simple-icons:adobeillustrator",
-          style: {
-            color: "#FF7C00",
-          },
-        },
-        {
-          skillName: "Inkscape",
-          fontAwesomeClassname: "simple-icons:inkscape",
-          style: {
-            color: "#000000",
-          },
+          skillName: "Snowflake",
+          fontAwesomeClassname: "logos:snowflake-icon",
         },
       ],
     },
