@@ -314,7 +314,7 @@ i18n
 const settings = {
   // isSplash: true, // Change this to false if you don't want Splash screen.
   isSplash: false, // Change this to false if you don't want Splash screen.
-  logoName: "Han_Shen", // Word art logo on the upper left
+  logoName: "Han Shen", // Word art logo on the upper left
   // logoName: "HanShen",  // Word art logo on the upper left
   lastUpdatedDate: "May 3, 2025",
 };

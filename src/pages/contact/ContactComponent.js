@@ -8,7 +8,7 @@ import Button from "../../components/button/Button";
 import AddressImg from "./AddressImg";
 import { Fade } from "react-reveal";
 import "./ContactComponent.css";
-import { greeting, contactPageData } from "../../portfolio.js";
+import { contactPageData } from "../../portfolio.js";
 import { useTranslation } from "react-i18next";
 
 const contactSection = contactPageData.contactSection;

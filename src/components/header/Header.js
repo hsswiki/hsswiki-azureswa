@@ -87,7 +87,7 @@ function Header(props) {
                 {t("header.projects")}
               </NavLink>
             </li>
-            <li>
+            {/* <li>
               <NavLink
                 to="/opensource"
                 tag={Link}
@@ -98,7 +98,7 @@ function Header(props) {
               >
                 {t("header.openSource")}
               </NavLink>
-            </li>
+            </li> */}
             <li>
               <NavLink
                 to="/contact"

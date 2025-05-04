@@ -1,16 +1,17 @@
 import React from "react";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
-import OpensourceCharts from "../../containers/opensourceCharts/OpensourceCharts";
-import Organizations from "../../containers/organizations/Organizations";
-import PullRequests from "../../containers/pullRequests/PullRequests";
-import Issues from "../../containers/issues/Issues";
+// import OpensourceCharts from "../../containers/opensourceCharts/OpensourceCharts";
+// import Organizations from "../../containers/organizations/Organizations";
+// import PullRequests from "../../containers/pullRequests/PullRequests";
+// import Issues from "../../containers/issues/Issues";
 import TopButton from "../../components/topButton/TopButton";
 import "./Opensource.css";
 
 import { Fade } from "react-reveal";
-import EducationImg from "../education/EducationImg";
-import FeelingProud from "../../containers/greeting/FeelingProud";
+// import EducationImg from "../education/EducationImg";
+// import FeelingProud from "../../containers/greeting/FeelingProud";
+
 function Opensource(props) {
   return (
     <div className="opensource-main">
