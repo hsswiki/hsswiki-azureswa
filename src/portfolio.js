@@ -59,6 +59,44 @@ const resources = {
             "Orchestrating data workflows, ensuring quality and stability",
         },
       },
+      education: {
+        title: "Education",
+        subtitle: "Degrees and Certifications",
+        details:
+          "My graduate studies and professional certifications provided a strong foundation in core computer science principles and practical experience in key areas relevant to modern software development and data-intensive applications.",
+        degrees: {
+          title: "Degrees Received",
+          graduateDegreeTitle: "The University of Chicago",
+          graduateDegreeSubtitle: "Master of Science in Computer Science",
+          graduateDegreeDuration: "",
+          graduateDegreeSentence1:
+            "Relevant coursework included Machine Learning, Algorithms, Cloud Computing, Big Data Architectures, Databases, and Parallel Programming.",
+          graduateDegreeSentence2:
+            "Gained practical experience through capstone projects and tutoring in classes like data analysis and computational methods.",
+          graduateDegreeSentence3:
+            "Developed a strong theoretical foundation coupled with hands-on project experience in cutting-edge technical domains.",
+          undergraduateDegreeTitle: "Nankai University",
+          undergraduateDegreeSubtitle: "Dual Bachelor in Laws and Economics",
+          undergraduateDegreeDuration: "",
+          undergraduateDegreeSentence1:
+            "Completed foundational coursework relevant to technical and analytical fields, including Database Systems, Object-Oriented Programming, and Statistical Analysis.",
+          undergraduateDegreeSentence2:
+            "Recognized for academic excellence with university scholarships and gained international exposure studying abroad at UC Berkeley.",
+          undergraduateDegreeSentence3:
+            "Led award-winning student entrepreneurship projects, honing skills in project management and the execution of impactful initiatives.",
+        },
+        certificationsTitle: "Certifications",
+      },
+      openSource: {},
+      contact: {
+        contactMe: "Contact Me",
+        description:
+          "Interested in discussing potential roles or collaborations? Feel free to get in touch. I can help with AI/ML, LLM/RAG, Cloud Architecture, Data Engineering, and Full Stack Development. Let's connect!",
+        address: {
+          title: "Address",
+          subtitle: "West Nanjing Rd, Jing'an Dist, Shanghai, China 200040",
+        },
+      },
       // resumeLink:
       //   "https://drive.google.com/file/d/1bXRknv_h-XI_3CQ3SGPteGODtvEb7YvI/view?usp=sharing",
       // githubProfile: "https://github.com/ashutosh1919",
@@ -71,7 +109,7 @@ const resources = {
         education: "教育背景",
         experience: "工作经验",
         projects: "项目经历",
-        openSource: "开源贡献",
+        openSource: "开源网站",
         contactMe: "联系方式",
       },
       chatbot: {
@@ -123,6 +161,43 @@ const resources = {
             "设计和构建可扩展的ETL/ELT数据管道，支持大规模数据处理与分析",
           dataSkill2: "开发云原生数据仓库解决方案，涵盖数据建模和性能优化",
           dataSkill3: "编排复杂数据工作流，确保数据质量、一致性与系统稳定性",
+        },
+      },
+      education: {
+        title: "教育背景",
+        subtitle: "学位与认证",
+        details:
+          "研究生学习经历和专业认证为我在现代软件开发及数据密集型应用领域奠定了坚实的计算机科学理论基础，并积累了丰富的实践经验。",
+        degrees: {
+          title: "学位",
+          graduateDegreeTitle: "芝加哥大学",
+          graduateDegreeSubtitle: "计算机科学理学硕士",
+          graduateDegreeDuration: "",
+          graduateDegreeSentence1:
+            "系统修读机器学习、算法设计、云计算架构、大数据处理、数据库原理及并行计算等核心课程，构建了全面的技术知识体系。",
+          graduateDegreeSentence2:
+            "通过课程项目实践与助教工作，在数据分析与算法优化领域积累了深度研究经验，强化了理论转化能力。",
+          graduateDegreeSentence3:
+            "在前沿技术领域，通过理论学习与实际项目开发的结合，既夯实了技术底层逻辑，又提升了复杂问题的工程化解决能力。",
+          undergraduateDegreeTitle: "南开大学",
+          undergraduateDegreeSubtitle: "法学与经济学双学士",
+          undergraduateDegreeDuration: "",
+          undergraduateDegreeSentence1:
+            "完成数据库系统、面向对象程序设计、统计分析等技术与分析领域基础课程的学习，建立了跨学科知识储备。",
+          undergraduateDegreeSentence2:
+            "因优异学业表现获校级奖学金，并通过加州大学伯克利分校访学项目，拓宽了国际学术视野，深化了跨文化协作认知。",
+          undergraduateDegreeSentence3:
+            "作为核心负责人主导大学生创业项目并屡获表彰，在真实商业场景中锤炼了项目管理及资源协调的综合能力。",
+        },
+        certificationsTitle: "相关认证",
+      },
+      contact: {
+        contactMe: "联系方式",
+        description:
+          "如果您对潜在交流或合作机会感兴趣，欢迎随时与我联系。我专注于人工智能/机器学习、大语言模型/检索增强生成、云架构、数据工程及全栈开发领域。期待与您沟通！",
+        address: {
+          title: "地址",
+          subtitle: "上海市静安区南京西路 邮编200040",
         },
       },
     },
@@ -180,6 +255,43 @@ const resources = {
             "データワークフローのオーケストレーションにより、品質と安定性を確保",
         },
       },
+      education: {
+        title: "学歴情報",
+        subtitle: "学位および認定",
+        details:
+          "大学院での学習およびプロフェッショナル認定により、最新のソフトウェア開発およびデータ集約型アプリケーションに関連する主要分野において、計算機科学の強固な基盤と実践的な経験を習得しました。",
+        degrees: {
+          title: "取得学位",
+          graduateDegreeTitle: "シカゴ大学",
+          graduateDegreeSubtitle: "コンピューターサイエンス修士",
+          graduateDegreeDuration: "",
+          graduateDegreeSentence1:
+            "関連するコースワークには、データベースシステム、オブジェクト指向プログラミング、統計分析など、技術・分析分野に関連する基礎コースワークを修了。",
+          graduateDegreeSentence2:
+            "データ分析や計算手法などのクラスにおいて、キャップストーンプロジェクトやチュータリングを通じて実践的な経験を積みました。",
+          graduateDegreeSentence3:
+            "最先端の技術領域において、理論的な基盤を確立しつつ、実践的なプロジェクト経験を豊富に積みました。",
+          undergraduateDegreeTitle: "南開大学",
+          undergraduateDegreeSubtitle: "法学・経済学学士（二重専攻）",
+          undergraduateDegreeDuration: "",
+          undergraduateDegreeSentence1:
+            "データベースシステム、オブジェクト指向プログラミング、統計分析など、技術・分析分野に関連する基礎コースワークを修了。",
+          undergraduateDegreeSentence2:
+            "学業優秀につき大学奨学金を受給。カリフォルニア大学バークレー校への留学で国際的な視野を習得しました。",
+          undergraduateDegreeSentence3:
+            "受賞歴のある学生起業プロジェクトを主導し、プロジェクトマネジメントやインパクトのあるイニシアチブ遂行スキルを培いました。",
+        },
+        certificationsTitle: "認定資格",
+      },
+      contact: {
+        contactMe: "お問い合わせ",
+        description:
+          "潜在的な役割や共同作業について話し合いたいですか？どうぞお気軽にご連絡ください。AI/ML、LLM/RAG、クラウドアーキテクチャ、データエンジニアリング、フルスタック開発を専門としています。繋がりましょう！",
+        address: {
+          title: "住所",
+          subtitle: "上海市静安区南京西路 郵便番号200040",
+        },
+      },
     },
   },
 };
@@ -202,7 +314,8 @@ i18n
 const settings = {
   // isSplash: true, // Change this to false if you don't want Splash screen.
   isSplash: false, // Change this to false if you don't want Splash screen.
-  logoName: "HanShen",
+  logoName: "Han_Shen", // Word art logo on the upper left
+  // logoName: "HanShen",  // Word art logo on the upper left
   lastUpdatedDate: "May 3, 2025",
 };
 
@@ -231,18 +344,25 @@ const greeting = {
   githubProfile: "https://github.com/ashutosh1919",
 };
 
+// Ref: https://fontawesome.com/search
 const socialMediaLinks = [
   {
-    name: "Github",
-    link: "https://github.com/hsswiki",
-    fontAwesomeIcon: "fa-github", // Reference https://fontawesome.com/icons/github?style=brands
-    backgroundColor: "#181717", // Reference https://simpleicons.org/?q=github
+    name: "Email",
+    link: "mailto:shen.h@outlook.com",
+    fontAwesomeIcon: "fa-telegram",
+    backgroundColor: "#1877F2",
   },
   {
     name: "LinkedIn",
     link: "https://www.linkedin.com/in/shen-h/",
     fontAwesomeIcon: "fa-linkedin-in", // Reference https://fontawesome.com/icons/linkedin-in?style=brands
     backgroundColor: "#0077B5", // Reference https://simpleicons.org/?q=linkedin
+  },
+  {
+    name: "Github",
+    link: "https://github.com/hsswiki",
+    fontAwesomeIcon: "fa-github", // Reference https://fontawesome.com/icons/github?style=brands
+    backgroundColor: "#181717", // Reference https://simpleicons.org/?q=github
   },
   // {
   //   name: "YouTube",
@@ -274,6 +394,13 @@ const socialMediaLinks = [
   //   fontAwesomeIcon: "fa-facebook-f", // Reference https://fontawesome.com/icons/facebook-f?style=brands
   //   backgroundColor: "#1877F2", // Reference https://simpleicons.org/?q=facebook
   // },
+  // {
+  //   name: "LeetCode-cn",
+  //   link: "https://leetcode.cn/u/hsswiki/",
+  //   fontAwesomeIcon: "fa-solid fa-code", // Reference https://fontawesome.com/icons/x-twitter?f=brands&s=solid
+  //   // backgroundColor: "#000000", // Reference https://simpleicons.org/?q=x
+  //   color: "#F79F1B",
+  // },
 ];
 
 // Ref: https://icon-sets.iconify.design/
@@ -283,11 +410,6 @@ const skills = {
     {
       title: "aiSkillTitle",
       fileName: "DataScienceImg",
-      // skills: [
-      //   "⚡ Building end-to-end LLM & RAG solutions for document analysis and conversational AI",
-      //   "⚡ Integrating NLP, OCR, and predictive modeling into cloud data workflows",
-      //   "⚡ Developing & optimizing scalable ML models for classification, regression & quantitative analysis",
-      // ],
       skills: ["aiSkill1", "aiSkill2", "aiSkill3"],
       softwareSkills: [
         {
@@ -419,10 +541,7 @@ const skills = {
         },
         {
           skillName: "PostgreSQL",
-          fontAwesomeClassname: "simple-icons:postgresql",
-          style: {
-            color: "#336791",
-          },
+          fontAwesomeClassname: "logos:postgresql",
         },
         {
           skillName: "Redis",
@@ -555,6 +674,18 @@ const skills = {
           skillName: "Snowflake",
           fontAwesomeClassname: "logos:snowflake-icon",
         },
+        {
+          skillName: "MySQL",
+          fontAwesomeClassname: "logos:mysql",
+        },
+        {
+          skillName: "PostgreSQL",
+          fontAwesomeClassname: "logos:postgresql",
+        },
+        {
+          skillName: "SQL Server",
+          fontAwesomeClassname: "devicon-plain:microsoftsqlserver-wordmark",
+        },
       ],
     },
   ],
@@ -571,76 +702,36 @@ const competitiveSites = {
       },
       profileLink: "https://leetcode.com/layman_brother/",
     },
-    {
-      siteName: "HackerRank",
-      iconifyClassname: "simple-icons:hackerrank",
-      style: {
-        color: "#2EC866",
-      },
-      profileLink: "https://www.hackerrank.com/layman_brother",
-    },
-    {
-      siteName: "Codechef",
-      iconifyClassname: "simple-icons:codechef",
-      style: {
-        color: "#5B4638",
-      },
-      profileLink: "https://www.codechef.com/users/ashutosh_1919",
-    },
-    {
-      siteName: "Codeforces",
-      iconifyClassname: "simple-icons:codeforces",
-      style: {
-        color: "#1F8ACB",
-      },
-      profileLink: "http://codeforces.com/profile/layman_brother",
-    },
-    {
-      siteName: "Hackerearth",
-      iconifyClassname: "simple-icons:hackerearth",
-      style: {
-        color: "#323754",
-      },
-      profileLink: "https://www.hackerearth.com/@ashutosh391",
-    },
-    {
-      siteName: "Kaggle",
-      iconifyClassname: "simple-icons:kaggle",
-      style: {
-        color: "#20BEFF",
-      },
-      profileLink: "https://www.kaggle.com/laymanbrother",
-    },
   ],
 };
 
 const degrees = {
   degrees: [
     {
-      title: "Indian Institute of Information Technology Kurnool",
-      subtitle: "B.Tech. in Computer Engineering",
-      logo_path: "iiitk_logo.png",
-      alt_name: "IIITDM Kurnool",
-      duration: "2016 - 2020",
+      title: "education.degrees.graduateDegreeTitle",
+      subtitle: "education.degrees.graduateDegreeSubtitle",
+      logo_path: "uchicago_logo.png",
+      alt_name: "UChicago",
+      duration: "education.degrees.graduateDegreeSubtitle",
       descriptions: [
-        "⚡ I have studied basic software engineering subjects like DS, Algorithms, DBMS, OS, CA, AI etc.",
-        "⚡ Apart from this, I have done courses on Deep Learning, Data Science, Cloud Computing and Full Stack Development.",
-        "⚡ I was selected for Merit cum Means Scholarship which is given to top 10% of students in college. I have received award from respected director for consistently best performance in academics.",
+        "education.degrees.graduateDegreeSentence1",
+        "education.degrees.graduateDegreeSentence2",
+        "education.degrees.graduateDegreeSentence3",
       ],
-      website_link: "http://iiitk.ac.in",
+      website_link: "https://www.uchicago.edu/",
     },
     {
-      title: "Indiana University Bloomington",
-      subtitle: "M.S. in Computer Science",
-      logo_path: "iu_logo.png",
-      alt_name: "Indiana University Bloomington",
-      duration: "2021 - 2023",
+      title: "education.degrees.undergraduateDegreeTitle",
+      subtitle: "education.degrees.undergraduateDegreeSubtitle",
+      logo_path: "nankai_logo.svg",
+      alt_name: "Nankai University",
+      duration: "education.degrees.undergraduateDegreeSubtitle",
       descriptions: [
-        "⚡ I have taken varity of courses related to Artificial Intelligence which correspond to Explainable AI, Graph Machine Learning, Computer Vision etc.",
-        "⚡ Apart from this, I have also done research assistantship. As part of it, I have worked on creating new algorithms in Graph ML and Network Science.",
-        "⚡ During my time at university, I was also associated with multimedia department. As part of it, I have worked on some documentry films and interviews.",
+        "education.degrees.undergraduateDegreeSentence1",
+        "education.degrees.undergraduateDegreeSentence2",
+        "education.degrees.undergraduateDegreeSentence3",
       ],
-      website_link: "https://www.indiana.edu/",
+      website_link: "https://www.nankai.edu.cn/",
     },
   ],
 };
@@ -648,113 +739,86 @@ const degrees = {
 const certifications = {
   certifications: [
     {
-      title: "Machine Learning",
-      subtitle: "- Andrew Ng",
-      logo_path: "stanford_logo.png",
-      certificate_link:
-        "https://www.coursera.org/account/accomplishments/verify/22MTSSC5WDTM",
-      alt_name: "Stanford University",
-      color_code: "#8C151599",
+      title: "AWS Certified Solutions Architect - Professional",
+      subtitle: "ID: 92MD5L42Y2V41J39",
+      logo_path: "aws_logo.svg",
+      certificate_link: "",
+      alt_name: "AWS",
+      color_code: "#BFDAEF",
     },
     {
-      title: "Deep Learning",
-      subtitle: "- Andrew Ng",
-      logo_path: "deeplearning_ai_logo.png",
-      certificate_link:
-        "https://www.coursera.org/account/accomplishments/specialization/H8CPSFXAJD2G",
-      alt_name: "deeplearning.ai",
-      color_code: "#00000099",
+      title: "AWS Certified Machine Learning - Specialty",
+      subtitle: "ID: DH31B5H2TNREQVGH",
+      logo_path: "aws_logo.svg",
+      certificate_link: "",
+      alt_name: "AWS",
+      color_code: "#BFDAEF",
     },
     {
-      title: "ML on GCP",
-      subtitle: "- GCP Training",
-      logo_path: "google_logo.png",
-      certificate_link:
-        "https://www.coursera.org/account/accomplishments/specialization/EB4VJARK8647",
-      alt_name: "Google",
-      color_code: "#0C9D5899",
+      title: "Microsoft Certified: Azure Solutions Architect Expert",
+      subtitle: "ID: A64C27-6D25ZA",
+      logo_path: "azure_logo.svg",
+      certificate_link: "",
+      alt_name: "Azure",
+      color_code: "#BFDAEF",
     },
     {
-      title: "Data Science",
-      subtitle: "- Alex Aklson",
-      logo_path: "ibm_logo.png",
-      certificate_link:
-        "https://www.coursera.org/account/accomplishments/specialization/PLEAPCSJBZT5",
-      alt_name: "IBM",
-      color_code: "#1F70C199",
+      title: "Microsoft Certified: Azure Administrator Associate",
+      subtitle: "ID: A41ED6-3BD4F9",
+      logo_path: "azure_logo.svg",
+      certificate_link: "",
+      alt_name: "Azure",
+      color_code: "#BFDAEF",
     },
     {
-      title: "Big Data",
-      subtitle: "- Kim Akers",
-      logo_path: "microsoft_logo.png",
-      certificate_link:
-        "https://drive.google.com/file/d/164zKCFOsI4vGqokc-Qj-e_D00kLDHIrG/view",
-      alt_name: "Microsoft",
-      color_code: "#D83B0199",
+      title: "Microsoft Certified: Azure Fundamentals",
+      subtitle: "ID: 4A9B94-83FD2D",
+      logo_path: "azure_logo.svg",
+      certificate_link: "",
+      alt_name: "Azure",
+      color_code: "#BFDAEF",
     },
     {
-      title: "Advanced Data Science",
-      subtitle: "- Romeo Kienzler",
-      logo_path: "ibm_logo.png",
-      certificate_link:
-        "https://www.coursera.org/account/accomplishments/verify/BH2T9BRU87BH",
-      alt_name: "IBM",
-      color_code: "#1F70C199",
+      title: "Alibaba Cloud Certified Associate",
+      subtitle: "ID: ACA01220700576460L",
+      logo_path: "alibaba-cloud-logo.webp",
+      certificate_link: "",
+      alt_name: "Alibaba Cloud",
+      color_code: "#BFDAEF",
     },
     {
-      title: "Advanced ML on GCP",
-      subtitle: "- GCP Training",
-      logo_path: "google_logo.png",
-      certificate_link:
-        "https://www.coursera.org/account/accomplishments/verify/5JZZM7TNQ2AV",
-      alt_name: "Google",
-      color_code: "#0C9D5899",
+      title: "Databricks Certified Associate Developer for Apache Spark 3.0",
+      subtitle: "ID: 5b7d8f8b-d427-4acf-a002-8342882ff913",
+      logo_path: "databricks_logo.svg",
+      certificate_link: "",
+      alt_name: "Databricks",
+      color_code: "#BFDAEF",
     },
     {
-      title: "DL on Tensorflow",
-      subtitle: "- Laurence Moroney",
-      logo_path: "deeplearning_ai_logo.png",
-      certificate_link:
-        "https://www.coursera.org/account/accomplishments/verify/6T4DCUGNK8J8",
-      alt_name: "deeplearning.ai",
-      color_code: "#00000099",
+      title: "The Japanese-Language Proficiency Test N1",
+      subtitle: "ID: N1A472415A",
+      logo_path: "jlpt_logo.svg",
+      certificate_link: "",
+      alt_name: "JLPT",
+      color_code: "#BFDAEF",
     },
     {
-      title: "Fullstack Development",
-      subtitle: "- Jogesh Muppala",
-      logo_path: "coursera_logo.png",
-      certificate_link:
-        "https://www.coursera.org/account/accomplishments/certificate/NRANJA66Y2YA",
-      alt_name: "Coursera",
-      color_code: "#2A73CC",
+      title: "Certificate in Research Methods",
+      subtitle: "The University of Chicago",
+      logo_path: "uchicago_logo.png",
+      certificate_link: "https://harris.uchicago.edu/academics/degrees/m",
+      alt_name: "UChicago",
+      color_code: "#BFDAEF",
     },
-    {
-      title: "Kuberenetes on GCP",
-      subtitle: "- Qwiklabs",
-      logo_path: "gcp_logo.png",
-      certificate_link:
-        "https://google.qwiklabs.com/public_profiles/e4d5a92b-faf6-4679-a70b-a9047c0cd750",
-      alt_name: "GCP",
-      color_code: "#4285F499",
-    },
-    {
-      title: "Cryptography",
-      subtitle: "- Saurabh Mukhopadhyay",
-      logo_path: "nptel_logo.png",
-      certificate_link:
-        "https://drive.google.com/open?id=1z5ExD_QJVdU0slLkp8CBqSF3-C3g-ro_",
-      alt_name: "NPTEL",
-      color_code: "#FFBB0099",
-    },
-    {
-      title: "Cloud Architecture",
-      subtitle: "- Qwiklabs",
-      logo_path: "gcp_logo.png",
-      certificate_link:
-        "https://google.qwiklabs.com/public_profiles/5fab4b2d-be6f-408c-8dcb-6d3b58ecb4a2",
-      alt_name: "GCP",
-      color_code: "#4285F499",
-    },
+    // {
+    //   title: "Cloud Architecture",
+    //   subtitle: "- Qwiklabs",
+    //   logo_path: "gcp_logo.png",
+    //   certificate_link:
+    //     "https://google.qwiklabs.com/public_profiles/5fab4b2d-be6f-408c-8dcb-6d3b58ecb4a2",
+    //   alt_name: "GCP",
+    //   color_code: "#4285F499",
+    // },
   ],
 };
 
@@ -962,10 +1026,10 @@ const publications = {
 // Contact Page
 const contactPageData = {
   contactSection: {
-    title: "Contact Me",
-    profile_image_path: "animated_ashutosh.png",
-    description:
-      "I am available on almost every social media. You can message me, I will reply within 24 hours. I can help you with ML, AI, React, Android, Cloud and Opensource Development.",
+    title: "contact.contactMe",
+    // profile_image_path: "animated_ashutosh.png",
+    profile_image_path: "shen_profile.png",
+    description: "contact.description",
   },
   blogSection: {
     title: "Blogs",
@@ -975,15 +1039,15 @@ const contactPageData = {
     avatar_image_path: "blogs_image.svg",
   },
   addressSection: {
-    title: "Address",
-    subtitle: "Saratoga Ave, San Jose, CA, USA 95129",
-    locality: "San Jose",
-    country: "USA",
-    region: "California",
-    postalCode: "95129",
-    streetAddress: "Saratoga Avenue",
+    title: "contact.address.title",
+    subtitle: "contact.address.subtitle",
+    // locality: "San Jose",
+    // country: "USA",
+    // region: "California",
+    // postalCode: "95129",
+    // streetAddress: "Saratoga Avenue",
     avatar_image_path: "address_image.svg",
-    location_map_link: "https://maps.app.goo.gl/NvYZqa34Wye4tpS17",
+    location_map_link: "https://maps.app.goo.gl/t4uSP4dLnQ4CdxsY6",
   },
   phoneSection: {
     title: "",
