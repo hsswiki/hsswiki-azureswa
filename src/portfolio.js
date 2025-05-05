@@ -87,7 +87,30 @@ const resources = {
         },
         certificationsTitle: "Certifications",
       },
-      openSource: {},
+      experience: {
+        title: "Experience",
+        subtitle: "Work, Internship and Volunteering",
+        details: "", // My work experience has provided me with a solid foundation in software development and data engineering, allowing me to apply theoretical knowledge to real-world projects and challenges.",
+        work: {
+          title: "Work",
+          experience1: {
+            title: "",
+            role: "",
+            duration: "2023 - Present",
+            description:
+              "Designing and implementing scalable cloud solutions for enterprise clients, focusing on data processing and machine learning integration.",
+          },
+          position2: {
+            companyName: "Alibaba Cloud",
+            role: "Data Engineer Intern",
+            duration: "2022 - 2023",
+            description:
+              "Developed ETL pipelines and optimized data workflows for large-scale data processing, ensuring data quality and consistency.",
+          },
+        },
+        internship: {},
+        volunteering: {},
+      },
       contact: {
         contactMe: "Contact Me",
         description:
@@ -286,7 +309,7 @@ const resources = {
       contact: {
         contactMe: "お問い合わせ",
         description:
-          "潜在的な役割や共同作業について話し合いたいですか？どうぞお気軽にご連絡ください。AI/ML、LLM/RAG、クラウドアーキテクチャ、データエンジニアリング、フルスタック開発を専門としています。繋がりましょう！",
+          "潜在的な役割や共同作業について話し合いたいなら、どうぞお気軽にご連絡ください。AI/ML、LLM/RAG、クラウドアーキテクチャ、データエンジニアリング、フルスタック開発を専門としています。繋がりましょう！",
         address: {
           title: "住所",
           subtitle: "上海市静安区南京西路 郵便番号200040",

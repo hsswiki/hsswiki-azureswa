@@ -24,36 +24,39 @@ export default function Button({
 }) {
   return (
     <div className={className}>
-      <button
-        className="main-button"
-        onClick={() => {
-          i18n.changeLanguage(newLanguage);
-          console.log("Language changed to:", newLanguage);
-        }}
-        style={{
-          color: theme.body,
-          backgroundColor: theme.text,
-          border: `solid 1px ${theme.text}`,
-        }}
-        onMouseEnter={(event) => onMouseEnter(event, theme.text, theme.body)}
-        onMouseOut={(event) => onMouseOut(event, theme.body, theme.text)}
-      >
-        {text}
-      </button>
-      {/* <a
-        className="main-button"
-        href={href}
-        target={newTab && "_blank"}
-        style={{
-          color: theme.body,
-          backgroundColor: theme.text,
-          border: `solid 1px ${theme.text}`,
-        }}
-        onMouseEnter={(event) => onMouseEnter(event, theme.text, theme.body)}
-        onMouseOut={(event) => onMouseOut(event, theme.body, theme.text)}
-      >
-        {text}
-      </a> */}
+      {href ? (
+        <a
+          className="main-button"
+          href={href}
+          target={newTab && "_blank"}
+          style={{
+            color: theme.body,
+            backgroundColor: theme.text,
+            border: `solid 1px ${theme.text}`,
+          }}
+          onMouseEnter={(event) => onMouseEnter(event, theme.text, theme.body)}
+          onMouseOut={(event) => onMouseOut(event, theme.body, theme.text)}
+        >
+          {text}
+        </a>
+      ) : (
+        <button
+          className="main-button"
+          onClick={() => {
+            i18n.changeLanguage(newLanguage);
+            console.log("Language changed to:", newLanguage);
+          }}
+          style={{
+            color: theme.body,
+            backgroundColor: theme.text,
+            border: `solid 1px ${theme.text}`,
+          }}
+          onMouseEnter={(event) => onMouseEnter(event, theme.text, theme.body)}
+          onMouseOut={(event) => onMouseOut(event, theme.body, theme.text)}
+        >
+          {text}
+        </button>
+      )}
     </div>
   );
 }
