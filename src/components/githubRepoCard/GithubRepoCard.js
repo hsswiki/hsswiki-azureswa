@@ -3,7 +3,10 @@ import ProjectLanguages from "../../components/projectLanguages/ProjectLanguages
 import "./GithubRepoCard.css";
 import { Fade } from "react-reveal";
 
+import { useTranslation } from "react-i18next";
+
 export default function GithubRepoCard({ repo, theme }) {
+  const { t } = useTranslation();
   function openRepoinNewTab(url) {
     var win = window.open(url, "_blank");
     win.focus();
@@ -12,7 +15,7 @@ export default function GithubRepoCard({ repo, theme }) {
   return (
     <div className="repo-card-div" style={{ backgroundColor: theme.highlight }}>
       <Fade bottom duration={2000} distance="40px">
-        <div key={repo.id} onClick={() => openRepoinNewTab(repo.url)}>
+        <div key={repo.name} onClick={() => openRepoinNewTab(repo.url)}>
           <div className="repo-name-div">
             <svg
               aria-hidden="true"
@@ -28,18 +31,18 @@ export default function GithubRepoCard({ repo, theme }) {
               ></path>
             </svg>
             <p className="repo-name" style={{ color: theme.text }}>
-              {repo.name}
+              {t(repo.name)}
             </p>
           </div>
           <p className="repo-description" style={{ color: theme.text }}>
-            {repo.description}
+            {t(repo.description)}
           </p>
           <div className="repo-details">
             <p
               className="repo-creation-date subTitle"
               style={{ color: theme.secondaryText }}
             >
-              Created on {repo.createdAt.split("T")[0]}
+              {t(repo.createdAt)}
             </p>
             <ProjectLanguages
               className="repo-languages"

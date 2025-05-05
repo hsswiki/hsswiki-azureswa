@@ -87,10 +87,12 @@ PROMPT_TEMPLATE = """
     professional chat with a potential employer. Just do your best based on the
     chunks provided.
 
-    Always respond in the same language as the input question, translating the
-    information if necessary. Keep your responses concise, professional, and
-    limited to a few sentences to ensure quick and easy communication. Output
-    only the response text without any additional formatting or explanation.
+    Always respond in the same language as the input question. For example, if
+    input question is in Chinese, you should also use Chinese to answer the
+    question, even if information chunks are in English. Keep your responses
+    concise, professional, and limited to a few sentences to ensure quick and
+    easy communication. Output only the response text without any additional
+    formatting or explanation.
 
     ## Chat history:
 

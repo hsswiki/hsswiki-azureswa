@@ -48,7 +48,7 @@ class AppSettings(FrozenBaseSettings):
 
     llm_max_try_count: int = 3
 
-    embedding_dimensions: int = 1536
+    embedding_dimensions: int = 1536  # text-embedding-3-small
 
     number_of_chunks: int = 4
 

@@ -16,6 +16,20 @@ const resources = {
         openSource: "Open Source",
         contactMe: "Contact Me",
       },
+      chatbot: {
+        title: "Shen's Digital Assistant",
+        askInvitation:
+          "Ask me anything about Shen! To continue our chat, may I have your invitation code please? Typically, it can be found on the resumes Shen sents out 😊",
+        invalidInvitation:
+          "The invitation code is invalid. Please reenter your invitation code or reach out to Shen for a new code. Thank you.",
+        validInvitation:
+          "Thank you for coming! How may I assist you with my knowledge of Shen?",
+        thinking: "Let me think...",
+        responding: "The assistant is still responding",
+        takeLonger:
+          "(The assistant is still responding... It takes longer than usual. Thank you for your patience 😊)",
+        error: "Network error. Please try again later.",
+      },
       home: {
         greeting: {
           title: "HAN Shen",
@@ -89,27 +103,78 @@ const resources = {
       },
       experience: {
         title: "Experience",
-        subtitle: "Work, Internship and Volunteering",
-        details: "", // My work experience has provided me with a solid foundation in software development and data engineering, allowing me to apply theoretical knowledge to real-world projects and challenges.",
+        subtitle: "Work, Internship, and Volunteering",
+        details:
+          "I design and build scalable, end-to-end technical solutions. My experiences focus on developing cloud-native systems, robust data pipelines, and AI/ML applications, including cutting-edge Generative AI and RAG implementations, to drive significant business impact.",
         work: {
-          title: "Work",
+          title: "Work Experience",
           experience1: {
-            title: "",
-            role: "",
-            duration: "2023 - Present",
-            description:
-              "Designing and implementing scalable cloud solutions for enterprise clients, focusing on data processing and machine learning integration.",
+            title: "Senior Technical Lead",
+            subtitle: "PwC US Consulting Services AC Shanghai",
+            duration: "2021 - Present",
+            location: "Shanghai, China",
+            details:
+              "Led backend development for GenAI applications, implementing RAG pipelines on cloud platforms, enhancing data automation, and designing scalable architectures for financial and enterprise use cases.",
           },
-          position2: {
-            companyName: "Alibaba Cloud",
-            role: "Data Engineer Intern",
-            duration: "2022 - 2023",
-            description:
-              "Developed ETL pipelines and optimized data workflows for large-scale data processing, ensuring data quality and consistency.",
+          experience2: {
+            title: "Project Associate - Data Systems Analyst",
+            subtitle: "Chapin Hall at the University of Chicago",
+            duration: "2017 - 2019",
+            location: "Chicago, US",
+            details:
+              "Designed and built data warehouses, developed ETL pipelines for large-scale administrative data, applied machine learning for predictive modeling, and contributed to open-source SDE projects.",
           },
         },
-        internship: {},
-        volunteering: {},
+        internships: {
+          title: "Internships",
+          experience1: {
+            title: "Research Assistant",
+            subtitle: "BIP Lab at the University of Chicago",
+            duration: "2017",
+            location: "Chicago, US",
+            details:
+              "Supported behavioral economics research projects involving data collection and analysis. Analyzed research data and developed data analysis manuals.",
+          },
+          experience2: {
+            title: "Policy Labs Intern",
+            subtitle: "Chapin Hall at the University of Chicago",
+            duration: "2017",
+            location: "Chicago, US",
+            details:
+              "Analyzed large administrative datasets using Python, R, and Tableau. Applied clustering and regression techniques, and presented data visualizations to policymakers to inform evidence-based decisions.",
+          },
+        },
+        volunteering: {
+          title: "Volunteering",
+          experience1: {
+            title: "Volunteer Instructor",
+            subtitle: "U.S. Department of Energy STEM-CON AI Workshop",
+            duration: "2019",
+            location: "Chicago, US",
+            details:
+              "Served as a volunteer instructor, demonstrating AI, Machine Learning, and VR technologies to high-school students.",
+          },
+          experience2: {
+            title: "Volunteer Python Workshop Instructor",
+            subtitle: "University of Chicago",
+            duration: "2017",
+            location: "Chicago, US",
+            details:
+              "Developed and delivered weekly workshops focused on Python for data analysis to graduate students.",
+          },
+        },
+      },
+      projects: {
+        title: "Projects",
+        details:
+          "My open source projects showcase end-to-end system design, cloud development, and expertise in AI/ML applications. I focus on building scalable, modular solutions using modern technologies to deliver impactful results.",
+        moreProjectsButton: "More Projects",
+        project1: {
+          title: "HS's Wiki: Personal Website & Chatbot",
+          subtitle: "Created on 2025-03-31",
+          details:
+            "Developed a full-stack personal website featuring a RAG-based chatbot digital assistant. Implemented a modular and scalable backend architecture utilizing Abstract Factory and Facade design patterns, allowing swappable components for chat models, embeddings, and vector stores. Deployed cost-effectively on Azure using free tiers, demonstrating efficient resource utilization and CI/CD.",
+        },
       },
       contact: {
         contactMe: "Contact Me",
@@ -136,18 +201,18 @@ const resources = {
         contactMe: "联系方式",
       },
       chatbot: {
-        title: "Shen's Digital Assistant",
+        title: "韩绅的数字助理",
         askInvitation:
-          "Ask me anything about Shen! To continue our chat, may I have your invitation code please? Typically, it can be found on the resumes Shen sents out 😊",
+          "请随问我关于韩绅的任何问题！如需继续交流，请提供您的邀请码。通常您可以在韩绅发送给您的简历上找到该邀请码😊",
         invalidInvitation:
-          "The invitation code is invalid. Please reenter your invitation code or reach out to Shen for a new code. Thank you.",
+          "邀请码无效。请重新输入您的邀请码，或者联系韩绅获取新的邀请码，谢谢。",
         validInvitation:
-          "Thank you. How may I assist you with my knowledge of Shen?",
-        thinking: "Let me think...",
-        responding: "The assistant is still responding",
+          "感谢您的来访！关于韩绅的情况，我能如何为您提供帮助呢？",
+        thinking: "让我思考一下...",
+        responding: "助理仍在回复中...",
         takeLonger:
-          "(The assistant is still responding. It takes longer than usual. Thank you for your patience 😊)",
-        error: "Network error. Please try again later.",
+          "(助理仍在回复中... 此次回复比平时耗时稍长，感谢您的耐心等待😊)",
+        error: "网络错误。请稍后再试。",
       },
       home: {
         greeting: {
@@ -214,6 +279,80 @@ const resources = {
         },
         certificationsTitle: "相关认证",
       },
+      experience: {
+        title: "工作经验",
+        subtitle: "工作、实习与志愿活动经验",
+        details:
+          "致力于设计并构建具备可扩展性的端到端技术解决方案。工作经验主要集中于开发云原生系统、数据管道以及人工智能/机器学习应用，其中涵盖生成式人工智能与检索增强生成（RAG）技术，以推动显著的业务影响。",
+        work: {
+          title: "工作经历",
+          experience1: {
+            title: "高级技术专家",
+            subtitle: "美国普华永道信息技术咨询上海优创中心",
+            duration: "2021年至今",
+            location: "上海",
+            details:
+              "领导生成式人工智能应用的后端开发工作，在云平台上实施检索增强生成（RAG）管道，提升数据自动化水平，并为金融与企业应用场景设计可扩展的架构。",
+          },
+          experience2: {
+            title: "数据系统分析师",
+            subtitle: "芝加哥大学Chapin Hall中心",
+            duration: "2017年 - 2019年",
+            location: "芝加哥",
+            details:
+              "设计并构建数据仓库，为大规模行政数据开发提取、转换与加载（ETL）管道，运用机器学习进行预测建模，并参与开源软件开发项目。",
+          },
+        },
+        internships: {
+          title: "实习经历",
+          experience1: {
+            title: "研究助理",
+            subtitle: "芝加哥大学Behavioral Insights and Parenting (BIP)实验室",
+            duration: "2017年",
+            location: "芝加哥",
+            details:
+              "参与行为经济学研究项目，负责对研究数据进行分析，并编写分析手册。",
+          },
+          experience2: {
+            title: "政策实验室（Policy Labs）实习生",
+            subtitle: "芝加哥大学Chapin Hall中心",
+            duration: "2017年",
+            location: "芝加哥",
+            details:
+              "运用Python、R和Tableau等工具分析大型行政数据集。采用聚类与回归技术进行数据分析，并向政策制定者展示数据可视化结果，为基于证据的决策提供支持。",
+          },
+        },
+        volunteering: {
+          title: "志愿活动",
+          experience1: {
+            title: "人工智能工作坊讲师",
+            subtitle: "美国能源部STEM - CON人工智能工作坊",
+            duration: "2019年",
+            location: "芝加哥",
+            details:
+              "担任志愿讲师，向高中生展示人工智能、机器学习和虚拟现实技术。",
+          },
+          experience2: {
+            title: "Python工作坊讲师",
+            subtitle: "芝加哥大学",
+            duration: "2017年",
+            location: "芝加哥",
+            details: "协助每周开展基于Python的研究生数据分析工作坊。",
+          },
+        },
+      },
+      projects: {
+        title: "项目经历",
+        details:
+          "我的开源项目展示了端到端的系统设计、云开发以及人工智能/机器学习应用方面的专业能力。我专注于运用现代技术构建具备可扩展性与模块化的解决方案，以实现具有竞争力的成果。",
+        moreProjectsButton: "更多项目",
+        project1: {
+          title: "HS维基：个人网站与聊天机器人",
+          subtitle: "创建于2025年3月31日",
+          details:
+            "全栈开发个人网站，该网站配备了基于检索增强生成（RAG）技术的聊天机器人数字助理。采用抽象工厂与外观设计模式，实现了模块化且可扩展的后端架构，使得聊天模型、嵌入层与向量存储等组件可灵活替换。借助Azure免费层级进行经济高效的部署，展现了资源的高效利用以及持续集成/持续部署（CI/CD）的能力。",
+        },
+      },
       contact: {
         contactMe: "联系方式",
         description:
@@ -230,10 +369,24 @@ const resources = {
       header: {
         home: "ホーム",
         education: "学歴情報",
-        experience: "職務経歴",
+        experience: "職務経験",
         projects: "プロジェクト",
         openSource: "オープンソース",
         contactMe: "お問い合わせ",
+      },
+      chatbot: {
+        title: "紳のデジタルアシスタント",
+        askInvitation:
+          "紳について何でもお尋ねください！チャットを続けるには、招待コードをご入力いただけますでしょうか？通常、紳がお送りする履歴書に記載されています😊",
+        invalidInvitation:
+          "招待コードが無効です。恐れ入りますが、もう一度招待コードを入力いただくか、新しいコードについて紳にご連絡ください。よろしくお願いいたします。",
+        validInvitation:
+          "ご来訪ありがとうございます！紳に関する私の知識で、どのようなお手伝いができますでしょうか？",
+        thinking: "考え中です...",
+        responding: "アシスタントが応答中です",
+        takeLonger:
+          "(アシスタントが応答中です... 通常より時間がかかっています。しばらくお待ちください😊)",
+        error: "ネットワークエラーです。後でもう一度お試しください。",
       },
       home: {
         greeting: {
@@ -306,6 +459,81 @@ const resources = {
         },
         certificationsTitle: "認定資格",
       },
+      experience: {
+        title: "職務経験",
+        subtitle: "職務、インターンシップとボランティア活動",
+        details:
+          "スケーラブルなエンドツーエンド技術ソリューションの設計及び構築を専門としています。クラウドネイティブシステム、堅牢なデータパイプライン、最先端の生成AIやRAG実装を含むAI/MLアプリケーション開発に焦点を当て、大きなビジネスインパクトを創出しています。",
+        work: {
+          title: "職務経験",
+          experience1: {
+            title: "シニアテクニカルリード",
+            subtitle: "PwC米国コンサルティング上海事務所",
+            duration: "2021年 - 現在",
+            location: "中国 上海",
+            details:
+              "生成AIアプリケーションのバックエンド開発を主導し、クラウド上でのRAGパイプラインの実装、データ自動化の強化、金融及びエンタープライズ向けユースケースのスケーラブルなアーキテクチャ設計を行いました。",
+          },
+          experience2: {
+            title: "プロジェクトアソシエイト - データシステムアナリスト",
+            subtitle: "シカゴ大学チャピンホールセンター",
+            duration: "2017年 - 2019年",
+            location: "米国 シカゴ",
+            details:
+              "データウェアハウスの設計及び構築、大規模行政データ向けETLパイプライン開発、機械学習を用いた予測モデリングを行い、オープンソースのソフトウェア開発プロジェクトに貢献しました。",
+          },
+        },
+        internships: {
+          title: "インターンシップ",
+          experience1: {
+            title: "リサーチアシスタント",
+            subtitle: "シカゴ大学BIPラボ",
+            duration: "2017年",
+            location: "米国 シカゴ",
+            details:
+              "データ収集及び分析を含む行動経済学研究プロジェクトを支援。研究データの分析や、データ分析マニュアルの作成を担当しました。",
+          },
+          experience2: {
+            title: "ポリシーラボ インターン",
+            subtitle: "シカゴ大学 チャピンホールセンター",
+            duration: "2017年",
+            location: "米国 シカゴ",
+            details:
+              "Python、R、Tableauを用いて大規模行政データセットを分析。クラスター分析及び回帰分析を適用し、データビジュアライゼーションを用いて政策立案者へ提示し、エビデンスに基づいた意思決定を支援しました。",
+          },
+        },
+        volunteering: {
+          title: "ボランティア",
+          experience1: {
+            title: "ボランティア講師",
+            subtitle: "米国エネルギー省STEM-CON AIワークショップ",
+            duration: "2019年",
+            location: "米国 シカゴ",
+            details:
+              "ボランティア講師として、高校生にAI、機械学習、VR技術のデモンストレーションを実施しました。",
+          },
+          experience2: {
+            title: "Pythonワークショップ ボランティア講師",
+            subtitle: "シカゴ大学",
+            duration: "2017年",
+            location: "米国 シカゴ",
+            details:
+              "大学院生向けに、データ分析のためのPythonに焦点を当てた週次ワークショップを開発及び提供しました。",
+          },
+        },
+      },
+      projects: {
+        title: "プロジェクト",
+        details:
+          "オープンソースプロジェクトは、エンドツーエンドのシステム設計、クラウド開発、AI/MLアプリケーションに関する専門知識を示しています。スケーラブルでモジュール化されたソリューションを現代技術を用いて構築し、インパクトのある成果を生み出すことに注力しています。",
+        moreProjectsButton: "その他のプロジェクト",
+        project1: {
+          title: "HSのウィキ：個人ウェブサイトとチャットボット",
+          subtitle: "作成日：2025年03月31日",
+          details:
+            "RAGベースのチャットボットデジタルアシスタントを備えたフルスタックの個人ウェブサイトを開発しました。抽象ファクトリー及びファサード設計パターンを用いたモジュール式でスケーラブルなバックエンドアーキテクチャを実装し、チャットモデル、埋め込みモデル、ベクトルストアのコンポーネントを切り替え可能にしました。Azureの無料ティアを活用して費用対効果の高いデプロイを実現し、効率的なリソース利用とCI/CDを示しました。",
+        },
+      },
       contact: {
         contactMe: "お問い合わせ",
         description:
@@ -361,10 +589,9 @@ const greeting = {
   // nickname: "layman_brother",
   // subTitle:
   // "A passionate individual who always thrives to work on end to end products which develop sustainable and scalable social and technical systems to create impact.",
-  resumeLink:
-    "https://drive.google.com/file/d/1bXRknv_h-XI_3CQ3SGPteGODtvEb7YvI/view?usp=sharing",
-  portfolio_repository: "https://github.com/ashutosh1919/masterPortfolio",
-  githubProfile: "https://github.com/ashutosh1919",
+  resumeLink: "",
+  portfolio_repository: "",
+  githubProfile: "https://github.com/hsswiki",
 };
 
 // Ref: https://fontawesome.com/search
@@ -847,159 +1074,85 @@ const certifications = {
 
 // Experience Page
 const experience = {
-  title: "Experience",
-  subtitle: "Work, Internship and Volunteership",
-  description:
-    "I have worked with many evolving startups as ML and DL Developer, Designer and Software Architect. I have also worked with some well established companies mostly as AI Developer. I love organising events and that is why I am also involved with many opensource communities as a representative.",
+  title: "experience.title",
+  subtitle: "experience.subtitle",
+  description: "experience.details",
   header_image_path: "experience.svg",
   sections: [
     {
-      title: "Work",
+      title: "experience.work.title",
       work: true,
       experiences: [
         {
-          title: "Machine Learning Engineer",
-          company: "TikTok Inc.",
-          company_url: "https://www.tiktok.com/en/",
-          logo_path: "tiktok_logo.png",
-          duration: "June 2023 - Present",
-          location: "San Jose, CA, USA",
-          description:
-            "Improving ads ranking models on the core TikTok product. Experience working on modeling two-tower architectures like DeepFM, Wide & deep learning, etc. Working on Large Language Models (LLM) pretraining and Large Multi-modal Model (LMM) finetuning strategies.",
-          color: "#000000",
+          title: "experience.work.experience1.title",
+          company: "experience.work.experience1.subtitle",
+          company_url: "https://www.pwc.com/us/en/services/consulting.html",
+          logo_path: "pwc_logo.svg",
+          duration: "experience.work.experience1.duration",
+          location: "experience.work.experience1.location",
+          description: "experience.work.experience1.details",
+          color: "#F0CFBE",
         },
         {
-          title: "Associate AI Engineer",
-          company: "Legato Health Technology",
-          company_url: "https://legatohealthtech.com/",
-          logo_path: "legato_logo.png",
-          duration: "June 2020 - Aug 2021",
-          location: "Hyderabad, Telangana",
-          description:
-            "I am working on automating healthcare products. The projects involve automation for process improvements and for significantly enhancing the profits. I am currently working on Cancer Survival and Reoccurence Prediction. Our goal is to make AI system which scales and removes doctor dependency as much as possible.",
-          color: "#0879bf",
-        },
-        {
-          title: "Android and ML Developer",
-          company: "Muffito Incorporation",
-          company_url: "https://www.linkedin.com/company/muffito-inc/about/",
-          logo_path: "muffito_logo.png",
-          duration: "May 2018 - Oct 2018",
-          location: "Pune, Maharashtra",
-          description:
-            "I have created complete Android Application for locating Pub, Bar and beverage shops around you. I have also worked on implementation of algorithms for Face Detection, Text extraction from Image. I was involved in a team for creating complete software architecure of mobile and web application as well as admin panel for company.",
-          color: "#9b1578",
-        },
-        {
-          title: "Android Developer",
-          company: "FreeCopy Pvt. Ltd.",
-          company_url: "https://www.linkedin.com/company/freecopy/about/",
-          logo_path: "freecopy_logo.png",
-          duration: "Nov 2017 - Dec 2017",
-          location: "Ahmedabad, Gujarat",
-          description:
-            "FreeCopy is the Start up from Indian Institute of Management, Ahmedabad. I have changed the integration of the whole app from Google to Firebase. I learnt the efﬁcient ways of Data communications like Retroﬁt, Eventbus etc. I experienced the real time start up. I learnt the Design thinking of UI on perspective of People.",
-          color: "#fc1f20",
+          title: "experience.work.experience2.title",
+          company: "experience.work.experience2.subtitle",
+          company_url: "https://www.chapinhall.org/",
+          logo_path: "chapin_hall_logo.png",
+          duration: "experience.work.experience2.duration",
+          location: "experience.work.experience2.location",
+          description: "experience.work.experience2.details",
+          color: "#253364",
         },
       ],
     },
     {
-      title: "Internships",
+      title: "experience.internships.title",
       experiences: [
         {
-          title: "Machine Learning Intern",
-          company: "TikTok Inc.",
-          company_url: "https://www.tiktok.com/en/",
-          logo_path: "tiktok_logo.png",
-          duration: "May 2022 - Aug 2022",
-          location: "San Francisco, USA",
-          description:
-            "Building new features on the backend recommendation system, specifically ranking algorithms for Ads that touch hundreds of millions of people around the world. Improving online and offline content ranking algorithms by performing hard sample data replays for training steps.",
+          title: "experience.internships.experience1.title",
+          company: "experience.internships.experience1.subtitle",
+          company_url: "https://biplab.uchicago.edu/",
+          logo_path: "uchicago_logo.png",
+          duration: "experience.internships.experience1.duration",
+          location: "experience.internships.experience1.location",
+          description: "experience.internships.experience1.details",
           color: "#000000",
         },
         {
-          title: "Data Science Research Intern",
-          company: "Delhivery Pvt. Ltd.",
-          company_url: "https://www.delhivery.com/",
-          logo_path: "delhivery_logo.png",
-          duration: "May 2019 - Sept 2019",
-          location: "Gurgaon, Haryana",
-          description:
-            "I have worked on project of predicting freight rates based on previous data. There were two objectives: (1) To build a forecasting engine to predict daily freight rates. (2) To embed feature in the model which can explain the seasonal major changes in freight rate based on regions and locations. I have closely worked with deep learning models in combination with statistical methods to create solution for this. At the end of internship, I had created model deployed on AWS EC2 with the use of Kafka stream jobs, ElasticSearch and PostgreSQL.",
-          color: "#ee3c26",
+          title: "experience.internships.experience2.title",
+          company: "experience.internships.experience2.subtitle",
+          company_url: "https://biplab.uchicago.edu/",
+          logo_path: "chapin_hall_logo.png",
+          duration: "experience.internships.experience2.duration",
+          location: "experience.internships.experience2.location",
+          description: "experience.internships.experience2.details",
+          color: "#253364",
         },
+      ],
+    },
+    {
+      title: "experience.volunteering.title",
+      experiences: [
         {
-          title: "Data Science Intern",
-          company: "Intel Indexer LLC",
+          title: "experience.volunteering.experience1.title",
+          company: "experience.volunteering.experience1.subtitle",
           company_url:
-            "https://opencorporates.com/companies/us_dc/EXTUID_4170286",
-          logo_path: "intel_logo.jpg",
-          duration: "Nov 2018 - Dec 2018",
-          location: "Work From Home",
-          description:
-            "This is financial Solution Company. I have made Supervised Learning model for the company which can perform time series analysis on Stock price data for 32 companies. I have built LSTM Neural Networks Model and trained the data of 32 companies for last 2 years. This model is also used for forecasting.",
-          color: "#0071C5",
-        },
-      ],
-    },
-    {
-      title: "Volunteerships",
-      experiences: [
-        {
-          title: "Google Explore ML Facilitator",
-          company: "Google",
-          company_url: "https://about.google/",
-          logo_path: "google_logo.png",
-          duration: "June 2019 - April 2020",
-          location: "Hyderabad, Telangana",
-          description:
-            "Explore Machine Learning (ML) is a Google-sponsored program for university students to get started with Machine Learning. The curriculum offers 3 tracks of ML Content (Beginner, Intermediate, Advanced) and relies on university student facilitators to train other students on campus and to build opensource projects under this program.",
+            "https://www.anl.gov/event/doe-stemcon-artificial-intelligence-compute-the-future",
+          logo_path: "argonne_logo.png",
+          duration: "experience.volunteering.experience1.duration",
+          location: "experience.volunteering.experience1.location",
+          description: "experience.volunteering.experience1.details",
           color: "#4285F4",
         },
         {
-          title: "Microsoft Student Partner",
-          company: "Microsoft",
-          company_url: "https://www.microsoft.com/",
-          logo_path: "microsoft_logo.png",
-          duration: "Aug 2019 - May 2020",
-          location: "Hyderabad, Telangana",
-          description:
-            "Microsoft Student Partner is a program for university students to lead the awareness and use of Cloud especially Azure tools in the development of their projects and startups. Under this program, I have organised hands on workshops and seminars to teach Cloud Computing concepts to students.",
-          color: "#D83B01",
-        },
-        {
-          title: "Mozilla Campus Captain",
-          company: "Mozilla",
-          company_url: "https://www.mozilla.org/",
-          logo_path: "mozilla_logo.png",
-          duration: "Oct 2019 - May 2020",
-          location: "Kurnool, Andhra Pradesh",
-          description:
-            "My responsibility for this program was to create opensource environment in college and in the city. We have organised multiple hackathons on the problems collected by ordinary people from Kurnool city. We have build opensource community of our own college. The community is available at dsc_iiitdmk on github.",
+          title: "experience.volunteering.experience2.title",
+          company: "experience.volunteering.experience2.subtitle",
+          company_url: "https://www.uchicago.edu",
+          logo_path: "uchicago_logo.png",
+          duration: "experience.volunteering.experience2.duration",
+          location: "experience.volunteering.experience2.location",
+          description: "experience.volunteering.experience2.details",
           color: "#000000",
-        },
-        {
-          title: "Developer Students Club Member",
-          company: "DSC IIITDM Kurnool",
-          company_url:
-            "https://www.linkedin.com/company/developer-students-club-iiitdm-kurnool",
-          logo_path: "dsc_logo.png",
-          duration: "Jan 2018 - May 2020",
-          location: "Kurnool, Andhra Pradesh",
-          description:
-            "We have well established developer club in college which is directly associated with Google Developers. We have developed many interdisciplinary projects under the membership of this club. We have organised workshops and activities on Android Application Development, Flutter and React JS.",
-          color: "#0C9D58",
-        },
-        {
-          title: "Developer Program Member",
-          company: "Github",
-          company_url: "https://github.com/",
-          logo_path: "github_logo.png",
-          duration: "July 2019 - PRESENT",
-          location: "Work From Home",
-          description:
-            "I am actively contributing to many opensource projects. I have contributed to projects of organisations like Tensorflow, Uber, Facebook, Google, Scikit-learn, Kiwix, Sympy, Python, NVLabs, Fossasia, Netrack, Keras etc. These contributions include bug fixes, feature requests and formulating proper documentation for project.",
-          color: "#181717",
         },
       ],
     },
@@ -1008,9 +1161,8 @@ const experience = {
 
 // Projects Page
 const projectsHeader = {
-  title: "Projects",
-  description:
-    "My projects makes use of vast variety of latest technology tools. My best experience is to create Data Science projects and deploy them to web applications using cloud infrastructure.",
+  title: "projects.title",
+  description: "projects.details",
   avatar_image_path: "projects_image.svg",
 };
 
@@ -1018,6 +1170,32 @@ const publicationsHeader = {
   title: "Publications",
   description: "Some of my published Articles, Blogs and Research.",
   avatar_image_path: "projects_image.svg",
+};
+
+const ProjectsData = {
+  data: [
+    {
+      name: "projects.project1.title",
+      createdAt: "projects.project1.subtitle",
+      url: "https://github.com/hsswiki/hsswiki-azureswa",
+      description: "projects.project1.details",
+      isFork: false,
+      languages: [
+        {
+          name: "Python",
+          iconifyClass: "logos-python",
+        },
+        {
+          name: "ReactJS",
+          iconifyClass: "simple-icons:react",
+        },
+        {
+          name: "Azure",
+          iconifyClass: "logos:microsoft-azure",
+        },
+      ],
+    },
+  ],
 };
 
 const publications = {
@@ -1092,4 +1270,5 @@ export {
   publicationsHeader,
   publications,
   contactPageData,
+  ProjectsData,
 };

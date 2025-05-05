@@ -21,17 +21,10 @@ Content-Type: {{contentType}}
 {
     "invitationCode": "33",
     "inputMessage": "介绍一下Shen",
-    "chatHistory": "hello"
+    "chatHistory": "你好"
 }
 
 ###
-
-
-
-
-
-
-
 
 POST {{host}}/chat/respond
 Content-Type: {{contentType}}

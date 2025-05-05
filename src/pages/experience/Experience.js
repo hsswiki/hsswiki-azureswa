@@ -11,7 +11,7 @@ import { useTranslation } from "react-i18next";
 
 function Experience(props) {
   const { t } = useTranslation();
-  const theme = this.props.theme;
+  const theme = props.theme;
   return (
     <div className="experience-main">
       <Header theme={theme} />
@@ -19,10 +19,6 @@ function Experience(props) {
         <Fade bottom duration={2000} distance="40px">
           <div className="experience-heading-div">
             <div className="experience-heading-img-div">
-              {/* <img
-									src={require(`../../assets/images/${experience["header_image_path"]}`)}
-									alt=""
-								/> */}
               <ExperienceImg theme={theme} />
             </div>
             <div className="experience-heading-text-div">
@@ -30,28 +26,28 @@ function Experience(props) {
                 className="experience-heading-text"
                 style={{ color: theme.text }}
               >
-                {experience.title}
-                {/* {t('education.title')} */}
+                {/* {experience.title} */}
+                {t(experience.title)}
               </h1>
               <h3
                 className="experience-heading-sub-text"
                 style={{ color: theme.text }}
               >
-                {experience["subtitle"]}
+                {t(experience.subtitle)}
               </h3>
               <p
                 className="experience-header-detail-text subTitle"
                 style={{ color: theme.secondaryText }}
               >
-                {experience["description"]}
+                {t(experience.description)}
               </p>
             </div>
           </div>
         </Fade>
       </div>
-      <ExperienceAccordion sections={experience["sections"]} theme={theme} />
-      <Footer theme={this.props.theme} onToggle={this.props.onToggle} />
-      <TopButton theme={this.props.theme} />
+      <ExperienceAccordion sections={experience.sections} theme={theme} />
+      <Footer theme={props.theme} onToggle={props.onToggle} />
+      <TopButton theme={props.theme} />
     </div>
   );
 }

@@ -7,10 +7,11 @@ INVITATION_CODES_CSV=example1,example2
 #   Factories
 # -----------------------------------------------------------------------------
 
-# CHAT_MODEL=AzureOpenaiChatModel
-# EMBEDDING_MODEL=AzureOpenaiEmbeddingModel
-# VECTOR_STORE=AzureAiSearch
-# AI_SEARCH_SCHEMA=Resume
+CHAT_MODEL=AzureOpenaiChatModel
+EMBEDDING_MODEL=AzureOpenaiEmbeddingModel
+VECTOR_STORE=AzureAiSearch
+VECTOR_STORE_SCHEMA_NAME=Resume
+
 # VECTOR_STORE=ChromaDb
 
 # =============================================================================

@@ -6,8 +6,10 @@ import { chosenTheme } from "./theme";
 import { GlobalStyles } from "./global";
 
 import { Launcher } from "popup-chat-react"; // Import the chat launcher
+import { useTranslation } from "react-i18next";
 
 function ChatPopup() {
+  const { t } = useTranslation();
   const [state, setState] = useState({
     messageList: [
       {
@@ -15,7 +17,8 @@ function ChatPopup() {
         type: "text",
         data: {
           text:
-            "Ask me anything about Shen! To continue our chat, may I have your invitation code please? Typically, it can be found on the resumes Shen sents out 😊",
+            // "Ask me anything about Shen! To continue our chat, may I have your invitation code please? Typically, it can be found on the resumes Shen sents out 😊",
+            t("chatbot.askInvitation"),
         },
       },
     ],
@@ -44,21 +47,7 @@ function ChatPopup() {
     const code = message.data.text;
     const verificationResult = await verifyInvitationCode(code);
 
-    if (verificationResult === "INVALID_INVITATION_CODE") {
-      setState((state) => ({
-        ...state,
-        messageList: [
-          ...state.messageList.slice(0, -1),
-          {
-            author: "them",
-            type: "text",
-            data: {
-              text: `The invitation code "${code}" is invalid. Please reenter your invitation code or reach out to Shen for a new code. Thank you.`,
-            },
-          },
-        ],
-      }));
-    } else if (verificationResult === "OK") {
+    if (verificationResult === "OK") {
       setInvitationCode(code);
       setState((state) => ({
         ...state,
@@ -69,7 +58,23 @@ function ChatPopup() {
             type: "text",
             data: {
               text:
-                "Thank you. How may I assist you with my knowledge of Shen?",
+                // "Thank you. How may I assist you with my knowledge of Shen?",
+                t("chatbot.validInvitation"),
+            },
+          },
+        ],
+      }));
+    } else {
+      setState((state) => ({
+        ...state,
+        messageList: [
+          ...state.messageList.slice(0, -1),
+          {
+            author: "them",
+            type: "text",
+            data: {
+              // text: `The invitation code "${code}" is invalid. Please reenter your invitation code or reach out to Shen for a new code. Thank you.`,
+              text: t("chatbot.invalidInvitation"),
             },
           },
         ],
@@ -91,7 +96,11 @@ function ChatPopup() {
         {
           author: "them",
           type: "text",
-          data: { text: "Let me think..." },
+          data: {
+            text:
+              // "Let me think..."
+              t("chatbot.thinking"),
+          },
         },
       ],
     }));
@@ -117,7 +126,8 @@ function ChatPopup() {
                 type: "text",
                 data: {
                   text:
-                    "(The assistant is still responding. It takes longer than usual. Thank you for your patience 😊)",
+                    // "(The assistant is still responding. It takes longer than usual. Thank you for your patience 😊)",
+                    t("chatbot.takeLonger"),
                 },
               },
             ],
@@ -131,7 +141,10 @@ function ChatPopup() {
             (msg) =>
               !(
                 msg.author === "them" &&
-                msg.data.text.includes("The assistant is still responding")
+                msg.data.text.includes(
+                  "..."
+                  // "The assistant is still responding..."
+                )
               )
           )
           .map(
@@ -211,7 +224,7 @@ function ChatPopup() {
     <div className="chat-popup" id="chatPopupId">
       <Launcher
         agentProfile={{
-          teamName: "Shen's Digital Assistant",
+          teamName: t("chatbot.title"),
           // imageUrl:
           // "https://a.slack-edge.com/66f9/img/avatars-teams/ava_0001-34.png",
         }}

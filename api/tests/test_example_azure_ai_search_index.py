@@ -34,8 +34,8 @@ import logging
 import os
 from typing import TYPE_CHECKING
 
-os.environ["VECTOR_STORE"] = "AzureAiSearch"
 os.environ["VECTOR_STORE_SCHEMA_NAME"] = "Example"
+os.environ["VECTOR_STORE"] = "AzureAiSearch"
 
 # logging.getLogger("azure.core.pipeline.policies.http_logging_policy").setLevel(
 #     logging.WARNING
@@ -56,7 +56,7 @@ if TYPE_CHECKING:
     )
 
 
-def test_azure_ai_search_example_schema():
+def test_example_azure_ai_search_index():
     VectorStoreFactory: type[VectorStoreAbstractFactory] = (
         get_factory_from_settings(FactoryType.VECTOR_STORE)
     )

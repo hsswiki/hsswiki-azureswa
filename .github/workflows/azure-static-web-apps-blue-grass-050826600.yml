@@ -35,7 +35,7 @@ jobs:
           ###### End of Repository/Build Configurations ######
         env:
           NPM_CONFIG_LEGACY_PEER_DEPS: true
-          # CI=false  # Don't treat warnings as errors
+          CI=false  # Don't treat warnings as errors
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
