@@ -94,7 +94,7 @@ classDiagram
         class MockEmbeddingModelFactory["<a href='./api/src/components/embedding_models/factories/mock_embedding_model_factory.py'>MockEmbeddingModelFactory</a>"] {
         }
 
-        class Embeddings {
+        class Embeddings["<a href='https://python.langchain.com/api_reference/core/embeddings/langchain_core.embeddings.embeddings.Embeddings.html'>Embeddings</a>"] {
             <<interface>>
             + embed_query()
         }

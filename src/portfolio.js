@@ -25,7 +25,6 @@ const resources = {
         validInvitation:
           "Thank you for coming! How may I assist you with my knowledge of Shen?",
         thinking: "Let me think...",
-        responding: "The assistant is still responding",
         takeLonger:
           "(The assistant is still responding... It takes longer than usual. Thank you for your patience 😊)",
         error: "Network error. Please try again later.",
@@ -205,11 +204,10 @@ const resources = {
         askInvitation:
           "请随问我关于韩绅的任何问题！如需继续交流，请提供您的邀请码。通常您可以在韩绅发送给您的简历上找到该邀请码😊",
         invalidInvitation:
-          "邀请码无效。请重新输入您的邀请码，或者联系韩绅获取新的邀请码，谢谢。",
+          "邀请码有误。请重新输入您的邀请码，或者联系韩绅获取新的邀请码，谢谢。",
         validInvitation:
           "感谢您的来访！关于韩绅的情况，我能如何为您提供帮助呢？",
         thinking: "让我思考一下...",
-        responding: "助理仍在回复中...",
         takeLonger:
           "(助理仍在回复中... 此次回复比平时耗时稍长，感谢您的耐心等待😊)",
         error: "网络错误。请稍后再试。",
@@ -383,7 +381,6 @@ const resources = {
         validInvitation:
           "ご来訪ありがとうございます！紳に関する私の知識で、どのようなお手伝いができますでしょうか？",
         thinking: "考え中です...",
-        responding: "アシスタントが応答中です",
         takeLonger:
           "(アシスタントが応答中です... 通常より時間がかかっています。しばらくお待ちください😊)",
         error: "ネットワークエラーです。後でもう一度お試しください。",
@@ -565,8 +562,8 @@ i18n
 const settings = {
   // isSplash: true, // Change this to false if you don't want Splash screen.
   isSplash: false, // Change this to false if you don't want Splash screen.
-  logoName: "Han Shen", // Word art logo on the upper left
-  // logoName: "HanShen",  // Word art logo on the upper left
+  // logoName: "HAN Shen", // Word art logo on the upper left
+  logoName: "HanShen", // Word art logo on the upper left
   lastUpdatedDate: "May 3, 2025",
 };
 

@@ -1,5 +1,7 @@
 @contentType = application/json
 
+# http://localhost:3000/?lng=en&inv=33
+
 ###
 
 GET {{host}}/documents/vectorize

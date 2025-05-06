@@ -1,4 +1,5 @@
 import logging
+from enum import Enum
 from typing import TYPE_CHECKING
 
 from src.components.vector_stores import schemas
@@ -21,7 +22,13 @@ class AzureAiSearchFactory(VectorStoreAbstractFactory):
         settings = AzureAiSearchSettings()  # type: ignore
         # Ignore since will get required settings from environment variables
 
-        index_schema_factory_name = f"{app_settings.vector_store_schema_name}AzureAiSearchIndexSchemaFactory"
+        vector_store_schema_name = app_settings.vector_store_schema_name
+        if isinstance(vector_store_schema_name, Enum):
+            vector_store_schema_name = vector_store_schema_name.value
+
+        index_schema_factory_name = (
+            f"{vector_store_schema_name}AzureAiSearchIndexSchemaFactory"
+        )
         logging.info(f"{index_schema_factory_name=}")
         IndexSchemaFactory: type[VectorStoreSchemaAbstractFactory] = getattr(
             schemas, index_schema_factory_name

@@ -6,6 +6,7 @@ INVITATION_CODES_CSV=example1,example2
 
 #   Factories
 # -----------------------------------------------------------------------------
+#   Options can be found in app_settings.py
 
 CHAT_MODEL=AzureOpenaiChatModel
 EMBEDDING_MODEL=AzureOpenaiEmbeddingModel

@@ -43,9 +43,9 @@
       "label": "cli func host start with env vars",
       "type": "shell",
       // All mocks
-      // "command": ". .venv/bin/activate && chat_model=MockChatModel embedding_model=MockEmbeddingModel vector_store=MockVectorStore do_debug=True func host start --language-worker -- '-m debugpy --listen 127.0.0.1:9091' --verbose",
+      // "command": ". .venv/bin/activate && chat_model=MockChatModel embedding_model=MockEmbeddingModel vector_store=MockVectorStore func host start --language-worker -- '-m debugpy --listen 127.0.0.1:9091' --verbose",
       // Mock chat and embedding models
-      "command": ". .venv/bin/activate && do_debug=True chat_model=MockChatModel embedding_model=MockEmbeddingModel vector_store=AzureAiSearch func host start --language-worker -- '-m debugpy --listen 127.0.0.1:9091' --verbose",
+      "command": ". .venv/bin/activate && CHAT_MODEL=MockChatModel EMBEDDING_MODEL=MockEmbeddingModel VECTOR_STORE=AzureAiSearch VECTOR_STORE_SCHEMA_NAME=Resume func host start --language-worker -- '-m debugpy --listen 127.0.0.1:9091' --verbose",
       "problemMatcher": "$func-python-watch",
       "isBackground": true, // If not, debugger will keep waiting.
       "options": {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import Main from "./containers/Main";
 import { ThemeProvider } from "styled-components";
@@ -11,24 +11,14 @@ import { useTranslation } from "react-i18next";
 function ChatPopup() {
   const { t } = useTranslation();
   const [state, setState] = useState({
-    messageList: [
-      {
-        author: "them",
-        type: "text",
-        data: {
-          text:
-            // "Ask me anything about Shen! To continue our chat, may I have your invitation code please? Typically, it can be found on the resumes Shen sents out 😊",
-            t("chatbot.askInvitation"),
-        },
-      },
-    ],
+    messageList: [], // Initialize with an empty message list
     newMessagesCount: 1,
     isOpen: false,
   });
 
   const [invitationCode, setInvitationCode] = useState(null);
 
-  const verifyInvitationCode = async (code) => {
+  const verifyInvitationCode = React.useCallback(async (code) => {
     try {
       const response = await fetch(`/api/invitations/verify`, {
         method: "POST",
@@ -41,46 +31,56 @@ function ChatPopup() {
       console.error("Error verifying invitation code:", error);
       return "ERROR";
     }
-  };
+  }, []);
 
-  const handleInvitationCode = async (message) => {
-    const code = message.data.text;
-    const verificationResult = await verifyInvitationCode(code);
+  const handleInvitationCode = React.useCallback(
+    async (code) => {
+      const verificationResult = await verifyInvitationCode(code);
 
-    if (verificationResult === "OK") {
-      setInvitationCode(code);
-      setState((state) => ({
-        ...state,
-        messageList: [
-          ...state.messageList.slice(0, -1),
-          {
-            author: "them",
-            type: "text",
-            data: {
-              text:
-                // "Thank you. How may I assist you with my knowledge of Shen?",
-                t("chatbot.validInvitation"),
+      if (verificationResult === "OK") {
+        setInvitationCode(code);
+        setState((state) => ({
+          ...state,
+          messageList: [
+            ...state.messageList.slice(0, -1),
+            {
+              author: "them",
+              type: "text",
+              data: {
+                text:
+                  // "Thank you. How may I assist you with my knowledge of Shen?",
+                  t("chatbot.validInvitation"),
+              },
             },
-          },
-        ],
-      }));
-    } else {
-      setState((state) => ({
-        ...state,
-        messageList: [
-          ...state.messageList.slice(0, -1),
-          {
-            author: "them",
-            type: "text",
-            data: {
-              // text: `The invitation code "${code}" is invalid. Please reenter your invitation code or reach out to Shen for a new code. Thank you.`,
-              text: t("chatbot.invalidInvitation"),
+          ],
+        }));
+      } else {
+        setState((state) => ({
+          ...state,
+          messageList: [
+            ...state.messageList.slice(0, -1),
+            {
+              author: "them",
+              type: "text",
+              data: {
+                // text: `The invitation code "${code}" is invalid. Please reenter your invitation code or reach out to Shen for a new code. Thank you.`,
+                text: t("chatbot.invalidInvitation"),
+              },
             },
-          },
-        ],
-      }));
+          ],
+        }));
+      }
+    },
+    [t, verifyInvitationCode]
+  );
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get("inv");
+    if (code) {
+      handleInvitationCode(code);
     }
-  };
+  }, [handleInvitationCode]);
 
   const onMessageWasSent = (message) => {
     setState((state) => ({
@@ -106,7 +106,7 @@ function ChatPopup() {
     }));
 
     if (!invitationCode) {
-      handleInvitationCode(message);
+      handleInvitationCode(message.data.text);
       return;
     }
 
@@ -168,29 +168,38 @@ function ChatPopup() {
           }),
         });
         const result = await response.json();
-
-        if (result.response === "INVALID_INVITATION_CODE") {
-          setInvitationCode(null);
-          setState((state) => ({
-            ...state,
-            messageList: [
-              ...state.messageList.slice(0, -1),
-              {
-                author: "them",
-                type: "text",
-                data: {
-                  text: `The invitation code "${invitationCode}" is invalid. Please reenter your invitation code or reach out to Shen for a new code. Thank you.`,
-                },
-              },
-            ],
-          }));
-          clearInterval(periodicMessageInterval); // Stop periodic messages
-          return;
-        }
         responseText = result.response;
+
+        if (response.status >= 400) {
+          console.error(
+            "Error: Received response with status",
+            response.status,
+            result.detailedMessage
+          );
+          responseText = t("chatbot.error");
+        }
+
+        // if (result.response === "INVALID_INVITATION_CODE") {
+        //   setInvitationCode(null);
+        //   setState((state) => ({
+        //     ...state,
+        //     messageList: [
+        //       ...state.messageList.slice(0, -1),
+        //       {
+        //         author: "them",
+        //         type: "text",
+        //         data: {
+        //           text: `The invitation code "${invitationCode}" is invalid. Please reenter your invitation code or reach out to Shen for a new code. Thank you.`,
+        //         },
+        //       },
+        //     ],
+        //   }));
+        //   return;
+        // }
       } catch (error) {
         console.error("Error fetching response message:", error);
-        responseText = "Network error. Please try again later.";
+        // responseText = "Network error. Please try again later.";
+        responseText = t("chatbot.error");
       } finally {
         isResponseFetched = true; // Mark response as fetched
         clearInterval(periodicMessageInterval); // Stop periodic messages
@@ -209,15 +218,32 @@ function ChatPopup() {
         ],
       }));
     };
+
     fetchResponse();
   };
 
   const onClick = () => {
-    setState((state) => ({
-      ...state,
-      isOpen: !state.isOpen,
-      newMessagesCount: 0,
-    }));
+    setState((state) => {
+      const shouldAddAskInvitation =
+        state.messageList.length === 0 && !invitationCode;
+      return {
+        ...state,
+        isOpen: !state.isOpen,
+        newMessagesCount: 0,
+        messageList: shouldAddAskInvitation
+          ? [
+              ...state.messageList,
+              {
+                author: "them",
+                type: "text",
+                data: {
+                  text: t("chatbot.askInvitation"),
+                },
+              },
+            ]
+          : state.messageList,
+      };
+    });
   };
 
   return (
