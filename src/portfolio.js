@@ -17,11 +17,11 @@ const resources = {
         contactMe: "Contact Me",
       },
       chatbot: {
-        title: "Shen's Digital Assistant",
+        title: "Shen's AI Assistant",
         askInvitation:
           "Ask me anything about Shen! To continue our chat, may I have your invitation code please? Typically, it can be found on the resumes Shen sents out 😊",
         invalidInvitation:
-          "The invitation code is invalid. Please reenter your invitation code or reach out to Shen for a new code. Thank you.",
+          "The invitation code is invalid😢 Please reenter your invitation code or reach out to Shen for a new code. Thank you.",
         validInvitation:
           "Thank you for coming! How may I assist you with my knowledge of Shen?",
         thinking: "Let me think...",
@@ -34,7 +34,7 @@ const resources = {
           title: "HAN Shen",
           nickname: "System Architect",
           subTitle:
-            "A passionate engineer focusing on end-to-end system design and development to build sustainable, scalable technical solutions that create social value. Working languages include English, Chinese, and Japanese.",
+            "A passionate engineer focusing on system design and development to build scalable and sustainable solutions that create social value. Working languages include English, Chinese, and Japanese.",
         },
         skills: {
           whatIDo: "What I Do?",
@@ -109,7 +109,7 @@ const resources = {
           title: "Work Experience",
           experience1: {
             title: "Senior Technical Lead",
-            subtitle: "PwC US Consulting Services AC Shanghai",
+            subtitle: "PwC US Consulting Solutions AC Shanghai",
             duration: "2021 - Present",
             location: "Shanghai, China",
             details:
@@ -200,11 +200,11 @@ const resources = {
         contactMe: "联系方式",
       },
       chatbot: {
-        title: "韩绅的数字助理",
+        title: "韩绅的AI助理",
         askInvitation:
           "请随问我关于韩绅的任何问题！如需继续交流，请提供您的邀请码。通常您可以在韩绅发送给您的简历上找到该邀请码😊",
         invalidInvitation:
-          "邀请码有误。请重新输入您的邀请码，或者联系韩绅获取新的邀请码，谢谢。",
+          "邀请码有误😢 请重新输入您的邀请码，或者联系韩绅获取新的邀请码，谢谢。",
         validInvitation:
           "感谢您的来访！关于韩绅的情况，我能如何为您提供帮助呢？",
         thinking: "让我思考一下...",
@@ -373,11 +373,11 @@ const resources = {
         contactMe: "お問い合わせ",
       },
       chatbot: {
-        title: "紳のデジタルアシスタント",
+        title: "紳のAIアシスタント",
         askInvitation:
           "紳について何でもお尋ねください！チャットを続けるには、招待コードをご入力いただけますでしょうか？通常、紳がお送りする履歴書に記載されています😊",
         invalidInvitation:
-          "招待コードが無効です。恐れ入りますが、もう一度招待コードを入力いただくか、新しいコードについて紳にご連絡ください。よろしくお願いいたします。",
+          "招待コードが無効です😢 恐れ入りますが、もう一度招待コードを入力いただくか、新しいコードについて紳にご連絡ください。よろしくお願いいたします。",
         validInvitation:
           "ご来訪ありがとうございます！紳に関する私の知識で、どのようなお手伝いができますでしょうか？",
         thinking: "考え中です...",
@@ -595,7 +595,7 @@ const greeting = {
 const socialMediaLinks = [
   {
     name: "Email",
-    link: "mailto:shen.h@outlook.com",
+    link: "mailto:hi@hss.wiki",
     fontAwesomeIcon: "fa-telegram",
     backgroundColor: "#1877F2",
   },
