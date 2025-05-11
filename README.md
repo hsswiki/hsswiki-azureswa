@@ -20,7 +20,7 @@
 
 ## Backend Class Diagram 💻🏫📈
 
-Note that the class names link to the source code in the repository when viewing this diagram on GitHub, while the pushpin emoji 📍 next to the class names link to the source code file when previewing this diagram on local machine, where the class name links won't work since they are GitHub URLs. Vice versa.
+The class names link to the source code in the repository when viewing this diagram on GitHub. The links won't work when previewing this diagram on local machine since they are GitHub URLs.
 
 ```mermaid
 ---
@@ -34,13 +34,13 @@ classDiagram
     %% direction TB
 
     namespace FacadePattern {
-        class VectorizationServiceFacade["<a href='./hsswiki/hsswiki-azureswa/blob/prod/api/src/services/vectorization_service.py'>VectorizationServiceFacade</a><a href='./api/src/services/vectorization_service.py'>📍</a>"] {
+        class VectorizationServiceFacade["<a href='./hsswiki/hsswiki-azureswa/blob/prod/api/src/services/vectorization_service.py'>VectorizationServiceFacade</a>"] {
             - app_settings
             - embedding_model: Embeddings
             - vector_store: VectorStoreInterface
             + vectorize()
         }
-        class ChatServiceFacade["<a href='./api/src/services/chat_service.py'>ChatServiceFacade</a>"] {
+        class ChatServiceFacade["<a href='./hsswiki/hsswiki-azureswa/blob/prod/api/src/services/chat_service.py'>ChatServiceFacade</a>"] {
             - app_settings
             - chat_model: ChatModelInterface
             - embedding_model: Embeddings
@@ -65,61 +65,61 @@ classDiagram
 
 
     namespace AbstractFactoryPattern {
-        class ChatModelAbstractFactory["<a href='./api/src/components/chat_models/factories/chat_model_abstract_factory.py'>ChatModelAbstractFactory</a>
+        class ChatModelAbstractFactory["<a href='./hsswiki/hsswiki-azureswa/blob/prod/api/src/components/chat_models/factories/chat_model_abstract_factory.py'>ChatModelAbstractFactory</a>
         "] {
             <<interface>>
             + create() ChatModelInterface
         }
-        class AzureOpenaiChatModelFactory["<a href='./api/src/components/chat_models/factories/azure_openai_chat_model_factory.py'>AzureOpenaiChatModelFactory</a>"] {
+        class AzureOpenaiChatModelFactory["<a href='./hsswiki/hsswiki-azureswa/blob/prod/api/src/components/chat_models/factories/azure_openai_chat_model_factory.py'>AzureOpenaiChatModelFactory</a>"] {
         }
-        class MockChatModelFactory["<a href='./api/src/components/chat_models/factories/mock_chat_model_factory.py'>MockChatModelFactory</a>"] {
+        class MockChatModelFactory["<a href='./hsswiki/hsswiki-azureswa/blob/prod/api/src/components/chat_models/factories/mock_chat_model_factory.py'>MockChatModelFactory</a>"] {
         }
 
-        class ChatModelInterface["<a href='./api/src/components/chat_models/chat_model_interface.py'>ChatModelInterface</a>"] {
+        class ChatModelInterface["<a href='./hsswiki/hsswiki-azureswa/blob/prod/api/src/components/chat_models/chat_model_interface.py'>ChatModelInterface</a>"] {
             <<interface>>
             + add_embeddings()
             + invoke_string_output()
         }
-        class AzureOpenaiChatModel["<a href='./api/src/components/chat_models/azure_openai_chat_model.py'>AzureOpenaiChatModel</a>"]  {
+        class AzureOpenaiChatModel["<a href='./hsswiki/hsswiki-azureswa/blob/prod/api/src/components/chat_models/azure_openai_chat_model.py'>AzureOpenaiChatModel</a>"]  {
         }
-        class MockChatModel["<a href='./api/src/components/chat_models/mock_chat_model.py'>MockChatModel</a>"]  {
+        class MockChatModel["<a href='./hsswiki/hsswiki-azureswa/blob/prod/api/src/components/chat_models/mock_chat_model.py'>MockChatModel</a>"]  {
         }
 
-        class EmbeddingModelAbstractFactory["<a href='./api/src/components/embedding_models/factories/embedding_model_abstract_factory.py'>EmbeddingModelAbstractFactory</a>"] {
+        class EmbeddingModelAbstractFactory["<a href='./hsswiki/hsswiki-azureswa/blob/prod/api/src/components/embedding_models/factories/embedding_model_abstract_factory.py'>EmbeddingModelAbstractFactory</a>"] {
             <<interface>>
             +  create() Embeddings
         }
-        class AzureOpenaiEmbeddingModelFactory["<a href='./api/src/components/embedding_models/factories/azure_openai_embedding_model_factory.py'>AzureOpenaiEmbeddingModelFactory</a>"] {
+        class AzureOpenaiEmbeddingModelFactory["<a href='./hsswiki/hsswiki-azureswa/blob/prod/api/src/components/embedding_models/factories/azure_openai_embedding_model_factory.py'>AzureOpenaiEmbeddingModelFactory</a>"] {
         }
-        class MockEmbeddingModelFactory["<a href='./api/src/components/embedding_models/factories/mock_embedding_model_factory.py'>MockEmbeddingModelFactory</a>"] {
+        class MockEmbeddingModelFactory["<a href='./hsswiki/hsswiki-azureswa/blob/prod/api/src/components/embedding_models/factories/mock_embedding_model_factory.py'>MockEmbeddingModelFactory</a>"] {
         }
 
         class Embeddings["<a href='https://python.langchain.com/api_reference/core/embeddings/langchain_core.embeddings.embeddings.Embeddings.html'>Embeddings</a>"] {
             <<interface>>
             + embed_query()
         }
-        class AzureOpenaiEmbeddingModel["<a href='./api/src/components/embedding_models/azure_openai_embedding_model.py'>AzureOpenaiEmbeddingModel</a>"]  {
+        class AzureOpenaiEmbeddingModel["<a href='./hsswiki/hsswiki-azureswa/blob/prod/api/src/components/embedding_models/azure_openai_embedding_model.py'>AzureOpenaiEmbeddingModel</a>"]  {
         }
-        class MockEmbeddingModel["<a href='./api/src/components/embedding_models/mock_embedding_model.py'>MockEmbeddingModel</a>"]  {
+        class MockEmbeddingModel["<a href='./hsswiki/hsswiki-azureswa/blob/prod/api/src/components/embedding_models/mock_embedding_model.py'>MockEmbeddingModel</a>"]  {
         }
 
-        class VectorStoreAbstractFactory["<a href='./api/src/components/vector_stores/factories/vector_store_abstract_factory.py'>VectorStoreAbstractFactory</a>"] {
+        class VectorStoreAbstractFactory["<a href='./hsswiki/hsswiki-azureswa/blob/prod/api/src/components/vector_stores/factories/vector_store_abstract_factory.py'>VectorStoreAbstractFactory</a>"] {
             <<interface>>
             + create() VectorStoreInterface
         }
-        class AzureAiSearchFactory["<a href='./api/src/components/vector_stores/factories/azure_ai_search_factory.py'>AzureAiSearchFactory</a>"] {
+        class AzureAiSearchFactory["<a href='./hsswiki/hsswiki-azureswa/blob/prod/api/src/components/vector_stores/factories/azure_ai_search_factory.py'>AzureAiSearchFactory</a>"] {
         }
-        class MockVectorStoreFactory["<a href='./api/src/components/vector_stores/factories/mock_vector_store_factory.py'>MockVectorStoreFactory</a>"] {
+        class MockVectorStoreFactory["<a href='./hsswiki/hsswiki-azureswa/blob/prod/api/src/components/vector_stores/factories/mock_vector_store_factory.py'>MockVectorStoreFactory</a>"] {
         }
 
-        class VectorStoreInterface["<a href='./api/src/components/vector_stores/vector_store_interface.py'>VectorStoreInterface</a>"] {
+        class VectorStoreInterface["<a href='./hsswiki/hsswiki-azureswa/blob/prod/api/src/components/vector_stores/vector_store_interface.py'>VectorStoreInterface</a>"] {
             <<abstract>>
             + add_embeddings()
             + .similarity_search_by_vector()
         }
-        class AzureAiSearchVectorStore["<a href='./api/src/components/vector_stores/azure_ai_search.py'>AzureAiSearchVectorStore</a>"]  {
+        class AzureAiSearchVectorStore["<a href='./hsswiki/hsswiki-azureswa/blob/prod/api/src/components/vector_stores/azure_ai_search.py'>AzureAiSearchVectorStore</a>"]  {
         }
-        class MockVectorStore["<a href='./api/src/components/vector_stores/mock_vector_store.py'>MockVectorStore</a>"]  {
+        class MockVectorStore["<a href='./hsswiki/hsswiki-azureswa/blob/prod/api/src/components/vector_stores/mock_vector_store.py'>MockVectorStore</a>"]  {
         }
     }
 
@@ -155,11 +155,11 @@ classDiagram
 
 
     namespace Settings {
-        class AppSettings["<a href='./api/src/settings/app_settings.py'>AppSettings</a>"] {
+        class AppSettings["<a href='./hsswiki/hsswiki-azureswa/blob/prod/api/src/settings/app_settings.py'>AppSettings</a>"] {
         }
-        class AzureOpenaiSettings["<a href='./api/src/settings/azure_openai_settings.py'>AzureOpenaiSettings</a>"] {
+        class AzureOpenaiSettings["<a href='./hsswiki/hsswiki-azureswa/blob/prod/api/src/settings/azure_openai_settings.py'>AzureOpenaiSettings</a>"] {
         }
-        class AzureAiSearchSettings["<a href='./api/src/settings/azure_ai_search_settings.py'>AzureAiSearchSettings</a>"] {
+        class AzureAiSearchSettings["<a href='./hsswiki/hsswiki-azureswa/blob/prod/api/src/settings/azure_ai_search_settings.py'>AzureAiSearchSettings</a>"] {
         }
     }
     VectorizationServiceFacade --> AppSettings
