@@ -1,0 +1,36 @@
+# =============================================================================
+#   App Settings
+# =============================================================================
+
+INVITATION_CODES_CSV=example1,example2
+
+#   Factories
+# -----------------------------------------------------------------------------
+#   Options can be found in app_settings.py
+
+CHAT_MODEL=AzureOpenaiChatModel
+EMBEDDING_MODEL=AzureOpenaiEmbeddingModel
+VECTOR_STORE=AzureAiSearch
+VECTOR_STORE_SCHEMA_NAME=Resume
+
+# VECTOR_STORE=ChromaDb
+
+# =============================================================================
+#   Azure OpenAI Settings
+# =============================================================================
+
+AZURE_OPENAI_CHAT_TARGET_URI=https://example.cognitiveservices.azure.com/openai/deployments/gpt-4o-mini/chat/completions?api-version=2025-01-01-preview
+AZURE_OPENAI_CHAT_API_KEY=example
+
+AZURE_OPENAI_EMBEDDING_TARGET_URI=https://example.cognitiveservices.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2023-05-15
+AZURE_OPENAI_EMBEDDING_API_KEY=example
+
+# =============================================================================
+#   Azure AI Search Settings
+# =============================================================================
+
+AZURE_AI_SEARCH_ENDPOINT=https://example.search.windows.net
+AZURE_AI_SEARCH_ADMIN_KEY=example
+
+
+

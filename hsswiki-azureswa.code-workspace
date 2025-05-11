@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"debug.internalConsoleOptions": "neverOpen",
+		"terminal.integrated.defaultProfile.linux": "zsh",
+		"terminal.integrated.profiles.linux": {
+			"zsh": {
+				"path": "/usr/bin/zsh"
+			}
+		},
+	}
+}

@@ -1,0 +1,88 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "swa start",
+      "type": "shell",
+      "command": ". api/.venv/bin/activate && npm run build && npx swa start build --api-location api",
+      // Frontend will run on 4280 and backend on 7071
+    },
+    {
+      "label": "npm install",
+      "type": "shell",
+      "command": "npm install --legacy-peer-deps",
+    },
+    {
+      "label": "npm start",
+      "type": "npm",
+      "script": "start",
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "typescript",
+        "pattern": "$tsc",
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "Starting the development server...",
+          "endsPattern": "Compiled successfully!"
+        }
+      }
+    },
+    {
+      "label": "func: host start",
+      "type": "func",
+      "command": "host start",
+      // Runs `. .venv/bin/activate && func host start` command
+      "problemMatcher": "$func-python-watch",
+      "isBackground": true, // If not, debugger will keep waiting.
+      "dependsOn": "pip install (functions)",
+      "options": {
+        "cwd": "${workspaceFolder}/api"
+      },
+    },
+    {
+      "label": "cli func host start with env vars",
+      "type": "shell",
+      // All mocks
+      // "command": ". .venv/bin/activate && chat_model=MockChatModel embedding_model=MockEmbeddingModel vector_store=MockVectorStore func host start --language-worker -- '-m debugpy --listen 127.0.0.1:9091' --verbose",
+      // Mock chat and embedding models
+      "command": ". .venv/bin/activate && CHAT_MODEL=MockChatModel EMBEDDING_MODEL=MockEmbeddingModel VECTOR_STORE=AzureAiSearch VECTOR_STORE_SCHEMA_NAME=Resume func host start --language-worker -- '-m debugpy --listen 127.0.0.1:9091' --verbose",
+      "problemMatcher": "$func-python-watch",
+      "isBackground": true, // If not, debugger will keep waiting.
+      "options": {
+        "cwd": "${workspaceFolder}/api"
+      },
+    },
+    {
+      "label": "pip install (functions)",
+      "type": "shell",
+      "osx": {
+        "command": "${config:azureFunctions.pythonVenv}/bin/python -m pip install -r requirements.txt"
+      },
+      "windows": {
+        "command": "${config:azureFunctions.pythonVenv}\\Scripts\\python -m pip install -r requirements.txt"
+      },
+      "linux": {
+        "command": "${config:azureFunctions.pythonVenv}/bin/python -m pip install -r requirements.txt"
+      },
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${workspaceFolder}/api"
+      }
+    },
+    {
+      "label": "test backend",
+      "type": "shell",
+      "options": {
+        "cwd": "${workspaceFolder}/api"
+      },
+      "command": "${config:azureFunctions.pythonVenv}/bin/python -m pytest tests/ -vs --log-cli-level WARNING",
+      "windows": {
+        "command": "${config:azureFunctions.pythonVenv}/Scripts/python -m pytest tests/ -vs --log-cli-level WARNING"
+      },
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      }
+    },
+  ]
+}
