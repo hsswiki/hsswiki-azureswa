@@ -262,6 +262,7 @@ function ChatPopup() {
         showEmoji
         onFilesSelected={() => {}}
         fileUpload={false}
+        placeholder={t("chatbot.placeholder")}
       />
     </div>
   );

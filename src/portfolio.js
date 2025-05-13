@@ -28,6 +28,7 @@ const resources = {
         takeLonger:
           "(The assistant is still responding... It takes longer than usual. Thank you for your patience 😊)",
         error: "Network error. Please try again later.",
+        placeholder: "E.g. Briefly introduce Shen's professional experience",
       },
       home: {
         greeting: {
@@ -174,6 +175,12 @@ const resources = {
           details:
             "Developed a full-stack personal website featuring a RAG-based chatbot digital assistant. Implemented a modular and scalable backend architecture utilizing Abstract Factory and Facade design patterns, allowing swappable components for chat models, embeddings, and vector stores. Deployed cost-effectively on Azure using free tiers, demonstrating efficient resource utilization and CI/CD.",
         },
+        project2: {
+          title: "PySpark Performance Tuning Sharing",
+          subtitle: "Created on 2023-03-14",
+          details:
+            "Resources from a PySpark performance tuning session. Covers Spark architecture, properties, UI analysis, and code-level optimizations. Includes a helper script for property calculation and presentation slides to aid optimization efforts.",
+        },
       },
       contact: {
         contactMe: "Contact Me",
@@ -210,6 +217,7 @@ const resources = {
         takeLonger:
           "(助理仍在回复中... 此次回复比平时耗时稍长，感谢您的耐心等待😊)",
         error: "网络错误。请稍后再试。",
+        placeholder: "例如：简单介绍一下韩绅的职业经历",
       },
       home: {
         greeting: {
@@ -349,6 +357,12 @@ const resources = {
           details:
             "全栈开发个人网站，该网站配备了基于检索增强生成（RAG）技术的聊天机器人数字助理。采用抽象工厂与外观设计模式，实现了模块化且可扩展的后端架构，使得聊天模型、嵌入层与向量存储等组件可灵活替换。借助Azure免费层级进行经济高效的部署，展现了资源的高效利用以及持续集成/持续部署（CI/CD）的能力。",
         },
+        project2: {
+          title: "PySpark性能调优分享",
+          subtitle: "创建于2023年3月14日",
+          details:
+            "PySpark性能调优分享会的资料。涵盖Spark架构、属性、UI分析和代码级优化。包含属性计算辅助脚本和演示幻灯片，以帮助进行优化工作。",
+        },
       },
       contact: {
         contactMe: "联系方式",
@@ -383,6 +397,7 @@ const resources = {
         takeLonger:
           "(アシスタントが応答中です... 通常より時間がかかっています。しばらくお待ちください😊)",
         error: "ネットワークエラーです。後でもう一度お試しください。",
+        placeholder: "例：紳の職務経歴を簡単に紹介",
       },
       home: {
         greeting: {
@@ -525,9 +540,15 @@ const resources = {
         moreProjectsButton: "その他のプロジェクト",
         project1: {
           title: "HSのウィキ：個人ウェブサイトとチャットボット",
-          subtitle: "作成日：2025年03月31日",
+          subtitle: "作成日：2025年3月31日",
           details:
             "RAGベースのチャットボットデジタルアシスタントを備えたフルスタックの個人ウェブサイトを開発しました。抽象ファクトリー及びファサード設計パターンを用いたモジュール式でスケーラブルなバックエンドアーキテクチャを実装し、チャットモデル、埋め込みモデル、ベクトルストアのコンポーネントを切り替え可能にしました。Azureの無料ティアを活用して費用対効果の高いデプロイを実現し、効率的なリソース利用とCI/CDを示しました。",
+        },
+        project2: {
+          title: "PySpark パフォーマンスチューニング共有",
+          subtitle: "作成日：2023年3月14日",
+          details:
+            "PySparkパフォーマンスチューニング共有セッションのリソースです。Sparkアーキテクチャ、プロパティ、UI分析、コードレベルの最適化をカバーしています。最適化作業を支援するためのプロパティ計算ヘルパースクリプトとプレゼンテーションスライドが含まれています。",
         },
       },
       contact: {
@@ -1169,6 +1190,7 @@ const publicationsHeader = {
 };
 
 const ProjectsData = {
+  moreProjectsLink: "https://github.com/hsswiki/sharing",
   data: [
     {
       name: "projects.project1.title",
@@ -1188,6 +1210,27 @@ const ProjectsData = {
         {
           name: "Azure",
           iconifyClass: "logos:microsoft-azure",
+        },
+      ],
+    },
+    {
+      name: "projects.project2.title",
+      createdAt: "projects.project2.subtitle",
+      url: "https://github.com/hsswiki/sharing-spark-tuning/",
+      description: "projects.project2.details",
+      isFork: false,
+      languages: [
+        {
+          name: "Python",
+          iconifyClass: "logos-python",
+        },
+        {
+          name: "Spark",
+          iconifyClass: "logos:apache-spark",
+        },
+        {
+          name: "AWS",
+          iconifyClass: "simple-icons:amazonaws",
         },
       ],
     },

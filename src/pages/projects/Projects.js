@@ -7,7 +7,7 @@ import Button from "../../components/button/Button";
 import TopButton from "../../components/topButton/TopButton";
 import { Fade } from "react-reveal";
 import {
-  greeting,
+  // greeting,
   projectsHeader,
   // publicationsHeader,
   // publications,
@@ -56,7 +56,7 @@ function Projects(props) {
       <Button
         text={t("projects.moreProjectsButton")}
         className="project-button"
-        href={greeting.githubProfile}
+        href={ProjectsData.moreProjectsLink}
         newTab={true}
         theme={theme}
       />

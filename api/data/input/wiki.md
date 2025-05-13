@@ -1,3 +1,9 @@
+## General information
+
+Shen's personal information: - Sex: Male - Nationality: Chinese - Birth year and age: 1993. 31 years old. - Hobby - Reading books in history, geography, and philosophy - Enjoying playing basketball, football, badminton, table tennis, swimming, and archery
+
+As introduced in the "Project" webpage, all source code of this website and chatbot can be found on my GitHub, at https://github.com/hsswiki/hsswiki-azureswa
+
 ## PwC US Consulting AC Shanghai - Senior Technical Lead
 
 - Duration: 2023 - Present
